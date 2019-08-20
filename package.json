@@ -1,0 +1,33 @@
+{
+  "name": "@drewsonne/maya-calendar",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "bin": {
+    "@drewsonne/maya-calendar": "bin/maya-calendar",
+    "maya-calendar": "bin/maya-calendar"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cli",
+    "archaeology"
+  ],
+  "author": "Drew J. Sonne",
+  "license": "LGPL-3.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drewsonne/maya-calendar.git"
+  },
+  "bugs": {
+    "url": "https://github.com/drewsonne/maya-calendar/issues"
+  },
+  "homepage": "https://github.com/drewsonne/maya-calendar#readme",
+  "description": "",
+  "dependencies": {
+    "esm": "^3.2.25"
+  }
+}
