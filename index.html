@@ -7,50 +7,25 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <style>
-        /*.row {*/
-        /*    display: flex;*/
-        /*}*/
-
-        /*#instructions {*/
-        /*    flex: 10%;*/
-        /*    padding-top: 20px;*/
-        /*}*/
-
-        /*#calendar_input {*/
-        /*    flex: 30%;*/
-        /*    margin-top: 20px;*/
-        /*    min-width: 150px;*/
-        /*}*/
-
-        /*#longcount_output {*/
-        /*    flex: 55%;*/
-        /*    padding-right: 20px;*/
-        /*    padding-top: 20px;*/
-        /*}*/
-
         #longcount_output, #calendar_input {
             text-align: right;
         }
 
-        /*textarea, input, button, select {*/
-        /*    font-family: inherit;*/
-        /*    font-size: inherit;*/
-        /*}*/
-
         .monospace {
             font-family: monospace;
-            font-size: 150%;
         }
 
-        /*.calendar_round {*/
-        /*    min-width: 100px;*/
-        /*}*/
+        .comment {
+            font-family: serif;
+            font-style: italic;
+            font-size: 85%;
+        }
     </style>
 </head>
 <body>
 <div class="container-fluid">
     <div class="row monospace">
-    <textarea class="col" id="calendar_input" rows="25">
+    <textarea class="col-4" id="calendar_input" rows="25">
     </textarea>
 
         <div class="col-8" id="longcount_output">
@@ -108,6 +83,10 @@
         )) {
           operand = new DistanceNumber(this.current_raw_line)
           operand.add_long_count(this.operands[this.operands.length - 1])
+        } else if (Boolean(
+          this.current_raw_line[0] === '#',
+        )) {
+          operand = new Comment(this.current_raw_line)
         } else {
           operand = new LongCount(this.current_raw_line)
         }
@@ -133,8 +112,12 @@
 
   class MayaDate {
     constructor (raw) {
-      this.raw = raw.trim().replace(/[^\d.]+/, '').replace(/[\.\+]$/, '')
-      this.parts = this.raw.split('.').reverse()
+      let parts = raw.split('#')
+      if (parts.length > 0) {
+        this.raw = parts[0].trim().replace(/[^\d.]+/, '').replace(/[\.\+]$/, '')
+        this.parts = this.raw.split('.').reverse()
+      }
+      this.comment = (parts.length > 1) ? parts[1] : ''
     }
 
     compute () {
@@ -277,14 +260,15 @@
     }
 
     spans () {
-      return $(
-        '<div class="row">' +
-        '<div class="col-8 calendar_round">' +
-        new CalendarRound(this.total_k_in()) +
-        '</div>' +
-        '<div class="col">' + this.toString() + '</div>',
-        '</div>',
-      )
+      return $(`
+        <div class="row  no-gutters">
+        <div class="col-4 calendar_round">
+        ${new CalendarRound(this.total_k_in())}
+        </div>
+        <div class="col-4 long_count">${this.toString()}</div>
+        <div class="col-4 comment">${this.comment}</div>
+        </div>
+      `)
     }
   }
 
@@ -316,18 +300,38 @@
       )
 
       return $(
-        '<div class="row">' +
-        '<div class="col-8"></div>' +
-        '<div class="col">' + distance_string + '</div><br/>' +
-        '</div>' +
-        '<div class="row">' +
-        '<div class="col-8"></div>' +
-        '<div class="col">' + '-'.repeat(separator_length) + '</div><br/>' +
-        '</div>',
+        `<div class="row  no-gutters">
+        <div class="col-4 calendar_round"></div>
+        <div class="col-4 distance_number">${distance_string}</div><br/>
+        <div class="col-4 comment">${this.comment}</div>
+        </div>
+        <div class="row  no-gutters">
+        <div class="col-4 calendar_round"></div>
+        <div class="col-4 long_count">${'-'.repeat(separator_length)}</div><br/>
+        <div class="col-4 comment"></div>
+        </div>`,
       )
 
     }
 
+  }
+
+  class Comment {
+    constructor (line) {
+      this.comment = line.slice(1)
+    }
+
+    spans () {
+      return $(`
+        <div class="row  no-gutters">
+        <div class="col-12 comment"><span class="comment">${this.comment}</span></div>
+        </div>
+      `)
+    }
+
+    compute () {
+      return undefined
+    }
   }
 
   class CalendarRound {
