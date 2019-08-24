@@ -67,7 +67,9 @@ Long Count date.
 ```
 8.19.10.11.0 # A long count date
 +7.13 # A distance number
+
 9.17.5.0.0
+# Do some calculations
 -3.4
 -1.0
 +30.1.2
