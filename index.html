@@ -1,54 +1,60 @@
+<!doctype html>
 <html lang="en_UK">
 <head>
     <script src="js/jquery-3.4.1.min.js"></script>
-
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.js"></script>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <style>
-        .row {
-            display: flex;
-        }
+        /*.row {*/
+        /*    display: flex;*/
+        /*}*/
 
-        #instructions {
-            flex: 10%;
-            padding-top: 20px;
-        }
+        /*#instructions {*/
+        /*    flex: 10%;*/
+        /*    padding-top: 20px;*/
+        /*}*/
 
-        #calendar_input {
-            flex: 30%;
-            margin-top: 20px;
-            min-width: 150px;
-        }
+        /*#calendar_input {*/
+        /*    flex: 30%;*/
+        /*    margin-top: 20px;*/
+        /*    min-width: 150px;*/
+        /*}*/
 
-        #longcount_output {
-            flex: 55%;
-            padding-right: 20px;
-            padding-top: 20px;
-        }
+        /*#longcount_output {*/
+        /*    flex: 55%;*/
+        /*    padding-right: 20px;*/
+        /*    padding-top: 20px;*/
+        /*}*/
 
         #longcount_output, #calendar_input {
             text-align: right;
         }
 
-        textarea, input, button, select {
-            font-family: inherit;
-            font-size: inherit;
-        }
+        /*textarea, input, button, select {*/
+        /*    font-family: inherit;*/
+        /*    font-size: inherit;*/
+        /*}*/
 
         .monospace {
             font-family: monospace;
             font-size: 150%;
         }
 
-        .calendar_round {
-            min-width: 100px;
-        }
+        /*.calendar_round {*/
+        /*    min-width: 100px;*/
+        /*}*/
     </style>
 </head>
 <body>
-<div class="row">
-    <textarea class="column monospace" id="calendar_input" rows="25">
+<div class="container-fluid">
+    <div class="row monospace">
+    <textarea class="col" id="calendar_input" rows="25">
     </textarea>
 
-    <div class="column monospace" id="longcount_output" style="width: 45%">
+        <div class="col-8" id="longcount_output">
+        </div>
     </div>
 </div>
 
@@ -272,9 +278,12 @@
 
     spans () {
       return $(
-        '<span class="calendar_round">' + new CalendarRound(this.total_k_in()) +
-        '</span>' +
-        '<span>' + this.toString() + '</span><br/>',
+        '<div class="row">' +
+        '<div class="col-8 calendar_round">' +
+        new CalendarRound(this.total_k_in()) +
+        '</div>' +
+        '<div class="col">' + this.toString() + '</div>',
+        '</div>',
       )
     }
   }
@@ -307,8 +316,14 @@
       )
 
       return $(
-        '<span>' + distance_string + '</span><br/>' +
-        '<span>' + '-'.repeat(separator_length) + '</span><br/>',
+        '<div class="row">' +
+        '<div class="col-8"></div>' +
+        '<div class="col">' + distance_string + '</div><br/>' +
+        '</div>' +
+        '<div class="row">' +
+        '<div class="col-8"></div>' +
+        '<div class="col">' + '-'.repeat(separator_length) + '</div><br/>' +
+        '</div>',
       )
 
     }
