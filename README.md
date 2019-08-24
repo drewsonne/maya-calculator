@@ -44,6 +44,16 @@ will be calculated.
 If at any point a new Long Count is added, it will reset calculations
 from that point.
 
+Comments can be added either on their own line, by prefixing the line with `#` or by suffixing a line with `#`
+
+Eg,
+
+```
+# My Date calculations
+8.19.10.11.0 # A long count date
++7.13 # A distance number
+```
+
 # Example
 Navigate to https://drewsonne.github.io/maya-calculator/ and
 try to enter the following values one line at a time.
@@ -53,11 +63,11 @@ the values even if they are invalid and try to compute a real
 Long Count date.
 
 ```
-8.19.10.11.0
-+7.13
+8.19.10.11.0 # A long count date
++7.13 # A distance number
 9.17.5.0.0
 -3.4
 -1.0
 +30.1.2
-+1.1000
++1.1000 # An 'invalid' distance number
 ```
