@@ -12,12 +12,17 @@
         }
 
         .long_count, .distance_number {
-            max-width: 120px;
-            min-width: 120px;
+            max-width: 140px;
+            min-width: 140px;
         }
 
         .monospace {
             font-family: monospace;
+        }
+
+        .calendar_round {
+            font-family: sans-serif;
+            font-size: 80%;
         }
 
         .comment {
@@ -25,6 +30,7 @@
             font-style: italic;
             font-size: 85%;
             flex: 1;
+            text-align: left;
         }
     </style>
 </head>
@@ -71,8 +77,7 @@
           }
         }
       }
-      console.log(this.operands)
-      console.log(this.ledger)
+
       return this.ledger
     }
 
@@ -98,6 +103,8 @@
         }
 
         this.operands.push(operand)
+      } else {
+        this.operands.push(new EmptyLine())
       }
       this.current_raw_line = ''
     }
@@ -267,7 +274,7 @@
 
     spans () {
       return $(`
-        <div class="row  no-gutters">
+        <div class="row">
         <div class="col-4 calendar_round">
         ${new CalendarRound(this.total_k_in())}
         </div>
@@ -306,12 +313,12 @@
       )
 
       return $(
-        `<div class="row  no-gutters">
+        `<div class="row">
         <div class="col-4 calendar_round"></div>
         <div class="col-4 distance_number">${distance_string}</div>
         <div class="col-4 comment">${this.comment}</div>
         </div>
-        <div class="row  no-gutters">
+        <div class="row">
         <div class="col-4 calendar_round"></div>
         <div class="col-4 long_count">${'-'.repeat(separator_length)}</div>
         <div class="col-4 comment"></div>
@@ -329,10 +336,20 @@
 
     spans () {
       return $(`
-        <div class="row  no-gutters">
+        <div class="row">
         <div class="col-12 comment"><span class="comment">${this.comment}</span></div>
         </div>
       `)
+    }
+
+    compute () {
+      return undefined
+    }
+  }
+
+  class EmptyLine {
+    spans () {
+      return $('<div class="row"><div class="col-12">&nbsp;</div></div>')
     }
 
     compute () {
