@@ -74,7 +74,7 @@
         for (let i = 0; i < operation_length; i++) {
           let line = operations[i].replace(/[.+\-]$/, '')
           this.fetch(line)
-          this.decode()
+          this.decode(i)
           result = this.execute()
           if (result !== undefined) {
             operations.splice(
@@ -94,26 +94,28 @@
       this.current_raw_line = raw_line
     }
 
-    decode () {
+    decode (position) {
+      let younger_sibling = (this.operands.length === 0)
+        ? undefined
+        : this.operands[position - 1]
       if (this.current_raw_line.length > 1) {
         let operand
         if (Boolean(
           this.current_raw_line[0] === '-' |
           this.current_raw_line[0] === '+',
         )) {
-          operand = new DistanceNumber(this.current_raw_line)
-          operand.add_long_count(this.operands[this.operands.length - 1])
+          operand = new DistanceNumber(this.current_raw_line, younger_sibling)
         } else if (Boolean(
           this.current_raw_line[0] === '#',
         )) {
-          operand = new Comment(this.current_raw_line)
+          operand = new Comment(this.current_raw_line, younger_sibling)
         } else {
-          operand = new LongCount(this.current_raw_line)
+          operand = new LongCount(this.current_raw_line, younger_sibling)
         }
 
         this.operands.push(operand)
       } else {
-        this.operands.push(new EmptyLine())
+        this.operands.push(new EmptyLine(younger_sibling))
       }
       this.current_raw_line = ''
     }
@@ -132,8 +134,25 @@
     }
   }
 
-  class MayaDate {
-    constructor (raw) {
+  class LinkedListElement {
+    constructor (younger_sibling) {
+      this.younger_sibling = younger_sibling
+    }
+
+    sibling_by_type (sibling_type) {
+      if (this.younger_sibling === undefined) {
+        return undefined
+      }
+      if (this.younger_sibling instanceof sibling_type) {
+        return this.younger_sibling
+      }
+      return this.younger_sibling.sibling_by_type(sibling_type)
+    }
+  }
+
+  class MayaDate extends LinkedListElement {
+    constructor (raw, younger_sibling) {
+      super(younger_sibling)
       let parts = raw.split('#')
       if (parts.length > 0) {
         this.raw = parts[0].trim().replace(/[^\d.]+/, '').replace(/[\.\+]$/, '')
@@ -272,8 +291,8 @@
 
   class LongCount extends MayaDate {
 
-    constructor (raw) {
-      super(raw)
+    constructor (raw, younger_sibling) {
+      super(raw, younger_sibling)
       this.date_pattern = /(\d+\.?)+/
     }
 
@@ -284,23 +303,25 @@
     spans () {
       return $(`
         <div class="row">
-        <div class="col-4 calendar_round">
-        ${new CalendarRound(this.total_k_in())}
-        </div>
-        <div class="col-4 long_count">${this.toString()}</div>
-        <div class="col-4 comment">${this.comment}</div>
+            <div class="col-4 calendar_round">
+                ${new CalendarRound(this.total_k_in())}
+            </div>
+            <div class="col-4 long_count">
+                ${this.toString()}
+            </div>
+            <div class="col-4 comment">${this.comment}</div>
         </div>
       `)
     }
   }
 
   class DistanceNumber extends MayaDate {
-    constructor (raw) {
-      super(raw)
+    constructor (raw, younger_sibling) {
+      super(raw, younger_sibling)
       if (raw.length > 1) {
         this.sign = (raw[0] === '+') ? 1 : -1
       }
-      this.long_count = undefined
+      this.long_count = this.sibling_by_type(LongCount)
     }
 
     add_long_count (long_count) {
@@ -323,14 +344,18 @@
 
       return $(
         `<div class="row">
-        <div class="col-4 calendar_round"></div>
-        <div class="col-4 distance_number">${distance_string}</div>
-        <div class="col-4 comment">${this.comment}</div>
+            <div class="col-4 calendar_round"></div>
+            <div class="col-4 distance_number">
+                ${distance_string}
+            </div>
+            <div class="col-4 comment">${this.comment}</div>
         </div>
         <div class="row">
-        <div class="col-4 calendar_round"></div>
-        <div class="col-4 long_count">${'-'.repeat(separator_length)}</div>
-        <div class="col-4 comment"></div>
+            <div class="col-4 calendar_round"></div>
+            <div class="col-4 long_count">
+                ${'-'.repeat(separator_length)}
+            </div>
+            <div class="col-4 comment"></div>
         </div>`,
       )
 
@@ -338,15 +363,21 @@
 
   }
 
-  class Comment {
-    constructor (line) {
+  class Comment extends LinkedListElement {
+    constructor (line, younger_sibling) {
+      super(younger_sibling)
       this.comment = line.slice(1)
     }
 
     spans () {
       return $(`
         <div class="row">
-        <div class="col-12 comment"><span class="comment">${this.comment}</span></div>
+            <div class="col-4"></div>
+            <div class="col-8 comment">
+                <span class="comment">
+                    ${this.comment}
+                </span>
+            </div>
         </div>
       `)
     }
@@ -356,9 +387,13 @@
     }
   }
 
-  class EmptyLine {
+  class EmptyLine extends LinkedListElement {
     spans () {
-      return $('<div class="row"><div class="col-12">&nbsp;</div></div>')
+      return $(`
+        <div class="row">
+            <div class="col-12">&nbsp;</div>
+        </div>
+      `)
     }
 
     compute () {
@@ -444,12 +479,24 @@
     const calculator = new MayaCalculator()
     let input = $('#calendar_input')
     let output = $('#longcount_output')
+    let evaluate = function (raw_calculations) {
+      let results = calculator.evaluate(raw_calculations)
+      output.html(results)
+    }
+
+    let saved_calculation_raw = window.location.hash.replace('#', '')
+    if (saved_calculation_raw.length > 0) {
+      let saved_calculation = atob(saved_calculation_raw)
+      input.html(saved_calculation)
+      evaluate(saved_calculation)
+    }
 
     input.keyup(function (event) {
       let raw_calculations = input.val().trim()
-      let results = calculator.evaluate(raw_calculations)
-      output.html(results)
+      evaluate(raw_calculations)
+      window.location.hash = '#' + btoa(raw_calculations)
     })
+
   })
 
 

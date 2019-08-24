@@ -3,7 +3,7 @@ A simple text based maya calculator
 
 # Description
 This calculator is designed to be simple, lightweight, and resistant to 
-becoming legacy. It is simple and relies on only jQuery.
+becoming legacy. It aims to be simple and relies on only jQuery and bootstrap.
 
 It is text-based to allow for easy data entry, and easy sharing
 of computations.
@@ -53,6 +53,8 @@ Eg,
 8.19.10.11.0 # A long count date
 +7.13 # A distance number
 ```
+
+Calculations can be shared by copying the URL.
 
 # Example
 Navigate to https://drewsonne.github.io/maya-calculator/ and
