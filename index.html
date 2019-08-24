@@ -11,6 +11,10 @@
             text-align: right;
         }
 
+        .long_count, .distance_number {
+            max-width: 120px;
+        }
+
         .monospace {
             font-family: monospace;
         }
@@ -19,6 +23,7 @@
             font-family: serif;
             font-style: italic;
             font-size: 85%;
+            flex: 1;
         }
     </style>
 </head>
@@ -302,12 +307,12 @@
       return $(
         `<div class="row  no-gutters">
         <div class="col-4 calendar_round"></div>
-        <div class="col-4 distance_number">${distance_string}</div><br/>
+        <div class="col-4 distance_number">${distance_string}</div>
         <div class="col-4 comment">${this.comment}</div>
         </div>
         <div class="row  no-gutters">
         <div class="col-4 calendar_round"></div>
-        <div class="col-4 long_count">${'-'.repeat(separator_length)}</div><br/>
+        <div class="col-4 long_count">${'-'.repeat(separator_length)}</div>
         <div class="col-4 comment"></div>
         </div>`,
       )
