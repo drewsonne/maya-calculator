@@ -2,7 +2,7 @@
 A simple text based maya calculator
 
 # Description
-This calculator is designed to be simple, lightweight, and resistant to 
+This calculator is designed to be simple, lightweight, and resistant to
 becoming legacy. It aims to be simple and relies on only jQuery and bootstrap.
 
 It is text-based to allow for easy data entry, and easy sharing
@@ -18,18 +18,18 @@ given Long Count Date.
 
 Eg, `8.19.10.11.0` becomes `8 Ajaw 18 Yaxk'in 8.19.10.11. 0`
 
-If a Distance Number (prefixed with either `+` or `-`) is added after a 
+If a Distance Number (prefixed with either `+` or `-`) is added after a
 Long Count date, the calculator will compute the subsequent Long Count
 date along with the Calendar Round.
 
-Eg, 
+Eg,
 
 ```
 8.19.10.11.0
 +7.13
 ```
 
-becomes 
+becomes
 
 ```
 8 Ajaw 18 Yaxk'in 8.19.10.11. 0
@@ -57,11 +57,11 @@ Eg,
 Calculations can be shared by copying the URL.
 
 # Example
-Navigate to https://drewsonne.github.io/maya-calculator/ and
+Navigate to [https://drewsonne.github.io/maya-calculator/](https://drewsonne.github.io/maya-calculator/#OC4xOS4xMC4xMSAjICgxKSBBIGxvbmcgY291bnQgZGF0ZQorNy4xMyAjICgyKSBBIGRpc3RhbmNlIG51bWJlcgoKOS4xNy41LjAuMAojICgzKSBEbyBzb21lIGNhbGN1bGF0aW9ucwotMy40Ci0xLjAKKzMwLjEuMgorMS4xMDAwICMgKDQpIEFuICdpbnZhbGlkJyBkaXN0YW5jZSBudW1iZXI=) and
 try to enter the following values one line at a time.
 
 The last two lines demonstrate that the calculator will work with
-the values even if they are invalid and try to compute a real 
+the values even if they are invalid and try to compute a real
 Long Count date.
 
 ```
