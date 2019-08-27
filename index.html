@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en_UK">
+<html lang="en">
 <head>
-    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/jquery-3.4.1.min.js" type="text/javascript"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <script src="js/bootstrap.js"></script>
+    <script src="js/bootstrap.js" type="text/javascript"></script>
     <meta name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <style>
@@ -27,8 +27,30 @@
             flex: 1;
         }
     </style>
+    <title>Maya Calculator</title>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+        <img src="ajaw.png" width="30" height="30"
+             class="d-inline-block align-top" alt="">
+        Maya Calculator
+    </a>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          View
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <span id="menu-view-calendar-round" class="dropdown-item" >Calendar Round</span>
+          <span id="menu-view-calendar-round-position" class="dropdown-item" >Calendar Round Position</span>
+          <span id="menu-view-comments" class="dropdown-item" >Comments</span>
+        </div>
+      </li>
+      </ul>
+    </div>
+</nav>
 <div class="container-fluid">
     <div class="row monospace">
     <textarea class="col-4" id="calendar_input" rows="25">
@@ -39,7 +61,6 @@
     </div>
 </div>
 
-</body>
 <script type="application/javascript">
 
   class MayaCalculator {
@@ -426,4 +447,6 @@
     })
   })
 </script>
+</body>
+
 </html>
