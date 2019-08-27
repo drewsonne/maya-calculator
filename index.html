@@ -450,7 +450,11 @@
     }
 
     get tzolk_in_coeff () {
-      return (4 + this.total_days) % 13
+      let coeff =  (4 + this.total_days) % 13
+      if (coeff === 0 ) {
+        coeff = 13
+      }
+      return coeff
     }
 
     get tzolk_in () {
