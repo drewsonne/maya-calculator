@@ -39,6 +39,12 @@
         .disabled {
             color: lightgray;
         }
+
+        .check-placeholder {
+            width: 16px;
+            height: 18px;
+            display: inline-block;
+        }
     </style>
 </head>
 <body>
@@ -64,12 +70,16 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <button class="dropdown-item" type="button"
-                            id="dropdown-item-calendar-round"><span
-                            class="oi oi-check"></span> Calendar Round
+                            id="dropdown-item-calendar_round">
+                        <span class="oi oi-check" style="display: none;"></span>
+                        <span class="check-placeholder"></span>
+                        Calendar Round
                     </button>
                     <button class="dropdown-item" type="button"
-                            id="dropdown-item-calendar-round-position"><span
-                            class="oi oi-check"></span> Calendar Round Position
+                            id="dropdown-item-calendar_round_position">
+                        <span class="oi oi-check" style="display: none;"></span>
+                        <span class="check-placeholder"></span>
+                        Calendar Round Position
                     </button>
 
                     <!-- <div class="dropdown-divider"></div> -->
@@ -518,6 +528,13 @@
     get (id) {
       if (!(id in this.items)) {
         this.items[id] = new DropDownItem(id)
+        switch (id) {
+          case 'dropdown-item-calendar_round':
+            this.items[id].toggle(undefined)
+            break
+          default:
+            console.log('Creating ' + id + '...')
+        }
       }
       return this.items[id]
     }
@@ -526,27 +543,50 @@
   class DropDownItem {
     constructor (dom_id) {
       this.enabled = false
-      this.dom_id = dom_id
+      this.dom_id = '#' + dom_id
 
-      let that = this
+      this.checkmark = this.dom_id + ' > .oi-check'
+      this.no_checkmark = this.dom_id + ' > .check-placeholder'
+
+      let dom_parts = dom_id.split('-')
+      this.reference_dom_class = '.' + dom_parts[dom_parts.length - 1]
     }
 
-    on_click_handler (e) {
-      this.enabled = !this.enabled
+    toggle (e) {
       if (this.enabled) {
-        $(this.dom).removeClass('disabled')
+        this.hide_checkmark()
       } else {
-        $(this.dom).addClass('disabled')
+        this.show_checkmark()
       }
     }
 
+    hide_checkmark () {
+      $(this.checkmark).hide()
+      $(this.no_checkmark).show()
+      $(this.reference_dom_class).hide()
+
+      this.enabled = false
+      console.log('Hide Checkmark')
+    }
+
+    show_checkmark () {
+      $(this.checkmark).show()
+      $(this.no_checkmark).hide()
+      $(this.reference_dom_class).show()
+
+      this.enabled = true
+      console.log('Show Checkmark')
+    }
   }
 
   $(document).ready(function () {
 
     let dropdowns = new DropDownItems()
+    $('.dropdown-item').each(function (index, item) {
+      dropdowns.get(item.id)
+    })
     $('.dropdown-item').click(function (event) {
-      dropdowns.get(this.id).on_click_handler(event)
+      dropdowns.get(this.id).toggle(event)
     })
 
     const calculator = new MayaCalculator()
