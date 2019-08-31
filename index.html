@@ -1,12 +1,14 @@
 <!doctype html>
-<html lang="en_UK">
+<html lang="en">
 <head>
     <title>Maya Calculator</title>
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <script src="js/bootstrap.js"></script>
     <meta name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="js/jquery-3.4.1.min.js" type="text/javascript"></script>
+    <script src="js/bootstrap.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.css"
+          rel="stylesheet">
     <style>
         #longcount_output, #calendar_input {
             text-align: right;
@@ -33,16 +35,59 @@
             flex: 1;
             text-align: left;
         }
+
+        .disabled {
+            color: lightgray;
+        }
+
+        .check-placeholder {
+            width: 16px;
+            height: 18px;
+            display: inline-block;
+        }
     </style>
 </head>
 <body>
-<!-- Image and text -->
-<nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand" href="#">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <span class="navbar-brand mb-0 h1">
         <img src="ajaw.png" width="30" height="30"
-             class="d-inline-block align-top" alt="">
+             class="d-inline-block align-top" alt="Maya Calculator">
         Maya Calculator
-    </a>
+    </span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                   role="button" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false">
+                    View
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <button class="dropdown-item" type="button"
+                            id="dropdown-item-calendar_round">
+                        <span class="oi oi-check" style="display: none;"></span>
+                        <span class="check-placeholder"></span>
+                        Calendar Round
+                    </button>
+                    <button class="dropdown-item" type="button"
+                            id="dropdown-item-calendar_round_position">
+                        <span class="oi oi-check" style="display: none;"></span>
+                        <span class="check-placeholder"></span>
+                        Calendar Round Position
+                    </button>
+
+                    <!-- <div class="dropdown-divider"></div> -->
+                    <!-- <a class="dropdown-item" href="#">Something else here</a> -->
+                </div>
+            </li>
+        </ul>
+    </div>
 </nav>
 <div class="container-fluid">
     <div class="row monospace">
@@ -54,7 +99,6 @@
     </div>
 </div>
 
-</body>
 <script type="application/javascript">
 
   class MayaCalculator {
@@ -72,8 +116,7 @@
         let operation_length = operations.length
         let result
         for (let i = 0; i < operation_length; i++) {
-          let line = operations[i].replace(/[.+\-]$/, '')
-          this.fetch(line)
+          this.fetch(operations[i].replace(/[.+\-]$/, ''))
           this.decode(i)
           result = this.execute()
           if (result !== undefined) {
@@ -129,7 +172,6 @@
         )
         result = this.operands[this.operands.length - 1].compute()
       }
-      // this.operands = []
       return result
     }
   }
@@ -155,7 +197,7 @@
       super(younger_sibling)
       let parts = raw.split('#')
       if (parts.length > 0) {
-        this.raw = parts[0].trim().replace(/[^\d.]+/, '').replace(/[\.\+]$/, '')
+        this.raw = parts[0].trim().replace(/[^\d.]+/, '').replace(/[.+]$/, '')
         this.parts = this.raw.split('.').reverse()
       }
       this.comment = (parts.length > 1) ? parts[1] : ''
@@ -321,11 +363,10 @@
       if (raw.length > 1) {
         this.sign = (raw[0] === '+') ? 1 : -1
       }
-      this.long_count = this.sibling_by_type(LongCount)
     }
 
-    add_long_count (long_count) {
-      this.long_count = long_count
+    get long_count () {
+      return this.sibling_by_type(LongCount)
     }
 
     compute () {
@@ -450,8 +491,8 @@
     }
 
     get tzolk_in_coeff () {
-      let coeff =  (4 + this.total_days) % 13
-      if (coeff === 0 ) {
+      let coeff = (4 + this.total_days) % 13
+      if (coeff === 0) {
         coeff = 13
       }
       return coeff
@@ -479,7 +520,75 @@
 
   }
 
+  class DropDownItems {
+    constructor () {
+      this.items = {}
+    }
+
+    get (id) {
+      if (!(id in this.items)) {
+        this.items[id] = new DropDownItem(id)
+        switch (id) {
+          case 'dropdown-item-calendar_round':
+            this.items[id].toggle(undefined)
+            break
+          default:
+            console.log('Creating ' + id + '...')
+        }
+      }
+      return this.items[id]
+    }
+  }
+
+  class DropDownItem {
+    constructor (dom_id) {
+      this.enabled = false
+      this.dom_id = '#' + dom_id
+
+      this.checkmark = this.dom_id + ' > .oi-check'
+      this.no_checkmark = this.dom_id + ' > .check-placeholder'
+
+      let dom_parts = dom_id.split('-')
+      this.reference_dom_class = '.' + dom_parts[dom_parts.length - 1]
+    }
+
+    toggle (e) {
+      if (this.enabled) {
+        this.hide_checkmark()
+      } else {
+        this.show_checkmark()
+      }
+    }
+
+    hide_checkmark () {
+      $(this.checkmark).hide()
+      $(this.no_checkmark).show()
+      $(this.reference_dom_class).hide()
+
+      this.enabled = false
+      console.log('Hide Checkmark')
+    }
+
+    show_checkmark () {
+      $(this.checkmark).show()
+      $(this.no_checkmark).hide()
+      $(this.reference_dom_class).show()
+
+      this.enabled = true
+      console.log('Show Checkmark')
+    }
+  }
+
   $(document).ready(function () {
+
+    let dropdowns = new DropDownItems()
+    $('.dropdown-item').each(function (index, item) {
+      dropdowns.get(item.id)
+    })
+    $('.dropdown-item').click(function (event) {
+      dropdowns.get(this.id).toggle(event)
+    })
+
     const calculator = new MayaCalculator()
     let input = $('#calendar_input')
     let output = $('#longcount_output')
@@ -517,4 +626,6 @@
 
   gtag('config', 'UA-33704557-2')
 </script>
+</body>
+
 </html>

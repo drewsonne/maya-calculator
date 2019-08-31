@@ -11,6 +11,8 @@ of computations.
 It will take "incorrect" values, and try to work with them, rather
 than enforcing  strict base-20 values.
 
+Columns can be hidden via the "View" menu.
+
 # Instructions
 
 At the most basic, the calculator will show the Calendar Round for a
