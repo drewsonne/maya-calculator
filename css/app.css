@@ -1,0 +1,35 @@
+#longcount_output, #calendar_input {
+    text-align: right;
+}
+
+.long_count, .distance_number {
+    max-width: 140px;
+    min-width: 140px;
+}
+
+.monospace {
+    font-family: monospace;
+}
+
+.calendar_round {
+    font-family: sans-serif;
+    font-size: 80%;
+}
+
+.comment {
+    font-family: serif;
+    font-style: italic;
+    font-size: 85%;
+    flex: 1;
+    text-align: left;
+}
+
+.disabled {
+    color: lightgray;
+}
+
+.check-placeholder {
+    width: 16px;
+    height: 18px;
+    display: inline-block;
+}

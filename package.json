@@ -1,0 +1,16 @@
+{
+  "name": "maya-calendar",
+  "version": "1.0.0",
+  "description": "A calculator for dealing with Maya dates",
+  "main": "index.js",
+  "repository": "git@github.com:drewsonne/maya-calculator.git",
+  "author": "Drew J. Sonne <drew.sonne@gmail.com>",
+  "license": "LGPLv2",
+  "private": false,
+  "devDependencies": {
+    "jest": "^24.9.0"
+  },
+  "scripts": {
+    "test": "jest"
+  }
+}
