@@ -58,6 +58,10 @@ Eg,
 
 Calculations can be shared by copying the URL.
 
+## Partials
+
+If provided with a partial Calendar Round (eg, `9 Ak'bal * Pax`)
+
 # Example
 Navigate to [https://drewsonne.github.io/maya-calculator/](https://drewsonne.github.io/maya-calculator/#OC4xOS4xMC4xMSAjICgxKSBBIGxvbmcgY291bnQgZGF0ZQorNy4xMyAjICgyKSBBIGRpc3RhbmNlIG51bWJlcgoKOS4xNy41LjAuMAojICgzKSBEbyBzb21lIGNhbGN1bGF0aW9ucwotMy40Ci0xLjAKKzMwLjEuMgorMS4xMDAwICMgKDQpIEFuICdpbnZhbGlkJyBkaXN0YW5jZSBudW1iZXI=) and
 try to enter the following values one line at a time.
