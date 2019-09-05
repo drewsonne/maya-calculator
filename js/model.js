@@ -173,6 +173,13 @@ class MayaDate extends LinkedListElement {
         significant_digits[i] = ' ' + significant_digits[i]
       }
     }
+
+    let date_length = significant_digits.length
+    if (date_length < 5) {
+      for (let i = 0; i < 5 - date_length; i++) {
+        significant_digits.unshift(' 0')
+      }
+    }
     return significant_digits.join('.')
   }
 }
@@ -190,18 +197,18 @@ class LongCount extends MayaDate {
 
   spans () {
     return $(`
-        <div class="row">
-            <div class="col-3  calendar_round">
+        <tr class="data-row">
+            <td class="calendar_round">
                 ${new CalendarRound(this.total_k_in())}
-            </div>
-            <div class="col-1  calendar_round_position">
+            </td>
+            <td class="calendar_round_position">
                 ${new CalendarRound(this.total_k_in()).total_days}
-            </div>
-            <div class="col-4  long_count">
+            </td>
+            <td class="long_count">
                 ${this.toString()}
-            </div>
-            <div class="col-4  comment">${this.comment}</div>
-        </div>
+            </td>
+            <td class="comment">${this.comment}</td>
+        </tr>
       `)
   }
 }
@@ -233,22 +240,22 @@ class DistanceNumber extends MayaDate {
     )
 
     return $(
-      `<div class="row">
-            <div class="col-3  calendar_round"></div>
-            <div class="col-1  calendar_round_position"></div>
-            <div class="col-4  distance_number">
+      `<tr class="data-row">
+            <td class="calendar_round"></td>
+            <td class="calendar_round_position"></td>
+            <td class="distance_number">
                 ${distance_string}
-            </div>
-            <div class="col-4  comment">${this.comment}</div>
-        </div>
-        <div class="row">
-            <div class="col-3  calendar_round"></div>
-            <div class="col-1  calendar_round_position"></div>
-            <div class="col-4  long_count">
+            </td>
+            <td class="comment">${this.comment}</td>
+        </tr>
+        <tr class="data-row">
+            <td class="calendar_round"></td>
+            <td class="calendar_round_position"></td>
+            <td class="long_count">
                 ${'-'.repeat(separator_length)}
-            </div>
-            <div class="col-4  comment"></div>
-        </div>`,
+            </td>
+            <td class="comment"></td>
+        </tr>`,
     )
   }
 }
@@ -261,14 +268,14 @@ class Comment extends LinkedListElement {
 
   spans () {
     return $(`
-        <div class="row">
-            <div class="col-4 "></div>
-            <div class="col-8  comment">
+        <tr class="data-row">
+            <td class="calendar_round"></td>
+            <td class="comment" colspan="3"">
                 <span class="comment">
                     ${this.comment}
                 </span>
-            </div>
-        </div>
+            </td>
+        </tr>
       `)
   }
 
@@ -280,9 +287,9 @@ class Comment extends LinkedListElement {
 class EmptyLine extends LinkedListElement {
   spans () {
     return $(`
-        <div class="row">
-            <div class="col-12 ">&nbsp;</div>
-        </div>
+        <tr class="data-row">
+            <td colspan="4">&nbsp;</td>
+        </tr>
       `)
   }
 
@@ -298,9 +305,13 @@ class CalendarRoundFactory {
   }
 
   split (raw_calendar_round) {
-    return raw_calendar_round.match(
+    let matches = raw_calendar_round.match(
       this.pattern,
-    ).slice(1)
+    )
+    if (matches === null) {
+      return []
+    }
+    return matches.slice(1)
   }
 
   is_partial_calendar_round (raw_cr) {
@@ -411,16 +422,16 @@ class PartialCalendarRound {
 
     function single_line (cr) {
       return `
-        <div class="row">
-            <div class="col-3  calendar_round">
+        <tr class="data-row">
+            <td class="calendar_round">
                 ${cr}
-            </div>
-            <div class="col-1  calendar_round_position">
+            </td>
+            <td class="calendar_round_position">
                 ${cr.total_days}
-            </div>
-            <div class="col-4  long_count"></div>
-            <div class="col-4  comment"></div>
-        </div>
+            </td>
+            <td class="long_count"></td>
+            <td class="comment"></td>
+        </tr>
       `
     }
 
