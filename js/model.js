@@ -17,7 +17,11 @@ class LinkedListElement {
 class MayaDate extends LinkedListElement {
   constructor (raw, younger_sibling) {
     super(younger_sibling)
-    let parts = raw.split('#')
+    this.parse(raw)
+  }
+
+  parse (raw_string) {
+    let parts = raw_string.split('#')
     if (parts.length > 0) {
       this.raw = parts[0].trim().replace(/[^\d.]+/, '').replace(/[.+]$/, '')
       this.parts = this.raw.split('.').reverse()
@@ -107,6 +111,10 @@ class MayaDate extends LinkedListElement {
     return this.get_date_sections(7)
   }
 
+  get calendar_round () {
+    return new CalendarRound(this.total_k_in())
+  }
+
   total_k_in () {
     return this.k_in +
       this.winal * 20 +
@@ -132,12 +140,27 @@ class MayaDate extends LinkedListElement {
     return new_date
   }
 
+  normalise () {
+    let cr = this.normalised_date_from_k_in(
+      this.total_k_in())
+    this.k_in = cr.k_in
+    this.winal = cr.winal
+    this.tun = cr.tun
+    this.k_atun = cr.k_atun
+    this.bak_tun = cr.bak_tun
+    this.piktun = cr.piktun
+    this.kalabtun = cr.kalabtun
+    this.kinchiltun = cr.kinchiltun
+
+    return this
+  }
+
   toString () {
     let parts = this.parts.slice().reverse()
-    let part
+
     let significant_digits = []
     for (let i = 0; i < parts.length; i++) {
-      part = parts[i]
+      let part = parts[i]
       if (part !== '0') {
         significant_digits = parts.slice(i)
         break
@@ -227,9 +250,7 @@ class DistanceNumber extends MayaDate {
             <div class="col-4  comment"></div>
         </div>`,
     )
-
   }
-
 }
 
 class Comment extends LinkedListElement {
@@ -270,9 +291,159 @@ class EmptyLine extends LinkedListElement {
   }
 }
 
+class CalendarRoundFactory {
+
+  constructor () {
+    this.pattern = /^([*\d]+)\s?([^\s]+)\s?([*\d]+)\s?([^\s]+)$/
+  }
+
+  split (raw_calendar_round) {
+    return raw_calendar_round.match(
+      this.pattern,
+    ).slice(1)
+  }
+
+  is_partial_calendar_round (raw_cr) {
+    let parts = this.split(raw_cr)
+    return parts.includes('*')
+  }
+
+  /*
+  This parser does not take an intelligent approach,
+  we brute force check all possible options, for each component
+  of the calendar round
+   */
+  parse (raw_calendar_round) {
+    let parts = this.split(raw_calendar_round)
+
+    for (let i = 1; i <= 18980; i++) {
+      let potential_cr = new CalendarRound(i)
+      if (!potential_cr.is_valid()) {
+        continue
+      }
+      let potential_parts = this.split(potential_cr.toString())
+      let is_equal = (
+        (potential_parts[0] === parts[0]) &
+        (potential_parts[1] === parts[1]) &
+        (potential_parts[2] === parts[2]) &
+        (potential_parts[3] === parts[3])
+      )
+      if (is_equal) {
+        return new CalendarRound(i)
+      }
+    }
+  }
+
+  all () {
+    let crs = []
+    for (let i = 1; i <= 189800; i++) {
+      let potential_cr = new CalendarRound(i)
+      if (potential_cr.is_valid()) {
+        crs.push(potential_cr)
+      }
+    }
+    return crs
+  }
+
+  partial_match (tzolk_in_coeff, tzolk_in, haab_coeff, haab) {
+    let missing_tzolk_in_coeff = (tzolk_in_coeff === '*')
+    let missing_tzolk_in = (tzolk_in === '*')
+    let missing_haab_coeff = (haab_coeff === '*')
+    let missing_haab = (haab === '*')
+
+    let crs = this.all()
+    let potentials = []
+    for (let i = 0; i < crs.length; i++) {
+      let cr = crs[i]
+
+      let matched_tzolk_in_coeff = true
+      if (!missing_tzolk_in_coeff) {
+        matched_tzolk_in_coeff = cr.tzolk_in_coeff === parseInt(tzolk_in_coeff)
+      }
+
+      let matched_tzolk_in = true
+      if (!missing_tzolk_in) {
+        matched_tzolk_in = cr.tzolk_in_month === tzolk_in
+      }
+
+      let matched_haab_coeff = true
+      if (!missing_haab_coeff) {
+        matched_haab_coeff = cr.haab_coeff === parseInt(haab_coeff)
+      }
+
+      let matched_haab = true
+      if (!missing_haab) {
+        matched_haab = cr.haab_month === haab
+      }
+
+      if (
+        matched_tzolk_in_coeff &&
+        matched_tzolk_in &&
+        matched_haab_coeff &&
+        matched_haab
+      ) {
+        potentials.push(cr)
+      }
+    }
+
+    let unique_potentials = []
+    let unique_potential_positions = new Set()
+    for (let i = 0; i < potentials.length; i++) {
+      if (!unique_potential_positions.has(potentials[i].total_days)) {
+        unique_potentials.push(potentials[i])
+        unique_potential_positions.add(potentials[i].total_days)
+      }
+    }
+
+    return unique_potentials
+  }
+
+}
+
+class PartialCalendarRound {
+  constructor (raw_calendar_round) {
+    this.crf = new CalendarRoundFactory()
+    this.parts = this.crf.split(raw_calendar_round)
+    this.potentials = this.crf.partial_match(...this.parts)
+  }
+
+  spans () {
+
+    function single_line (cr) {
+      return `
+        <div class="row">
+            <div class="col-3  calendar_round">
+                ${cr}
+            </div>
+            <div class="col-1  calendar_round_position">
+                ${cr.total_days}
+            </div>
+            <div class="col-4  long_count"></div>
+            <div class="col-4  comment"></div>
+        </div>
+      `
+    }
+
+    let rows = []
+    for (let i = 0; i < this.potentials.length; i++) {
+      rows.push(
+        single_line(this.potentials[i]),
+      )
+    }
+    return $(
+      rows.join('\n'),
+    )
+  }
+
+  compute () {
+    return undefined
+  }
+}
+
 class CalendarRound {
+
   constructor (total_days) {
-    this.total_days = total_days
+    this.total_days = total_days % 18980
     this.tzolk_in_lookup = {
       0: 'Ajaw',
       1: 'Imix',
@@ -318,6 +489,13 @@ class CalendarRound {
     }
   }
 
+  is_valid () {
+    return (
+      (this.haab_coeff > 0) &
+      (!this.haab.includes('undefined'))
+    )
+  }
+
   get tzolk_in_coeff () {
     let coeff = (4 + this.total_days) % 13
     if (coeff === 0) {
@@ -327,8 +505,11 @@ class CalendarRound {
   }
 
   get tzolk_in () {
-    return this.tzolk_in_coeff.toString() + ' ' +
-      this.tzolk_in_lookup[this.total_days % 20]
+    return `${this.tzolk_in_coeff} ${this.tzolk_in_month}`
+  }
+
+  get tzolk_in_month () {
+    return this.tzolk_in_lookup[this.total_days % 20]
   }
 
   get haab_coeff () {
@@ -336,20 +517,24 @@ class CalendarRound {
     return day_in_haab % 20
   }
 
-  get haab () {
+  get haab_month () {
     let day_in_haab = (this.total_days - 17) % 365
-    return this.haab_coeff.toString() + ' ' +
-      this.haab_lookup[Math.ceil(day_in_haab / 20)]
+    return this.haab_lookup[Math.ceil(day_in_haab / 20)]
+  }
+
+  get haab () {
+    return `${this.haab_coeff} ${this.haab_month}`
   }
 
   toString () {
     return this.tzolk_in + ' ' + this.haab + ' '
   }
-
 }
 
 if (typeof module != 'undefined') {
   module.exports = {
     LongCount: LongCount,
+    CalendarRound: CalendarRound,
+    CalendarRoundFactory: CalendarRoundFactory,
   }
 }
