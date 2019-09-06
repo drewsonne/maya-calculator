@@ -61,10 +61,14 @@
       evaluate(saved_calculation)
     }
 
+    let run_event
     input.keyup(function (event) {
-      let raw_calculations = input.val().trim()
-      evaluate(raw_calculations)
-      window.location.hash = '#' + btoa(raw_calculations)
+      clearTimeout(run_event)
+      run_event = setInterval(function () {
+        let raw_calculations = input.val().trim()
+        evaluate(raw_calculations)
+        window.location.hash = '#' + btoa(raw_calculations)
+      }, 500)
     })
   })
 

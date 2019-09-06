@@ -184,6 +184,124 @@ class MayaDate extends LinkedListElement {
   }
 }
 
+class Factory {
+  split (raw_calendar_round) {
+    let matches = raw_calendar_round.match(
+      this.pattern,
+    )
+    if (matches === null) {
+      return []
+    }
+    return matches.slice(1)
+  }
+
+  is_partial (raw) {
+    let parts = this.split(raw)
+    return parts.includes('*')
+  }
+}
+
+class LongCountFactory extends Factory {
+  constructor () {
+    super()
+    this.pattern = /^(\s?\d+\.?)+$/g
+  }
+
+  is_partial (raw) {
+    let parts = raw.split(' ')
+    if (parts.length > 1) {
+      let long_count = parts[0]
+      let is_partial_lc = long_count.split('.').includes('*')
+      let calendar_round = parts.slice(1).join(' ')
+      let is_partial_cr = new CalendarRoundFactory().is_partial(calendar_round)
+      return is_partial_cr && is_partial_lc
+    }
+    return false
+  }
+
+  partial_match (long_count_parts, partial_cr) {
+    let potentials = []
+    let expanders
+    let last_expanders = [long_count_parts.slice()]
+    let length_of_sig_digit
+    for (let i = 0; i < long_count_parts.length; i++) {
+      let sig_digit = long_count_parts[i]
+      if (sig_digit === '*') {
+        expanders = []
+        let num_missing = (i === 1) ? 18 : 20
+        for (let j = 0; j < num_missing; j++) {
+          for (let k = 0; k < last_expanders.length; k++) {
+            let new_num = last_expanders[k].slice()
+            new_num[i] = `${j + 1}`
+            expanders.push(new_num)
+          }
+        }
+        last_expanders = expanders.slice()
+      }
+    }
+
+    let partial_crs = partial_cr.potentials
+    for (let j = 0; j < expanders.length; j++) {
+      let new_lc = new LongCount(
+        expanders[j].reverse().join('.'),
+      )
+      for (let k = 0; k < partial_crs.length; k++) {
+        if (new_lc.calendar_round.is_equal(partial_crs[k])) {
+          potentials.push(new_lc)
+        }
+      }
+    }
+    return potentials
+  }
+
+}
+
+class PartialLongCount {
+  constructor (raw) {
+    let parts = raw.split(' ')
+    let long_count = parts[0].split('.')
+
+    let partial_cr = new PartialCalendarRound(
+      parts.slice(1).join(' '))
+    this.potentials = new LongCountFactory().partial_match(
+      long_count.reverse(),
+      partial_cr,
+    )
+  }
+
+  spans () {
+
+    function single_line (lc) {
+      return `
+        <tr class="data-row">
+            <td class="calendar_round">
+                ${lc.calendar_round}
+            </td>
+            <td class="calendar_round_position">
+                ${lc.calendar_round.total_days}
+            </td>
+            <td class="long_count">${lc}</td>
+            <td class="comment"></td>
+        </tr>
+      `
+    }
+
+    let rows = []
+    for (let i = 0; i < this.potentials.length; i++) {
+      rows.push(
+        single_line(this.potentials[i]),
+      )
+    }
+    return $(
+      rows.join('\n'),
+    )
+  }
+
+  compute () {
+    return undefined
+  }
+}
+
 class LongCount extends MayaDate {
 
   constructor (raw, younger_sibling) {
@@ -298,24 +416,15 @@ class EmptyLine extends LinkedListElement {
   }
 }
 
-class CalendarRoundFactory {
+class CalendarRoundFactory extends Factory {
 
   constructor () {
+    super()
     this.pattern = /^([*\d]+)\s?([^\s]+)\s?([*\d]+)\s?([^\s]+)$/
   }
 
-  split (raw_calendar_round) {
-    let matches = raw_calendar_round.match(
-      this.pattern,
-    )
-    if (matches === null) {
-      return []
-    }
-    return matches.slice(1)
-  }
-
-  is_partial_calendar_round (raw_cr) {
-    let parts = this.split(raw_cr)
+  is_partial (raw) {
+    let parts = this.split(raw)
     return parts.includes('*')
   }
 
@@ -507,6 +616,10 @@ class CalendarRound {
     )
   }
 
+  is_equal (other_cr) {
+    return this.toString() === other_cr.toString()
+  }
+
   get tzolk_in_coeff () {
     let coeff = (4 + this.total_days) % 13
     if (coeff === 0) {
@@ -547,5 +660,6 @@ if (typeof module != 'undefined') {
     LongCount: LongCount,
     CalendarRound: CalendarRound,
     CalendarRoundFactory: CalendarRoundFactory,
+    LongCountFactory: LongCountFactory,
   }
 }
