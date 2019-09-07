@@ -20,48 +20,11 @@
              class="d-inline-block align-top" alt="Maya Calculator">
         Maya Calculator
     </span>
-    <!--    <button class="navbar-toggler" type="button" data-toggle="collapse"-->
-    <!--            data-target="#navbarSupportedContent"-->
-    <!--            aria-controls="navbarSupportedContent" aria-expanded="false"-->
-    <!--            aria-label="Toggle navigation">-->
-    <!--        <span class="navbar-toggler-icon"></span>-->
-    <!--    </button>-->
-    <!--    <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
-    <!--        <ul class="navbar-nav mr-auto">-->
-    <!--            <li class="nav-item dropdown">-->
-    <!--                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"-->
-    <!--                   role="button" data-toggle="dropdown" aria-haspopup="true"-->
-    <!--                   aria-expanded="false">-->
-    <!--                    View-->
-    <!--                </a>-->
-    <!--                <div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
-    <!--                    <button class="dropdown-item" type="button"-->
-    <!--                            id="dropdown-item-calendar_round">-->
-    <!--                        <span class="oi oi-check" style="display: none;"></span>-->
-    <!--                        <span class="check-placeholder"></span>-->
-    <!--                        Calendar Round-->
-    <!--                    </button>-->
-    <!--                    <button class="dropdown-item" type="button"-->
-    <!--                            id="dropdown-item-calendar_round_position">-->
-    <!--                        <span class="oi oi-check" style="display: none;"></span>-->
-    <!--                        <span class="check-placeholder"></span>-->
-    <!--                        Calendar Round Position-->
-    <!--                    </button>-->
-
-    <!--                    &lt;!&ndash; <div class="dropdown-divider"></div> &ndash;&gt;-->
-    <!--                    &lt;!&ndash; <a class="dropdown-item" href="#">Something else here</a> &ndash;&gt;-->
-    <!--                </div>-->
-    <!--            </li>-->
-    <!--        </ul>-->
-    <!--    </div>-->
 </nav>
 <div class="container-fluid">
     <div class="row monospace">
-    <textarea class="col-4" id="calendar_input" rows="25">
-    </textarea>
-
-        <div class="col-8 " id="longcount_output">
-        </div>
+        <textarea class="col-4" id="calendar_input" rows="25"></textarea>
+        <table id="longcount_output" class="col-8"></table>
     </div>
 </div>
 
@@ -73,7 +36,22 @@
     let output = $('#longcount_output')
     let evaluate = function (raw_calculations) {
       let results = calculator.evaluate(raw_calculations)
-      output.html(results)
+
+      output.html($.merge(
+        $(`<tr>
+                <th>Calendar Round</th>
+                <th>Position</th>
+                <th>Long Count</th>
+                <th class="left_align">Annotation</th>
+            </tr>`),
+        results,
+      ))
+
+      $('tr.data-row').each(function (index, element) {
+        if (index % 2 === 0) {
+          $(element).addClass('odd_row')
+        }
+      })
     }
 
     let saved_calculation_raw = window.location.hash.replace('#', '')
@@ -83,10 +61,14 @@
       evaluate(saved_calculation)
     }
 
+    let run_event
     input.keyup(function (event) {
+      clearTimeout(run_event)
+      run_event = setInterval(function () {
       let raw_calculations = input.val().trim()
       evaluate(raw_calculations)
       window.location.hash = '#' + btoa(raw_calculations)
+      }, 500)
     })
   })
 

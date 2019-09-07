@@ -60,7 +60,11 @@ Calculations can be shared by copying the URL.
 
 ## Partials
 
-If provided with a partial Calendar Round (eg, `9 Ak'bal * Pax`)
+If provided with a partial Calendar Round (eg, `9 Ak'bal * Pax`), all possible
+calendar rounds will be output.
+
+If provided with a partial Long Count **and** Calendar Round (eg, `9.10.*.5.* * Chikchan *Sip`),
+all possible combinations of calendar rounds and long counts will be output.
 
 # Example
 Navigate to [https://drewsonne.github.io/maya-calculator/](https://drewsonne.github.io/maya-calculator/#OC4xOS4xMC4xMSAjICgxKSBBIGxvbmcgY291bnQgZGF0ZQorNy4xMyAjICgyKSBBIGRpc3RhbmNlIG51bWJlcgoKOS4xNy41LjAuMAojICgzKSBEbyBzb21lIGNhbGN1bGF0aW9ucwotMy40Ci0xLjAKKzMwLjEuMgorMS4xMDAwICMgKDQpIEFuICdpbnZhbGlkJyBkaXN0YW5jZSBudW1iZXI=) and
