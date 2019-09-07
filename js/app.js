@@ -38,23 +38,25 @@ class MayaCalculator {
     let younger_sibling = (this.operands.length === 0)
       ? undefined
       : this.operands[position - 1]
-    let calendar_round_factory = new CalendarRoundFactory()
-    let long_count_factory = new LongCountFactory()
+    let crf = new CalendarRoundFactory()
+    let lcf = new LongCountFactory()
     if (this.current_raw_line.length > 1) {
       let operand
       if (Boolean(
         this.current_raw_line[0] === '-'
         | this.current_raw_line[0] === '+',
       )) {
-        operand = new DistanceNumber(this.current_raw_line, younger_sibling)
-      } else if (long_count_factory.is_partial(this.current_raw_line)) {
+        operand = new DistanceNumber(this.current_raw_line,
+          younger_sibling)
+      } else if (lcf.is_partial(this.current_raw_line)) {
         operand = new PartialLongCount(this.current_raw_line)
-      } else if (calendar_round_factory.is_partial(this.current_raw_line)) {
+      } else if (crf.is_partial(this.current_raw_line)) {
         operand = new PartialCalendarRound(this.current_raw_line)
       } else if (Boolean(
         this.current_raw_line[0] === '#',
       )) {
-        operand = new Comment(this.current_raw_line, younger_sibling)
+        operand = new Comment(this.current_raw_line,
+          younger_sibling)
       } else {
         operand = new LongCount(this.current_raw_line,
           younger_sibling).normalise()
