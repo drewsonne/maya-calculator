@@ -39,9 +39,10 @@
 
       output.html($.merge(
         $(`<tr>
-                <th>Calendar Round</th>
-                <th>Position</th>
+                <th>C. Round</th>
+                <th>Pos.</th>
                 <th>Long Count</th>
+                <th>Night</th>
                 <th class="left_align">Annotation</th>
             </tr>`),
         results,
@@ -65,9 +66,9 @@
     input.keyup(function (event) {
       clearTimeout(run_event)
       run_event = setInterval(function () {
-        let raw_calculations = input.val().trim()
-        evaluate(raw_calculations)
-        window.location.hash = '#' + btoa(raw_calculations)
+          let raw_calculations = input.val().trim()
+          evaluate(raw_calculations)
+          window.location.hash = '#' + btoa(raw_calculations)
       }, 500)
     })
   })

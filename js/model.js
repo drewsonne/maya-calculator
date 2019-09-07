@@ -281,6 +281,7 @@ class PartialLongCount {
                 ${lc.calendar_round.total_days}
             </td>
             <td class="long_count">${lc}</td>
+            <td class="lord_of_night"></td>
             <td class="comment"></td>
         </tr>
       `
@@ -313,6 +314,11 @@ class LongCount extends MayaDate {
     return this.date_pattern.test(this.toString())
   }
 
+  get lord_of_night () {
+    let date = this.total_k_in() % 9
+    return `G${(date === 0) ? 9 : date}`
+  }
+
   spans () {
     return $(`
         <tr class="data-row">
@@ -325,6 +331,7 @@ class LongCount extends MayaDate {
             <td class="long_count">
                 ${this.toString()}
             </td>
+            <td class="lord_of_night">${this.lord_of_night}</td>
             <td class="comment">${this.comment}</td>
         </tr>
       `)
@@ -364,6 +371,7 @@ class DistanceNumber extends MayaDate {
             <td class="distance_number">
                 ${distance_string}
             </td>
+            <td class="lord_of_night"></td>
             <td class="comment">${this.comment}</td>
         </tr>
         <tr class="data-row">
@@ -372,6 +380,7 @@ class DistanceNumber extends MayaDate {
             <td class="long_count">
                 ${'-'.repeat(separator_length)}
             </td>
+            <td class="lord_of_night"></td>
             <td class="comment"></td>
         </tr>`,
     )
@@ -388,7 +397,7 @@ class Comment extends LinkedListElement {
     return $(`
         <tr class="data-row">
             <td class="calendar_round"></td>
-            <td class="comment" colspan="3"">
+            <td class="comment" colspan="4">
                 <span class="comment">
                     ${this.comment}
                 </span>
@@ -406,7 +415,7 @@ class EmptyLine extends LinkedListElement {
   spans () {
     return $(`
         <tr class="data-row">
-            <td colspan="4">&nbsp;</td>
+            <td colspan="5">&nbsp;</td>
         </tr>
       `)
   }
@@ -539,6 +548,7 @@ class PartialCalendarRound {
                 ${cr.total_days}
             </td>
             <td class="long_count"></td>
+            <td class="lord_of_night"></td>
             <td class="comment"></td>
         </tr>
       `
