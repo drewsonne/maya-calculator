@@ -113,3 +113,8 @@ test('partial match calendar-round', () => {
 
   expect(tzolk_ins.length).toBe(new Set(tzolk_ins).size)
 })
+
+test('partial match long-count', () => {
+  let parser = new model.LongCountFactory()
+  expect(parser.is_partial_long_count()).toBeTruthy()
+})

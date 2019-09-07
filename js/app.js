@@ -39,19 +39,24 @@ class MayaCalculator {
       ? undefined
       : this.operands[position - 1]
     let crf = new CalendarRoundFactory()
+    let lcf = new LongCountFactory()
     if (this.current_raw_line.length > 1) {
       let operand
       if (Boolean(
         this.current_raw_line[0] === '-'
         | this.current_raw_line[0] === '+',
       )) {
-        operand = new DistanceNumber(this.current_raw_line, younger_sibling)
-      } else if (crf.is_partial_calendar_round(this.current_raw_line)) {
+        operand = new DistanceNumber(this.current_raw_line,
+          younger_sibling)
+      } else if (lcf.is_partial(this.current_raw_line)) {
+        operand = new PartialLongCount(this.current_raw_line)
+      } else if (crf.is_partial(this.current_raw_line)) {
         operand = new PartialCalendarRound(this.current_raw_line)
       } else if (Boolean(
         this.current_raw_line[0] === '#',
       )) {
-        operand = new Comment(this.current_raw_line, younger_sibling)
+        operand = new Comment(this.current_raw_line,
+          younger_sibling)
       } else {
         operand = new LongCount(this.current_raw_line,
           younger_sibling).normalise()
