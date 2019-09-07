@@ -38,7 +38,7 @@ class MayaCalculator {
     let younger_sibling = (this.operands.length === 0)
       ? undefined
       : this.operands[position - 1]
-    let crf = new CalendarRoundFactory()
+    let calendar_round_factory = new CalendarRoundFactory()
     let long_count_factory = new LongCountFactory()
     if (this.current_raw_line.length > 1) {
       let operand

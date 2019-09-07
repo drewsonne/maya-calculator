@@ -65,9 +65,9 @@
     input.keyup(function (event) {
       clearTimeout(run_event)
       run_event = setInterval(function () {
-      let raw_calculations = input.val().trim()
-      evaluate(raw_calculations)
-      window.location.hash = '#' + btoa(raw_calculations)
+          let raw_calculations = input.val().trim()
+          evaluate(raw_calculations)
+          window.location.hash = '#' + btoa(raw_calculations)
       }, 500)
     })
   })
