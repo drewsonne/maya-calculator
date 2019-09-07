@@ -15,7 +15,7 @@ Columns can be hidden via the "View" menu.
 
 # Instructions
 
-At the most basic, the calculator will show the Calendar Round for a
+At the most basic, the calculator will show the Calendar Round, and Lord of the night for a
 given Long Count Date.
 
 Eg, `8.19.10.11.0` becomes `8 Ajaw 18 Yaxk'in 8.19.10.11. 0`
