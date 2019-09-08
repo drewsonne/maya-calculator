@@ -1,3 +1,5 @@
+var model = require('./model.js')
+
 class MayaCalculator {
   constructor () {
     this.operands = []
@@ -38,33 +40,33 @@ class MayaCalculator {
     let younger_sibling = (this.operands.length === 0)
       ? undefined
       : this.operands[position - 1]
-    let crf = new CalendarRoundFactory()
-    let lcf = new LongCountFactory()
+    let crf = new model.CalendarRoundFactory()
+    let lcf = new model.LongCountFactory()
     if (this.current_raw_line.length > 1) {
       let operand
       if (Boolean(
         this.current_raw_line[0] === '-'
         | this.current_raw_line[0] === '+',
       )) {
-        operand = new DistanceNumber(this.current_raw_line,
+        operand = new model.DistanceNumber(this.current_raw_line,
           younger_sibling)
       } else if (lcf.is_partial(this.current_raw_line)) {
-        operand = new PartialLongCount(this.current_raw_line)
+        operand = new model.PartialLongCount(this.current_raw_line)
       } else if (crf.is_partial(this.current_raw_line)) {
-        operand = new PartialCalendarRound(this.current_raw_line)
+        operand = new model.PartialCalendarRound(this.current_raw_line)
       } else if (Boolean(
         this.current_raw_line[0] === '#',
       )) {
-        operand = new Comment(this.current_raw_line,
+        operand = new model.Comment(this.current_raw_line,
           younger_sibling)
       } else {
-        operand = new LongCount(this.current_raw_line,
+        operand = new model.LongCount(this.current_raw_line,
           younger_sibling).normalise()
       }
 
       this.operands.push(operand)
     } else {
-      this.operands.push(new EmptyLine(younger_sibling))
+      this.operands.push(new model.EmptyLine(younger_sibling))
     }
     this.current_raw_line = ''
   }
@@ -81,3 +83,47 @@ class MayaCalculator {
     return result
   }
 }
+
+$(document).ready(function () {
+  const calculator = new MayaCalculator()
+  let input = $('#calendar_input')
+  let output = $('#longcount_output')
+  let evaluate = function (raw_calculations) {
+    let results = calculator.evaluate(raw_calculations)
+
+    output.html($.merge(
+      $(`<tr>
+                <th>C. Round</th>
+                <th>Pos.</th>
+                <th>Long Count</th>
+                <th>Night</th>
+                <th class="left_align">Annotation</th>
+            </tr>`),
+      results,
+    ))
+
+    $('tr.data-row').each(function (index, element) {
+      if (index % 2 === 0) {
+        $(element).addClass('odd_row')
+      }
+    })
+  }
+
+  let saved_calculation_raw = window.location.hash.replace('#', '')
+  if (saved_calculation_raw.length > 0) {
+    let saved_calculation = atob(saved_calculation_raw)
+    input.html(saved_calculation)
+    evaluate(saved_calculation)
+  }
+
+  let run_event
+  input.keyup(function (event) {
+    clearTimeout(run_event)
+    run_event = setInterval(function () {
+      let raw_calculations = input.val().trim()
+      evaluate(raw_calculations)
+      window.location.hash = '#' + btoa(raw_calculations)
+      clearTimeout(run_event)
+    }, 500)
+  })
+})
