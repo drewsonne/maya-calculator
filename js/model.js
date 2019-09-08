@@ -1,3 +1,5 @@
+var julian = require('julian')
+
 class LinkedListElement {
   constructor (younger_sibling) {
     this.younger_sibling = younger_sibling
@@ -18,6 +20,7 @@ class MayaDate extends LinkedListElement {
   constructor (raw, younger_sibling) {
     super(younger_sibling)
     this.parse(raw)
+    this.correlation_constant = 584283
   }
 
   parse (raw_string) {
@@ -296,6 +299,7 @@ class PartialLongCount {
                 ${lc.calendar_round.total_days}
             </td>
             <td class="long_count">${lc}</td>
+            <td class="julian"></td>
             <td class="lord_of_night">${lc.lord_of_night}</td>
             <td class="comment"></td>
         </tr>
@@ -346,6 +350,7 @@ class LongCount extends MayaDate {
             <td class="long_count">
                 ${this.toString()}
             </td>
+            <td class="julian"></td>
             <td class="lord_of_night">${this.lord_of_night}</td>
             <td class="comment">${this.comment}</td>
         </tr>
@@ -386,6 +391,7 @@ class DistanceNumber extends MayaDate {
             <td class="distance_number">
                 ${distance_string}
             </td>
+            <td class="julian"></td>
             <td class="lord_of_night"></td>
             <td class="comment">${this.comment}</td>
         </tr>
@@ -395,6 +401,7 @@ class DistanceNumber extends MayaDate {
             <td class="long_count">
                 ${'-'.repeat(separator_length)}
             </td>
+            <td class="julian"></td>
             <td class="lord_of_night"></td>
             <td class="comment"></td>
         </tr>`,
@@ -412,7 +419,7 @@ class Comment extends LinkedListElement {
     return $(`
         <tr class="data-row">
             <td class="calendar_round"></td>
-            <td class="comment" colspan="4">
+            <td class="comment" colspan="5">
                 <span class="comment">
                     ${this.comment}
                 </span>
@@ -563,6 +570,7 @@ class PartialCalendarRound {
                 ${cr.total_days}
             </td>
             <td class="long_count"></td>
+            <td class="julian"></td>
             <td class="lord_of_night"></td>
             <td class="comment"></td>
         </tr>

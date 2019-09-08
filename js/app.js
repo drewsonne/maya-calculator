@@ -1,4 +1,5 @@
 var model = require('./model.js')
+var DateTime = luxon.DateTime
 
 class MayaCalculator {
   constructor () {
