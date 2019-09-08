@@ -1,5 +1,6 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 var model = require('./model.js')
+var DateTime = luxon.DateTime
 
 class MayaCalculator {
   constructor () {
@@ -130,6 +131,8 @@ $(document).ready(function () {
 })
 
 },{"./model.js":2}],2:[function(require,module,exports){
+var julian = require('julian')
+
 class LinkedListElement {
   constructor (younger_sibling) {
     this.younger_sibling = younger_sibling
@@ -150,6 +153,7 @@ class MayaDate extends LinkedListElement {
   constructor (raw, younger_sibling) {
     super(younger_sibling)
     this.parse(raw)
+    this.correlation_constant = 584283
   }
 
   parse (raw_string) {
@@ -428,6 +432,7 @@ class PartialLongCount {
                 ${lc.calendar_round.total_days}
             </td>
             <td class="long_count">${lc}</td>
+            <td class="julian"></td>
             <td class="lord_of_night">${lc.lord_of_night}</td>
             <td class="comment"></td>
         </tr>
@@ -478,6 +483,7 @@ class LongCount extends MayaDate {
             <td class="long_count">
                 ${this.toString()}
             </td>
+            <td class="julian"></td>
             <td class="lord_of_night">${this.lord_of_night}</td>
             <td class="comment">${this.comment}</td>
         </tr>
@@ -518,6 +524,7 @@ class DistanceNumber extends MayaDate {
             <td class="distance_number">
                 ${distance_string}
             </td>
+            <td class="julian"></td>
             <td class="lord_of_night"></td>
             <td class="comment">${this.comment}</td>
         </tr>
@@ -527,6 +534,7 @@ class DistanceNumber extends MayaDate {
             <td class="long_count">
                 ${'-'.repeat(separator_length)}
             </td>
+            <td class="julian"></td>
             <td class="lord_of_night"></td>
             <td class="comment"></td>
         </tr>`,
@@ -544,7 +552,7 @@ class Comment extends LinkedListElement {
     return $(`
         <tr class="data-row">
             <td class="calendar_round"></td>
-            <td class="comment" colspan="4">
+            <td class="comment" colspan="5">
                 <span class="comment">
                     ${this.comment}
                 </span>
@@ -695,6 +703,7 @@ class PartialCalendarRound {
                 ${cr.total_days}
             </td>
             <td class="long_count"></td>
+            <td class="julian"></td>
             <td class="lord_of_night"></td>
             <td class="comment"></td>
         </tr>
@@ -822,5 +831,38 @@ module.exports = {
   LongCountFactory: LongCountFactory,
   PartialCalendarRound: PartialCalendarRound,
   PartialLongCount: PartialLongCount,}
+
+},{"julian":3}],3:[function(require,module,exports){
+module.exports = convert;
+module.exports.toDate = convertToDate;
+
+module.exports.toJulianDay = toJulianDay;
+module.exports.toMillisecondsInJulianDay = toMillisecondsInJulianDay;
+module.exports.fromJulianDayAndMilliseconds = fromJulianDayAndMilliseconds;
+
+var DAY = 86400000;
+var HALF_DAY = DAY / 2;
+var UNIX_EPOCH_JULIAN_DATE = 2440587.5;
+var UNIX_EPOCH_JULIAN_DAY = 2440587;
+
+function convert(date) {
+  return (toJulianDay(date) + (toMillisecondsInJulianDay(date) / DAY)).toFixed(6);
+};
+
+function convertToDate(julian) {
+  return new Date((Number(julian) - UNIX_EPOCH_JULIAN_DATE) * DAY);
+};
+
+function toJulianDay(date) {
+  return ~~((+date + HALF_DAY) / DAY) + UNIX_EPOCH_JULIAN_DAY;
+};
+
+function toMillisecondsInJulianDay(date) {
+  return (+date + HALF_DAY) % DAY;
+};
+
+function fromJulianDayAndMilliseconds(day, ms) {
+  return (day - UNIX_EPOCH_JULIAN_DATE) * DAY + ms;
+};
 
 },{}]},{},[1]);
