@@ -813,12 +813,14 @@ class CalendarRound {
 }
 
 module.exports = {
-  LongCount: LongCount,
   CalendarRound: CalendarRound,
   CalendarRoundFactory: CalendarRoundFactory,
+  Comment: Comment,
+  DistanceNumber: DistanceNumber,
+  EmptyLine: EmptyLine,
+  LongCount: LongCount,
   LongCountFactory: LongCountFactory,
   PartialCalendarRound: PartialCalendarRound,
-  PartialLongCount: PartialLongCount,
-}
+  PartialLongCount: PartialLongCount,}
 
 },{}]},{},[1]);
