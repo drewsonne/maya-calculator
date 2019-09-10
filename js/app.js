@@ -128,3 +128,48 @@ $(document).ready(function () {
     }, 500)
   })
 })
+
+$(document).ready(function () {
+
+  const calculator = new MayaCalculator()
+  let input = $('#calendar_input')
+  let output = $('#longcount_output')
+  let evaluate = function (raw_calculations) {
+    let results = calculator.evaluate(raw_calculations)
+
+    output.html($.merge(
+      $(`<tr>
+            <th>C. Round</th>
+            <th>Pos.</th>
+            <th>Long Count</th>
+            <th>Julian</th>
+            <th>Night</th>
+            <th class="left_align">Annotation</th>
+        </tr>`),
+      results,
+    ))
+
+    $('tr.data-row').each(function (index, element) {
+      if (index % 2 === 0) {
+        $(element).addClass('odd_row')
+      }
+    })
+  }
+
+  let saved_calculation_raw = window.location.hash.replace('#', '')
+  if (saved_calculation_raw.length > 0) {
+    let saved_calculation = atob(saved_calculation_raw)
+    input.html(saved_calculation)
+    evaluate(saved_calculation)
+  }
+
+  let run_event
+  input.keyup(function (event) {
+    clearTimeout(run_event)
+    run_event = setInterval(function () {
+      let raw_calculations = input.val().trim()
+      evaluate(raw_calculations)
+      window.location.hash = '#' + btoa(raw_calculations)
+    }, 500)
+  })
+})

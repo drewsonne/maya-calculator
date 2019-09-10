@@ -116,5 +116,94 @@ test('partial match calendar-round', () => {
 
 test('partial match long-count', () => {
   let parser = new model.LongCountFactory()
-  expect(parser.is_partial_long_count()).toBeTruthy()
+  expect(parser.is_partial('13.*.*.14.13')).toBeTruthy()
+})
+
+describe('maya date pattern-matcher', () => {
+  let long_counts = [
+    '13.0.6.14.13',
+    '13.0.6.14.*',
+    '13.0.6.*.13',
+    '13.0.6.*.*',
+    '13.0.*.14.13',
+    '13.0.*.14.*',
+    '13.0.*.*.13',
+    '13.0.*.*.*',
+    '13.*.6.14.13',
+    '13.*.6.14.*',
+    '13.*.6.*.13',
+    '13.*.6.*.*',
+    '13.*.*.14.13',
+    '13.*.*.14.*',
+    '13.*.*.*.13',
+    '13.*.*.*.*',
+    '*.*.*.*.*',
+    '13.0.6.14.13',
+  ]
+  let double_dates = [
+    '13 Ben 1 Ch\'en',
+    '13Ben 1 Ch\'en',
+    '13 Ben 1Ch\'en',
+    '13Ben 1Ch\'en',
+  ]
+
+  let dates = []
+  long_counts.forEach(function (lc) {
+    double_dates.forEach(function (cr) {
+      [`${lc} ${cr}`, `${cr} ${lc}`].forEach(function (full_date) {
+        dates.push([full_date, cr, lc])
+      })
+    })
+  })
+  test.each(dates)(
+    '%s/%s',
+    (full_date, cr, lc) => {
+      let matcher = new model.PatternMatcher(full_date)
+      expect(matcher.has_calendar_round).toBeTruthy()
+      expect(matcher.has_long_count).toBeTruthy()
+      expect(matcher.calendar_round).toBe(cr)
+      expect(matcher.long_count).toBe(lc)
+    },
+  )
+
+  test.each(double_dates)(
+    '%s',
+    (cr) => {
+      let matcher = new model.PatternMatcher(cr)
+      expect(matcher.has_calendar_round).toBeTruthy()
+      expect(matcher.calendar_round).toBe(cr)
+      expect(matcher.has_long_count).toBeFalsy()
+    },
+  )
+
+  test.each(long_counts)(
+    '%s',
+    (cr) => {
+      let matcher = new model.PatternMatcher(cr)
+      expect(matcher.has_long_count).toBeTruthy()
+      expect(matcher.long_count).toBe(cr)
+      expect(matcher.has_calendar_round).toBeFalsy()
+    },
+  )
+})
+
+test('cr thesholds', () => {
+  expect(
+    new model.LongCount('0.0.0.1.17').calendar_round.toString(),
+  ).toBe('2 Kaban 0 Wo ')
+  expect(
+    new model.LongCount('0.0.0.2.17').calendar_round.toString(),
+  ).toBe('9 Kaban 0 Sip ')
+})
+
+test('small lcs', () => {
+  expect(
+    new model.LongCount('10').calendar_round.toString(),
+  ).toBe('1 Ok 18 Kumk\'u ')
+  expect(
+    new model.LongCount('15').calendar_round.toString(),
+  ).toBe('6 Men 3 Wayeb ')
+  expect(
+    new model.LongCount('20').calendar_round.toString(),
+  ).toBe('11 Ajaw 3 Pop ')
 })

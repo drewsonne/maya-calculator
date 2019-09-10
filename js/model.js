@@ -1,4 +1,4 @@
-var julian = require('julian')
+var moonbeams = require('moonbeams')
 
 class LinkedListElement {
   constructor (younger_sibling) {
@@ -13,6 +13,44 @@ class LinkedListElement {
       return this.younger_sibling
     }
     return this.younger_sibling.sibling_by_type(sibling_type)
+  }
+}
+
+class PatternMatcher {
+  constructor (value) {
+    this.value = value
+    this.cr_pattern = /\d+\s?['a-zA-Z]+\s\d+\s?['a-zA-Z]+/g
+    this.lc_pattern = /(?:[*\w]+\.)(?:[*\w]+\.?)+/g
+  }
+
+  get has_calendar_round () {
+    return this.match(this.cr_pattern)
+  }
+
+  get has_long_count () {
+    return this.match(this.lc_pattern)
+  }
+
+  match (pattern) {
+    return Boolean(this.value.match(pattern))
+  }
+
+  get long_count () {
+    let matches = this.value.match(
+      this.lc_pattern,
+    )
+    if (matches) {
+      return matches[0].trim()
+    }
+  }
+
+  get calendar_round () {
+    let matches = this.value.match(
+      this.cr_pattern,
+    )
+    if (matches) {
+      return matches[0].trim()
+    }
   }
 }
 
@@ -187,6 +225,21 @@ class MayaDate extends LinkedListElement {
     }
     return significant_digits.join('.')
   }
+
+  get julianDay () {
+    return this.correlation_constant + this.total_k_in()
+  }
+
+  get julian () {
+    let jd = moonbeams.jdToCalendar(this.julianDay)
+    let jdYear = jd.year
+    let era = 'CE'
+    if (jdYear < 0) {
+      era = 'BCE'
+      jdYear = Math.abs(jdYear+1)
+    }
+    return `${Math.floor(jd.day)}/${jd.month}/${jdYear} ${era} (${this.julianDay})`
+  }
 }
 
 class Factory {
@@ -209,24 +262,20 @@ class Factory {
 class LongCountFactory extends Factory {
   constructor () {
     super()
-    this.pattern = /^(\s?\d+\.?)+$/g
   }
 
   is_partial (raw) {
-    let parts = raw.split(' ')
-    if (parts.length === 0) {
-      return false
+    let pm = new PatternMatcher(raw)
+    let is_partial_cr = false, is_partial_lc = false
+
+    if (pm.has_long_count) {
+      is_partial_lc = pm.long_count.includes('*')
     }
-    let long_count = parts[0]
-    let is_partial_cr = false
-    if (parts.length > 1) {
-      is_partial_cr = new CalendarRoundFactory().is_partial(
-        parts.slice(1).join(' '),
-      )
-    } else {
-      long_count = parts[0]
+
+    if (pm.has_calendar_round) {
+      is_partial_cr = pm.calendar_round.includes('*')
     }
-    let is_partial_lc = long_count.split('.').includes('*')
+
     return is_partial_lc || is_partial_cr
   }
 
@@ -299,7 +348,7 @@ class PartialLongCount {
                 ${lc.calendar_round.total_days}
             </td>
             <td class="long_count">${lc}</td>
-            <td class="julian"></td>
+            <td class="julian">${lc.julian}</td>
             <td class="lord_of_night">${lc.lord_of_night}</td>
             <td class="comment"></td>
         </tr>
@@ -350,7 +399,7 @@ class LongCount extends MayaDate {
             <td class="long_count">
                 ${this.toString()}
             </td>
-            <td class="julian"></td>
+            <td class="julian">${this.julian}</td>
             <td class="lord_of_night">${this.lord_of_night}</td>
             <td class="comment">${this.comment}</td>
         </tr>
@@ -391,7 +440,7 @@ class DistanceNumber extends MayaDate {
             <td class="distance_number">
                 ${distance_string}
             </td>
-            <td class="julian"></td>
+            <td class="julian">${this.julian}</td>
             <td class="lord_of_night"></td>
             <td class="comment">${this.comment}</td>
         </tr>
@@ -401,7 +450,7 @@ class DistanceNumber extends MayaDate {
             <td class="long_count">
                 ${'-'.repeat(separator_length)}
             </td>
-            <td class="julian"></td>
+            <td class="julian">${this.julian}</td>
             <td class="lord_of_night"></td>
             <td class="comment"></td>
         </tr>`,
@@ -455,8 +504,9 @@ class CalendarRoundFactory extends Factory {
   }
 
   is_partial (raw) {
-    let parts = this.split(raw)
-    return parts.includes('*')
+    let pm = new PatternMatcher(raw)
+    return (pm.has_calendar_round) ?
+      pm.calendar_round.includes('*') : false
   }
 
   /*
@@ -655,10 +705,7 @@ class CalendarRound {
 
   get tzolk_in_coeff () {
     let coeff = (4 + this.total_days) % 13
-    if (coeff === 0) {
-      coeff = 13
-    }
-    return coeff
+    return (coeff === 0) ? 13 : coeff
   }
 
   get tzolk_in () {
@@ -670,13 +717,35 @@ class CalendarRound {
   }
 
   get haab_coeff () {
-    let day_in_haab = (this.total_days - 17) % 365
-    return day_in_haab % 20
+    return this.day_in_haab % 20
+  }
+
+  get day_in_haab () {
+    let day_in_haab
+    if (this.total_days < 17) {
+      day_in_haab = 8 + this.total_days
+    } else {
+      day_in_haab = (this.total_days - 17) % 365
+    }
+    return day_in_haab
   }
 
   get haab_month () {
-    let day_in_haab = (this.total_days - 17) % 365
-    return this.haab_lookup[Math.ceil(day_in_haab / 20)]
+    let haab_index
+    if (this.total_days < 18) {
+      if (this.total_days < 12) {
+        haab_index = 18
+      } else if (this.total_days < 17) {
+        haab_index = 19
+      }
+    } else {
+      haab_index = Math.ceil(this.day_in_haab / 20)
+    }
+    if (this.haab_coeff === 0) {
+      haab_index = haab_index % 19 + 1
+      haab_index = (haab_index === 0) ? 1 : haab_index
+    }
+    return this.haab_lookup[haab_index]
   }
 
   get haab () {
@@ -697,4 +766,6 @@ module.exports = {
   LongCount: LongCount,
   LongCountFactory: LongCountFactory,
   PartialCalendarRound: PartialCalendarRound,
-  PartialLongCount: PartialLongCount,}
+  PartialLongCount: PartialLongCount,
+  PatternMatcher: PatternMatcher,
+}
