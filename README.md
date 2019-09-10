@@ -67,7 +67,7 @@ If provided with a partial Long Count **and** Calendar Round (eg, `9.10.*.5.* * 
 all possible combinations of calendar rounds and long counts will be output.
 
 # Example
-Navigate to [https://drewsonne.github.io/maya-calculator/](https://drewsonne.github.io/maya-calculator/#OC4xOS4xMC4xMSAjICgxKSBBIGxvbmcgY291bnQgZGF0ZQorNy4xMyAjICgyKSBBIGRpc3RhbmNlIG51bWJlcgoKOS4xNy41LjAuMAojICgzKSBEbyBzb21lIGNhbGN1bGF0aW9ucwotMy40Ci0xLjAKKzMwLjEuMgorMS4xMDAwICMgKDQpIEFuICdpbnZhbGlkJyBkaXN0YW5jZSBudW1iZXI=) and
+Navigate to [https://drewsonne.github.io/maya-calculator/](https://drewsonne.github.io/maya-calculator/#OC4xOS4xMC4xMSAjICgxKSBBIGxvbmcgY291bnQgZGF0ZQorNy4xMyAjICgyKSBBIGRpc3RhbmNlIG51bWJlcgoKOS4xNy41LjAuMAojICgzKSBEbyBzb21lIGNhbGN1bGF0aW9ucwotMy40Ci0xLjAKKzMwLjEuMgorMS4xMDAwICMgKDQpIEFuICdpbnZhbGlkJyBkaXN0YW5jZSBudW1iZXIKIyAoNSkgQW4gZXhhbXBsZSBvZiBwYXJ0aWFsIGRhdGUgbWF0Y2hlcy4gCjkuMTAuKi41LiogKiBDaGlrY2hhbiAqU2lw) and
 try to enter the following values one line at a time.
 
 The last two lines demonstrate that the calculator will work with
@@ -75,13 +75,15 @@ the values even if they are invalid and try to compute a real
 Long Count date.
 
 ```
-8.19.10.11.0 # A long count date
-+7.13 # A distance number
+8.19.10.11 # (1) A long count date
++7.13 # (2) A distance number
 
 9.17.5.0.0
-# Do some calculations
+# (3) Do some calculations
 -3.4
 -1.0
 +30.1.2
-+1.1000 # An 'invalid' distance number
++1.1000 # (4) An 'invalid' distance number
+# (5) An example of partial date matches. 
+9.10.*.5.* * Chikchan *Sip
 ```
