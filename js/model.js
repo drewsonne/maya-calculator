@@ -55,10 +55,10 @@ class PatternMatcher {
 }
 
 class MayaDate extends LinkedListElement {
-  constructor (raw, younger_sibling) {
+  constructor (raw, younger_sibling, correlation_constant) {
     super(younger_sibling)
     this.parse(raw)
-    this.correlation_constant = 584283
+    this.correlation_constant = correlation_constant
   }
 
   parse (raw_string) {
@@ -227,7 +227,7 @@ class MayaDate extends LinkedListElement {
   }
 
   get julianDay () {
-    return this.correlation_constant + this.total_k_in()
+    return this.correlation_constant.value + this.total_k_in()
   }
 
   get gregorian () {
@@ -279,7 +279,7 @@ class LongCountFactory extends Factory {
     return is_partial_lc || is_partial_cr
   }
 
-  partial_match (long_count_parts, partial_cr) {
+  partial_match (long_count_parts, partial_cr, correlation_constant) {
     let potentials = []
     let last_expanders = [long_count_parts.slice()]
     let expanders = last_expanders
@@ -293,6 +293,7 @@ class LongCountFactory extends Factory {
           for (let k = 0; k < last_expanders.length; k++) {
             let new_num = last_expanders[k].slice()
             new_num[i] = `${j + 1}`
+            new_num[i] = `${j + 1}`
             expanders.push(new_num)
           }
         }
@@ -302,6 +303,8 @@ class LongCountFactory extends Factory {
     for (let j = 0; j < expanders.length; j++) {
       let new_lc = new LongCount(
         expanders[j].reverse().join('.'),
+        undefined,
+        correlation_constant,
       )
       if (partial_cr === undefined) {
         potentials.push(new_lc)
@@ -320,7 +323,7 @@ class LongCountFactory extends Factory {
 }
 
 class PartialLongCount {
-  constructor (raw) {
+  constructor (raw, correlation_constant) {
     let parts = raw.split(' ')
     let long_count = parts[0].split('.')
     let partial_cr = undefined
@@ -333,6 +336,7 @@ class PartialLongCount {
     this.potentials = new LongCountFactory().partial_match(
       long_count.reverse(),
       partial_cr,
+      correlation_constant,
     )
   }
 
@@ -373,8 +377,8 @@ class PartialLongCount {
 
 class LongCount extends MayaDate {
 
-  constructor (raw, younger_sibling) {
-    super(raw, younger_sibling)
+  constructor (raw, younger_sibling, correlation_constant) {
+    super(raw, younger_sibling, correlation_constant)
     this.date_pattern = /(\d+\.?)+/
   }
 
@@ -408,8 +412,8 @@ class LongCount extends MayaDate {
 }
 
 class DistanceNumber extends MayaDate {
-  constructor (raw, younger_sibling) {
-    super(raw, younger_sibling)
+  constructor (raw, younger_sibling, correlation_constant) {
+    super(raw, younger_sibling, correlation_constant)
     if (raw.length > 1) {
       this.sign = (raw[0] === '+') ? 1 : -1
     }
@@ -781,14 +785,24 @@ class CorrelationConstant {
   }
 
   get value () {
+    let val
     if (this.has_store_value) {
-      return this.store_value
+      val = this.store_value
+    } else {
+      val = this.menu_val
     }
-    return this.menu_val
+    val = +val
+    if (!isNaN(val)) {
+      val = parseInt(val)
+    }
+    return val
   }
 
   set value (new_val) {
-    localStorage.setItem(this.id, new_val)
+    new_val = +new_val
+    if (!isNaN(new_val)) {
+      localStorage.setItem(this.id, new_val)
+    }
   }
 
   get menu_value () {
