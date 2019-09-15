@@ -1,10 +1,12 @@
 var model = require('./model.js')
+var DateTime = luxon.DateTime
 
 class MayaCalculator {
-  constructor () {
+  constructor (correlation_constant) {
     this.operands = []
     this.current_raw_line = ''
     this.ledger = []
+    this.correlation_constant = correlation_constant
   }
 
   evaluate (raw_input) {
@@ -49,7 +51,10 @@ class MayaCalculator {
         | this.current_raw_line[0] === '+',
       )) {
         operand = new model.DistanceNumber(this.current_raw_line,
-          younger_sibling)
+          younger_sibling, this.correlation_constant)
+      } else if (lcf.is_partial(this.current_raw_line)) {
+        operand = new model.PartialLongCount(this.current_raw_line,
+          this.correlation_constant)
       } else if (crf.is_partial(this.current_raw_line)) {
         operand = new model.PartialCalendarRound(this.current_raw_line)
       } else if (lcf.is_partial(this.current_raw_line)) {
@@ -58,10 +63,10 @@ class MayaCalculator {
         this.current_raw_line[0] === '#',
       )) {
         operand = new model.Comment(this.current_raw_line,
-          younger_sibling)
+          younger_sibling, this.correlation_constant)
       } else {
         operand = new model.LongCount(this.current_raw_line,
-          younger_sibling).normalise()
+          younger_sibling, this.correlation_constant).normalise()
       }
 
       this.operands.push(operand)
@@ -85,20 +90,25 @@ class MayaCalculator {
 }
 
 $(document).ready(function () {
-  const calculator = new MayaCalculator()
+
+  const corr = new model.CorrelationConstant()
+  const calculator = new MayaCalculator(corr)
   let input = $('#calendar_input')
   let output = $('#longcount_output')
+  let corr_const = $('#' + corr.id)
+
   let evaluate = function (raw_calculations) {
     let results = calculator.evaluate(raw_calculations)
 
     output.html($.merge(
       $(`<tr>
-                <th>C. Round</th>
-                <th>Pos.</th>
-                <th>Long Count</th>
-                <th>Night</th>
-                <th class="left_align">Annotation</th>
-            </tr>`),
+            <th>C. Round</th>
+            <th>Pos.</th>
+            <th>Long Count</th>
+            <th>Gregorian</th>
+            <th>Night</th>
+            <th class="left_align">Annotation</th>
+        </tr>`),
       results,
     ))
 
@@ -132,7 +142,12 @@ $(document).ready(function () {
       let raw_calculations = input.val().trim()
       evaluate(raw_calculations)
       window.location.hash = '#' + btoa(raw_calculations)
-      clearTimeout(run_event)
     }, 500)
+  })
+
+  corr.refresh()
+  corr_const.change(function (e) {
+    corr.value = $(e.target).val()
+    input.trigger('keyup')
   })
 })
