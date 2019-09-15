@@ -689,4 +689,5 @@ module.exports = {
   LongCount: LongCount,
   LongCountFactory: LongCountFactory,
   PartialCalendarRound: PartialCalendarRound,
-  PartialLongCount: PartialLongCount,}
+  PartialLongCount: PartialLongCount,
+}

@@ -51,10 +51,10 @@ class MayaCalculator {
       )) {
         operand = new model.DistanceNumber(this.current_raw_line,
           younger_sibling)
-      } else if (lcf.is_partial(this.current_raw_line)) {
-        operand = new model.PartialLongCount(this.current_raw_line)
       } else if (crf.is_partial(this.current_raw_line)) {
         operand = new model.PartialCalendarRound(this.current_raw_line)
+      } else if (lcf.is_partial(this.current_raw_line)) {
+        operand = new model.PartialLongCount(this.current_raw_line)
       } else if (Boolean(
         this.current_raw_line[0] === '#',
       )) {
@@ -116,6 +116,15 @@ $(document).ready(function () {
     input.html(saved_calculation)
     evaluate(saved_calculation)
   }
+
+  // $(window).on('hashchange', function (e) {
+  //   let saved_calculation_raw = window.location.hash.replace('#', '')
+  //   if (saved_calculation_raw.length > 0) {
+  //     let saved_calculation = atob(saved_calculation_raw)
+  //     input.html(saved_calculation)
+  //     evaluate(saved_calculation)
+  //   }
+  // })
 
   let run_event
   input.keyup(function (event) {
@@ -821,6 +830,7 @@ module.exports = {
   LongCount: LongCount,
   LongCountFactory: LongCountFactory,
   PartialCalendarRound: PartialCalendarRound,
-  PartialLongCount: PartialLongCount,}
+  PartialLongCount: PartialLongCount,
+}
 
 },{}]},{},[1]);
