@@ -1,3 +1,5 @@
+var moonbeams = require('moonbeams')
+
 class LinkedListElement {
   constructor (younger_sibling) {
     this.younger_sibling = younger_sibling
@@ -14,10 +16,49 @@ class LinkedListElement {
   }
 }
 
+class PatternMatcher {
+  constructor (value) {
+    this.value = value
+    this.cr_pattern = /\d+\s?['a-zA-Z]+\s\d+\s?['a-zA-Z]+/g
+    this.lc_pattern = /(?:[*\w]+\.)(?:[*\w]+\.?)+/g
+  }
+
+  get has_calendar_round () {
+    return this.match(this.cr_pattern)
+  }
+
+  get has_long_count () {
+    return this.match(this.lc_pattern)
+  }
+
+  match (pattern) {
+    return Boolean(this.value.match(pattern))
+  }
+
+  get long_count () {
+    let matches = this.value.match(
+      this.lc_pattern,
+    )
+    if (matches) {
+      return matches[0].trim()
+    }
+  }
+
+  get calendar_round () {
+    let matches = this.value.match(
+      this.cr_pattern,
+    )
+    if (matches) {
+      return matches[0].trim()
+    }
+  }
+}
+
 class MayaDate extends LinkedListElement {
-  constructor (raw, younger_sibling) {
+  constructor (raw, younger_sibling, correlation_constant) {
     super(younger_sibling)
     this.parse(raw)
+    this.correlation_constant = correlation_constant
   }
 
   parse (raw_string) {
@@ -184,6 +225,21 @@ class MayaDate extends LinkedListElement {
     }
     return significant_digits.join('.')
   }
+
+  get julianDay () {
+    return this.correlation_constant.value + this.total_k_in()
+  }
+
+  get gregorian () {
+    let gd = moonbeams.jdToCalendar(this.julianDay)
+    let gdYear = gd.year
+    let era = 'CE'
+    if (gdYear < 0) {
+      era = 'BCE'
+      gdYear = Math.abs(gdYear + 1)
+    }
+    return `${Math.floor(gd.day)}/${gd.month}/${gdYear} ${era}`
+  }
 }
 
 class Factory {
@@ -206,28 +262,24 @@ class Factory {
 class LongCountFactory extends Factory {
   constructor () {
     super()
-    this.pattern = /^(\s?\d+\.?)+$/g
   }
 
   is_partial (raw) {
-    let parts = raw.split(' ')
-    if (parts.length === 0) {
-      return false
+    let pm = new PatternMatcher(raw)
+    let is_partial_cr = false, is_partial_lc = false
+
+    if (pm.has_long_count) {
+      is_partial_lc = pm.long_count.includes('*')
     }
-    let long_count = parts[0]
-    let is_partial_cr = false
-    if (parts.length > 1) {
-      is_partial_cr = new CalendarRoundFactory().is_partial(
-        parts.slice(1).join(' '),
-      )
-    } else {
-      long_count = parts[0]
+
+    if (pm.has_calendar_round) {
+      is_partial_cr = pm.calendar_round.includes('*')
     }
-    let is_partial_lc = long_count.split('.').includes('*')
+
     return is_partial_lc || is_partial_cr
   }
 
-  partial_match (long_count_parts, partial_cr) {
+  partial_match (long_count_parts, partial_cr, correlation_constant) {
     let potentials = []
     let last_expanders = [long_count_parts.slice()]
     let expanders = last_expanders
@@ -241,6 +293,7 @@ class LongCountFactory extends Factory {
           for (let k = 0; k < last_expanders.length; k++) {
             let new_num = last_expanders[k].slice()
             new_num[i] = `${j + 1}`
+            new_num[i] = `${j + 1}`
             expanders.push(new_num)
           }
         }
@@ -250,6 +303,8 @@ class LongCountFactory extends Factory {
     for (let j = 0; j < expanders.length; j++) {
       let new_lc = new LongCount(
         expanders[j].reverse().join('.'),
+        undefined,
+        correlation_constant,
       )
       if (partial_cr === undefined) {
         potentials.push(new_lc)
@@ -268,7 +323,7 @@ class LongCountFactory extends Factory {
 }
 
 class PartialLongCount {
-  constructor (raw) {
+  constructor (raw, correlation_constant) {
     let parts = raw.split(' ')
     let long_count = parts[0].split('.')
     let partial_cr = undefined
@@ -281,6 +336,7 @@ class PartialLongCount {
     this.potentials = new LongCountFactory().partial_match(
       long_count.reverse(),
       partial_cr,
+      correlation_constant,
     )
   }
 
@@ -296,6 +352,7 @@ class PartialLongCount {
                 ${lc.calendar_round.total_days}
             </td>
             <td class="long_count">${lc}</td>
+            <td class="gregorian">${lc.gregorian}</td>
             <td class="lord_of_night">${lc.lord_of_night}</td>
             <td class="comment"></td>
         </tr>
@@ -320,8 +377,8 @@ class PartialLongCount {
 
 class LongCount extends MayaDate {
 
-  constructor (raw, younger_sibling) {
-    super(raw, younger_sibling)
+  constructor (raw, younger_sibling, correlation_constant) {
+    super(raw, younger_sibling, correlation_constant)
     this.date_pattern = /(\d+\.?)+/
   }
 
@@ -346,6 +403,7 @@ class LongCount extends MayaDate {
             <td class="long_count">
                 ${this.toString()}
             </td>
+            <td class="gregorian">${this.gregorian}</td>
             <td class="lord_of_night">${this.lord_of_night}</td>
             <td class="comment">${this.comment}</td>
         </tr>
@@ -354,8 +412,8 @@ class LongCount extends MayaDate {
 }
 
 class DistanceNumber extends MayaDate {
-  constructor (raw, younger_sibling) {
-    super(raw, younger_sibling)
+  constructor (raw, younger_sibling, correlation_constant) {
+    super(raw, younger_sibling, correlation_constant)
     if (raw.length > 1) {
       this.sign = (raw[0] === '+') ? 1 : -1
     }
@@ -386,6 +444,7 @@ class DistanceNumber extends MayaDate {
             <td class="distance_number">
                 ${distance_string}
             </td>
+            <td class="gregorian">${this.gregorian}</td>
             <td class="lord_of_night"></td>
             <td class="comment">${this.comment}</td>
         </tr>
@@ -395,6 +454,7 @@ class DistanceNumber extends MayaDate {
             <td class="long_count">
                 ${'-'.repeat(separator_length)}
             </td>
+            <td class="gregorian">${this.gregorian}</td>
             <td class="lord_of_night"></td>
             <td class="comment"></td>
         </tr>`,
@@ -412,7 +472,7 @@ class Comment extends LinkedListElement {
     return $(`
         <tr class="data-row">
             <td class="calendar_round"></td>
-            <td class="comment" colspan="4">
+            <td class="comment" colspan="5">
                 <span class="comment">
                     ${this.comment}
                 </span>
@@ -448,8 +508,9 @@ class CalendarRoundFactory extends Factory {
   }
 
   is_partial (raw) {
-    let parts = this.split(raw)
-    return parts.includes('*')
+    let pm = new PatternMatcher(raw)
+    return (pm.has_calendar_round) ?
+      pm.calendar_round.includes('*') : false
   }
 
   /*
@@ -563,6 +624,7 @@ class PartialCalendarRound {
                 ${cr.total_days}
             </td>
             <td class="long_count"></td>
+            <td class="gregorian"></td>
             <td class="lord_of_night"></td>
             <td class="comment"></td>
         </tr>
@@ -647,10 +709,7 @@ class CalendarRound {
 
   get tzolk_in_coeff () {
     let coeff = (4 + this.total_days) % 13
-    if (coeff === 0) {
-      coeff = 13
-    }
-    return coeff
+    return (coeff === 0) ? 13 : coeff
   }
 
   get tzolk_in () {
@@ -662,13 +721,35 @@ class CalendarRound {
   }
 
   get haab_coeff () {
-    let day_in_haab = (this.total_days - 17) % 365
-    return day_in_haab % 20
+    return this.day_in_haab % 20
+  }
+
+  get day_in_haab () {
+    let day_in_haab
+    if (this.total_days < 17) {
+      day_in_haab = 8 + this.total_days
+    } else {
+      day_in_haab = (this.total_days - 17) % 365
+    }
+    return day_in_haab
   }
 
   get haab_month () {
-    let day_in_haab = (this.total_days - 17) % 365
-    return this.haab_lookup[Math.ceil(day_in_haab / 20)]
+    let haab_index
+    if (this.total_days < 18) {
+      if (this.total_days < 12) {
+        haab_index = 18
+      } else if (this.total_days < 17) {
+        haab_index = 19
+      }
+    } else {
+      haab_index = Math.ceil(this.day_in_haab / 20)
+    }
+    if (this.haab_coeff === 0) {
+      haab_index = haab_index % 19 + 1
+      haab_index = (haab_index === 0) ? 1 : haab_index
+    }
+    return this.haab_lookup[haab_index]
   }
 
   get haab () {
@@ -678,6 +759,90 @@ class CalendarRound {
   toString () {
     return this.tzolk_in + ' ' + this.haab + ' '
   }
+}
+
+class CorrelationConstant {
+  constructor () {
+    this.id = 'correlation_constant'
+    this.default = 584283
+  }
+
+  get has_store_value () {
+    return Boolean(this.store_value)
+  }
+
+  get store_value () {
+    let val = localStorage.getItem(this.id)
+    if (val === 'undefined') {
+      localStorage.removeItem(this.id)
+      val = undefined
+    }
+    return val
+  }
+
+  set store_value (new_val) {
+    return localStorage.setItem(this.id, new_val)
+  }
+
+  get has_session_value () {
+    return Boolean(this.session_value)
+  }
+
+  get session_value () {
+    let val = sessionStorage.getItem(this.id)
+    if (val === 'undefined') {
+      sessionStorage.removeItem(this.id)
+      val = undefined
+    }
+    return val
+  }
+
+  set session_value (new_val) {
+    return sessionStorage.setItem(this.id, new_val)
+  }
+
+  get value () {
+    let val
+    if (this.has_session_value) {
+      val = this.session_value
+    } else if (this.has_store_value) {
+      val = this.store_value
+    } else {
+      val = this.menu_val
+    }
+    val = +val
+    if (!isNaN(val)) {
+      val = parseInt(val)
+    }
+    return val
+  }
+
+  set value (new_val) {
+    new_val = +new_val
+    if (!isNaN(new_val)) {
+      this.store_value = new_val
+      this.session_value = new_val
+    }
+  }
+
+  get menu_value () {
+    return $('#' + this.id).val()
+  }
+
+  set menu_value (new_val) {
+    $('#' + this.id).val(new_val)
+  }
+
+  refresh () {
+    if (this.has_session_value) {
+      this.menu_value = this.session_value
+    } else if (this.has_store_value) {
+      this.menu_value = this.store_value
+    } else {
+      this.menu_value = this.default
+    }
+  }
+
 }
 
 module.exports = {
@@ -690,4 +855,6 @@ module.exports = {
   LongCountFactory: LongCountFactory,
   PartialCalendarRound: PartialCalendarRound,
   PartialLongCount: PartialLongCount,
+  PatternMatcher: PatternMatcher,
+  CorrelationConstant: CorrelationConstant,
 }
