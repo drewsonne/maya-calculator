@@ -784,9 +784,28 @@ class CorrelationConstant {
     return localStorage.setItem(this.id, new_val)
   }
 
+  get has_session_value () {
+    return Boolean(this.session_value)
+  }
+
+  get session_value () {
+    let val = sessionStorage.getItem(this.id)
+    if (val === 'undefined') {
+      sessionStorage.removeItem(this.id)
+      val = undefined
+    }
+    return val
+  }
+
+  set session_value (new_val) {
+    return sessionStorage.setItem(this.id, new_val)
+  }
+
   get value () {
     let val
-    if (this.has_store_value) {
+    if (this.has_session_value) {
+      val = this.session_value
+    } else if (this.has_store_value) {
       val = this.store_value
     } else {
       val = this.menu_val
@@ -801,7 +820,8 @@ class CorrelationConstant {
   set value (new_val) {
     new_val = +new_val
     if (!isNaN(new_val)) {
-      localStorage.setItem(this.id, new_val)
+      this.store_value = new_val
+      this.session_value = new_val
     }
   }
 
@@ -814,10 +834,13 @@ class CorrelationConstant {
   }
 
   refresh () {
-    this.menu_value =
-      this.has_store_value ?
-        this.store_value :
-        this.default
+    if (this.has_session_value) {
+      this.menu_value = this.session_value
+    } else if (this.has_store_value) {
+      this.menu_value = this.store_value
+    } else {
+      this.menu_value = this.default
+    }
   }
 
 }
