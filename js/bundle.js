@@ -143,6 +143,7 @@ $(document).ready(function () {
       let raw_calculations = input.val().trim()
       evaluate(raw_calculations)
       window.location.hash = '#' + btoa(raw_calculations)
+      clearTimeout(run_event)
     }, 500)
   })
 
