@@ -24,8 +24,8 @@ class MayaDate extends LinkedListElement {
     let parts = raw_string.split('#')
     if (parts.length > 0) {
       let lc = parts[0].trim()
-      lc = lc.split(' ')[0]
-      this.raw = lc.replace(/[^\d.]+/, '').replace(/[.+]$/, '')
+      lc = lc.split(' ')[0].replace(/[^\d.]+/, '')
+      this.raw = lc.replace(/[.+]$/, '')
       this.parts = lc.split('.').reverse()
     }
     this.comment = (parts.length > 1) ? parts[1] : ''
@@ -689,4 +689,5 @@ module.exports = {
   LongCount: LongCount,
   LongCountFactory: LongCountFactory,
   PartialCalendarRound: PartialCalendarRound,
-  PartialLongCount: PartialLongCount,}
+  PartialLongCount: PartialLongCount,
+}
