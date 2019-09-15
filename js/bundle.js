@@ -965,7 +965,7 @@ class CorrelationConstant {
     } else if (this.has_store_value) {
       val = this.store_value
     } else {
-      val = this.menu_val
+      val = this.menu_value
     }
     val = +val
     if (!isNaN(val)) {
