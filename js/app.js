@@ -97,6 +97,7 @@ $(document).ready(function () {
                 <th>C. Round</th>
                 <th>Pos.</th>
                 <th>Long Count</th>
+                <th>Gregorian</th>
                 <th>Night</th>
                 <th class="left_align">Annotation</th>
             </tr>`),
@@ -132,8 +133,11 @@ $(document).ready(function () {
 $(document).ready(function () {
 
   const calculator = new MayaCalculator()
+  const corr = new model.CorrelationConstant()
   let input = $('#calendar_input')
   let output = $('#longcount_output')
+  let corr_const = $('#' + corr.id)
+
   let evaluate = function (raw_calculations) {
     let results = calculator.evaluate(raw_calculations)
 
@@ -142,7 +146,7 @@ $(document).ready(function () {
             <th>C. Round</th>
             <th>Pos.</th>
             <th>Long Count</th>
-            <th>Julian</th>
+            <th>Gregorian</th>
             <th>Night</th>
             <th class="left_align">Annotation</th>
         </tr>`),
@@ -171,5 +175,10 @@ $(document).ready(function () {
       evaluate(raw_calculations)
       window.location.hash = '#' + btoa(raw_calculations)
     }, 500)
+  })
+
+  corr.refresh()
+  corr_const.change(function (e) {
+    corr.value = $(e.target).val()
   })
 })

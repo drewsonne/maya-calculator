@@ -98,6 +98,7 @@ $(document).ready(function () {
                 <th>C. Round</th>
                 <th>Pos.</th>
                 <th>Long Count</th>
+                <th>Gregorian</th>
                 <th>Night</th>
                 <th class="left_align">Annotation</th>
             </tr>`),
@@ -133,8 +134,11 @@ $(document).ready(function () {
 $(document).ready(function () {
 
   const calculator = new MayaCalculator()
+  const corr = new model.CorrelationConstant()
   let input = $('#calendar_input')
   let output = $('#longcount_output')
+  let corr_const = $('#' + corr.id)
+
   let evaluate = function (raw_calculations) {
     let results = calculator.evaluate(raw_calculations)
 
@@ -143,7 +147,7 @@ $(document).ready(function () {
             <th>C. Round</th>
             <th>Pos.</th>
             <th>Long Count</th>
-            <th>Julian</th>
+            <th>Gregorian</th>
             <th>Night</th>
             <th class="left_align">Annotation</th>
         </tr>`),
@@ -172,6 +176,11 @@ $(document).ready(function () {
       evaluate(raw_calculations)
       window.location.hash = '#' + btoa(raw_calculations)
     }, 500)
+  })
+
+  corr.refresh()
+  corr_const.change(function (e) {
+    corr.value = $(e.target).val()
   })
 })
 
@@ -408,15 +417,15 @@ class MayaDate extends LinkedListElement {
     return this.correlation_constant + this.total_k_in()
   }
 
-  get julian () {
-    let jd = moonbeams.jdToCalendar(this.julianDay)
-    let jdYear = jd.year
+  get gregorian () {
+    let gd = moonbeams.jdToCalendar(this.julianDay)
+    let gdYear = gd.year
     let era = 'CE'
-    if (jdYear < 0) {
+    if (gdYear < 0) {
       era = 'BCE'
-      jdYear = Math.abs(jdYear+1)
+      gdYear = Math.abs(gdYear + 1)
     }
-    return `${Math.floor(jd.day)}/${jd.month}/${jdYear} ${era} (${this.julianDay})`
+    return `${Math.floor(gd.day)}/${gd.month}/${gdYear} ${era}`
   }
 }
 
@@ -526,7 +535,7 @@ class PartialLongCount {
                 ${lc.calendar_round.total_days}
             </td>
             <td class="long_count">${lc}</td>
-            <td class="julian">${lc.julian}</td>
+            <td class="gregorian">${lc.gregorian}</td>
             <td class="lord_of_night">${lc.lord_of_night}</td>
             <td class="comment"></td>
         </tr>
@@ -577,7 +586,7 @@ class LongCount extends MayaDate {
             <td class="long_count">
                 ${this.toString()}
             </td>
-            <td class="julian">${this.julian}</td>
+            <td class="gregorian">${this.gregorian}</td>
             <td class="lord_of_night">${this.lord_of_night}</td>
             <td class="comment">${this.comment}</td>
         </tr>
@@ -618,7 +627,7 @@ class DistanceNumber extends MayaDate {
             <td class="distance_number">
                 ${distance_string}
             </td>
-            <td class="julian">${this.julian}</td>
+            <td class="gregorian">${this.gregorian}</td>
             <td class="lord_of_night"></td>
             <td class="comment">${this.comment}</td>
         </tr>
@@ -628,7 +637,7 @@ class DistanceNumber extends MayaDate {
             <td class="long_count">
                 ${'-'.repeat(separator_length)}
             </td>
-            <td class="julian">${this.julian}</td>
+            <td class="gregorian">${this.gregorian}</td>
             <td class="lord_of_night"></td>
             <td class="comment"></td>
         </tr>`,
@@ -798,7 +807,7 @@ class PartialCalendarRound {
                 ${cr.total_days}
             </td>
             <td class="long_count"></td>
-            <td class="julian"></td>
+            <td class="gregorian"></td>
             <td class="lord_of_night"></td>
             <td class="comment"></td>
         </tr>
@@ -935,6 +944,57 @@ class CalendarRound {
   }
 }
 
+class CorrelationConstant {
+  constructor () {
+    this.id = 'correlation_constant'
+    this.default = 584283
+  }
+
+  get has_store_value () {
+    return Boolean(this.store_value)
+  }
+
+  get store_value () {
+    let val = localStorage.getItem(this.id)
+    if (val === 'undefined') {
+      localStorage.removeItem(this.id)
+      val = undefined
+    }
+    return val
+  }
+
+  set store_value (new_val) {
+    return localStorage.setItem(this.id, new_val)
+  }
+
+  get value () {
+    if (this.has_store_value) {
+      return this.store_value
+    }
+    return this.menu_val
+  }
+
+  set value (new_val) {
+    localStorage.setItem(this.id, new_val)
+  }
+
+  get menu_value () {
+    return $('#' + this.id).val()
+  }
+
+  set menu_value (new_val) {
+    $('#' + this.id).val(new_val)
+  }
+
+  refresh () {
+    this.menu_value =
+      this.has_store_value ?
+        this.store_value :
+        this.default
+  }
+
+}
+
 module.exports = {
   CalendarRound: CalendarRound,
   CalendarRoundFactory: CalendarRoundFactory,
@@ -946,6 +1006,7 @@ module.exports = {
   PartialCalendarRound: PartialCalendarRound,
   PartialLongCount: PartialLongCount,
   PatternMatcher: PatternMatcher,
+  CorrelationConstant: CorrelationConstant,
 }
 
 },{"moonbeams":3}],3:[function(require,module,exports){
