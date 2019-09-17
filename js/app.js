@@ -57,8 +57,6 @@ class MayaCalculator {
           this.correlation_constant)
       } else if (crf.is_partial(this.current_raw_line)) {
         operand = new model.PartialCalendarRound(this.current_raw_line)
-      } else if (lcf.is_partial(this.current_raw_line)) {
-        operand = new model.PartialLongCount(this.current_raw_line)
       } else if (Boolean(
         this.current_raw_line[0] === '#',
       )) {
