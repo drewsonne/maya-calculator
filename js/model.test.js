@@ -108,6 +108,7 @@ test('partial match calendar-round', () => {
 test('partial match long-count', () => {
   let parser = new model.LongCountFactory()
   expect(parser.is_partial('13.*.*.14.13')).toBeTruthy()
+  expect(parser.is_partial('6 Imix * K\'ank\'in')).toBeFalsy()
 })
 
 describe('maya date pattern-matcher', () => {

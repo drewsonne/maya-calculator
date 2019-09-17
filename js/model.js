@@ -276,7 +276,7 @@ class LongCountFactory extends Factory {
       is_partial_cr = pm.calendar_round.includes('*')
     }
 
-    return is_partial_lc || is_partial_cr
+    return is_partial_lc || is_partial_lc && is_partial_cr
   }
 
   partial_match (long_count_parts, partial_cr, correlation_constant) {
