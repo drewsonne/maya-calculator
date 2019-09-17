@@ -42,18 +42,19 @@ test('magnitude of long-count', () => {
   expect(date.total_k_in()).toBe(21)
 })
 
-test('parse calendar-round', () => {
+describe('parse calendar-round', () => {
   let sources = [
     '2 Ak\'bal 6 Muwan',
     '2 Ak\'bal 6Muwan',
     '2Ak\'bal 6 Muwan',
     '2Ak\'bal 6Muwan']
   let parser = new model.CalendarRoundFactory()
-  for (let i = 0; i < sources.length; i++) {
-    let cr = parser.parse(sources[i])
-    expect(cr.toString()).toBe(
-      '2 Ak\'bal 6 Muwan ')
-  }
+  test.each(sources)(
+    '%s',
+    (source) => {
+      let cr = parser.parse(source)
+      expect(cr.toString().trim()).toBe('2 Ak\'bal 6 Muwan')
+    })
 })
 
 test('parse components calendar-round', () => {
@@ -66,36 +67,26 @@ test('parse components calendar-round', () => {
   expect(cr.total_days).toBe(100)
 })
 
-test('split calendar-round', () => {
+describe('split calendar-round', () => {
   let crs = [
-    '6 Imix 4K\'ank\'in',
-    '13 Ajaw 3Sek',
-    '2 Ak\'bal 6 Muwan ',
-    '* Imix 4K\'ank\'in',
-    '13 * 3Sek',
-    '2 Ak\'bal * Muwan ',
-    '13 Ajaw 3*',
-  ]
-
-  let expected = [
-    ['6', 'Imix', '4', 'K\'ank\'in'],
-    ['13', 'Ajaw', '3', 'Sek'],
-    ['2', 'Ak\'bal', '6', 'Muwan'],
-    ['*', 'Imix', '4', 'K\'ank\'in'],
-    ['13', '*', '3', 'Sek'],
-    ['2', 'Ak\'bal', '*', 'Muwan'],
-    ['13', 'Ajaw', '3', '*'],
+    ['6 Imix 4K\'ank\'in', ['6', 'Imix', '4', 'K\'ank\'in']],
+    ['13 Ajaw 3Sek', ['13', 'Ajaw', '3', 'Sek']],
+    ['2 Ak\'bal 6 Muwan', ['2', 'Ak\'bal', '6', 'Muwan']],
+    ['* Imix 4K\'ank\'in', ['*', 'Imix', '4', 'K\'ank\'in']],
+    ['13 * 3Sek', ['13', '*', '3', 'Sek']],
+    ['2 Ak\'bal * Muwan', ['2', 'Ak\'bal', '*', 'Muwan']],
+    ['13 Ajaw 3*', ['13', 'Ajaw', '3', '*']],
   ]
 
   let parser = new model.CalendarRoundFactory()
-  for (let i = 0; i < crs.length; i++) {
-    let cr = crs[i]
-    let parts = parser.split(cr)
-    let expected_parts = expected[i]
-    for (let j = 0; j < expected_parts.length; j++) {
-      expect(parts[j]).toBe(expected_parts[j])
-    }
-  }
+  test.each(crs)(
+    '%s -> (%s)',
+    (cr, expected_parts) => {
+      let parts = parser.split(cr)
+      for (let j = 0; j < expected_parts.length; j++) {
+        expect(parts[j]).toBe(expected_parts[j])
+      }
+    })
 })
 
 test('partial match calendar-round', () => {
@@ -108,7 +99,7 @@ test('partial match calendar-round', () => {
     expect(potential.tzolk_in_coeff).toBe(13)
     expect(potential.haab_coeff).toBe(3)
     expect(potential.haab_month).toBe('Sek')
-    tzolk_ins.push(potential.tz)
+    tzolk_ins.push(potential.tzolk_in)
   }
 
   expect(tzolk_ins.length).toBe(new Set(tzolk_ins).size)
@@ -213,7 +204,7 @@ describe('maya to gregorian/julian', () => {
     ['13.1.1.1.1', '23/9/2033 CE', 2463864],
     ['12.1.1.1.1', '21/6/1639 CE', 2319864],
     ['11.1.1.1.1', '18/3/1245 CE', 2175864],
-    ['10.1.1.1.1', '14/12/850 CE',  2031864],
+    ['10.1.1.1.1', '14/12/850 CE', 2031864],
     ['9.1.1.1.1', '10/9/456 CE', 1887864],
     ['8.1.1.1.1', '8/6/62 CE', 1743864],
     ['7.1.1.1.1', '5/3/333 BCE', 1599864],
@@ -221,7 +212,7 @@ describe('maya to gregorian/julian', () => {
     ['5.1.1.1.1', '29/8/1122 BCE', 1311864],
     ['4.1.1.1.1', '26/5/1516 BCE', 1167864],
     ['3.1.1.1.1', '21/2/1910 BCE', 1023864],
-    ['2.1.1.1.1', '29/8/1122 BCE',  879864],
+    ['2.1.1.1.1', '29/8/1122 BCE', 879864],
     ['1.1.1.1.1', '26/5/1516 BCE', 735864],
     ['0.1.1.1.1', '21/2/1910 BCE', 591864],
   ]
