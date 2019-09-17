@@ -58,8 +58,6 @@ class MayaCalculator {
           this.correlation_constant)
       } else if (crf.is_partial(this.current_raw_line)) {
         operand = new model.PartialCalendarRound(this.current_raw_line)
-      } else if (lcf.is_partial(this.current_raw_line)) {
-        operand = new model.PartialLongCount(this.current_raw_line)
       } else if (Boolean(
         this.current_raw_line[0] === '#',
       )) {
@@ -433,7 +431,7 @@ class LongCountFactory extends Factory {
       is_partial_cr = pm.calendar_round.includes('*')
     }
 
-    return is_partial_lc || is_partial_cr
+    return is_partial_lc || is_partial_lc && is_partial_cr
   }
 
   partial_match (long_count_parts, partial_cr, correlation_constant) {
