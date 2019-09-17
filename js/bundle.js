@@ -176,7 +176,7 @@ class LinkedListElement {
 class PatternMatcher {
   constructor (value) {
     this.value = value
-    this.cr_pattern = /\d+\s?['a-zA-Z]+\s\d+\s?['a-zA-Z]+/g
+    this.cr_pattern = /[\d*]+\s?[*'a-zA-Z]+\s[\d*]+\s?[*'a-zA-Z]+/g
     this.lc_pattern = /(?:[*\w]+\.)(?:[*\w]+\.?)+/g
   }
 
