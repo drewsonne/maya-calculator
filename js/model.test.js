@@ -207,3 +207,34 @@ test('small lcs', () => {
     new model.LongCount('20').calendar_round.toString(),
   ).toBe('11 Ajaw 3 Pop ')
 })
+
+describe('maya to gregorian/julian', () => {
+  let dates = [
+    ['13.1.1.1.1', '23/9/2033 CE', 2463864],
+    ['12.1.1.1.1', '21/6/1639 CE', 2319864],
+    ['11.1.1.1.1', '18/3/1245 CE', 2175864],
+    ['10.1.1.1.1', '14/12/850 CE',  2031864],
+    ['9.1.1.1.1', '10/9/456 CE', 1887864],
+    ['8.1.1.1.1', '8/6/62 CE', 1743864],
+    ['7.1.1.1.1', '5/3/333 BCE', 1599864],
+    ['6.1.1.1.1', '1/12/728 BCE', 1455864],
+    ['5.1.1.1.1', '29/8/1122 BCE', 1311864],
+    ['4.1.1.1.1', '26/5/1516 BCE', 1167864],
+    ['3.1.1.1.1', '21/2/1910 BCE', 1023864],
+    ['2.1.1.1.1', '29/8/1122 BCE',  879864],
+    ['1.1.1.1.1', '26/5/1516 BCE', 735864],
+    ['0.1.1.1.1', '21/2/1910 BCE', 591864],
+  ]
+
+  let corr = new model.CorrelationConstant()
+  corr.setStatic(584283)
+
+  test.each(dates)(
+    '%s -> %s (%s)',
+    (lc_raw, date, julian) => {
+      let lc = new model.LongCount(lc_raw, undefined, corr)
+      // expect(lc.gregorian).toBe(date)
+      expect(lc.julianDay).toBe(julian)
+    },
+  )
+})
