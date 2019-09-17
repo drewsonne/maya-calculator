@@ -922,6 +922,11 @@ class CorrelationConstant {
   constructor () {
     this.id = 'correlation_constant'
     this.default = 584283
+    this.static = undefined
+  }
+
+  setStatic (new_val) {
+    this.static = new_val
   }
 
   get has_store_value () {
@@ -959,6 +964,10 @@ class CorrelationConstant {
   }
 
   get value () {
+    if (this.static !== undefined) {
+      return this.static
+    }
+
     let val
     if (this.has_session_value) {
       val = this.session_value
