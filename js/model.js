@@ -1,4 +1,5 @@
 var moonbeams = require('moonbeams')
+var moment = require('moment-timezone')
 
 class LinkedListElement {
   constructor (younger_sibling) {
@@ -854,6 +855,105 @@ class CorrelationConstant {
 
 }
 
+class DateMapping {
+  constructor (julian, gregorian, offset) {
+    let julianIsBCE = false
+    let julianParts = julian.split('-')
+    if (julian[0] === '-') {
+      julian = `${julianParts[1]}-${julianParts[2]}-${julianParts[3]}`
+      julianIsBCE = true
+    }
+
+    let gregorianIsBCE = false
+    let gregorianParts = gregorian.split('-')
+    if (gregorian[0] === '-') {
+      gregorian = `${gregorianParts[1]}-${gregorianParts[2]}-${gregorianParts[3]}`
+      gregorianIsBCE = true
+    }
+
+    this.julian = moment.tz(julian, 'UTC')
+    if (julianIsBCE) {
+      this.julian.year(-Math.abs(parseInt(julianParts[1])))
+    }
+
+    this.gregorian = moment.tz(gregorian, 'UTC')
+    if (gregorianIsBCE) {
+      this.julian.year(-Math.abs(parseInt(gregorianParts[1])))
+    }
+    this.offset = offset
+  }
+
+  check (index) {
+    if (index === 0) {
+      return this.julian
+    } else {
+      return this.gregorian
+    }
+  }
+}
+
+class GJDate {
+  constructor (date_string) {
+    const date_parts = date_string.split('-')
+    let isBCE = false
+    if (date_parts[0] === '-') {
+      date_string = `${date_parts[1]}-${date_parts[2]}-${date_parts[3]}`
+      isBCE = true
+    }
+
+    this._date = moment.tz(date_string, 'UTC')
+    if (isBCE) {
+      this._date.year(-Math.abs(parseInt(date_parts[1])))
+    }
+    this.mapping = [
+      new DateMapping('-500-03-05', '-500-02-28', -6),
+      new DateMapping('0100-02-29', '0100-02-27', -2),
+      new DateMapping('0100-03-02', '0100-03-01', -1),
+      new DateMapping('0200-02-28', '0200-02-27', -1),
+    ]
+    this._index = undefined
+    this._direction = undefined
+    this._other_class = undefined
+  }
+
+  switch () {
+    let foundDate = false
+    let e
+    for (e of this.mapping) {
+      if (this._date.isSameOrAfter(e.check(this._index))) {
+        foundDate = true
+        break
+      }
+    }
+    let offset_date = this._date.clone()
+    offset_date = offset_date.add(this._direction * e.offset, 'days')
+    return new this._other_class(offset_date.format('YYYY-MM-DD'))
+  }
+
+  format (date_format) {
+    return this._date.format(date_format)
+  }
+}
+
+class JDate extends GJDate {
+  constructor (date_string) {
+    super(date_string)
+    this._direction = 1
+    this._index = 0
+    this._other_class = GDate
+  }
+
+}
+
+class GDate extends GJDate {
+  constructor (date_string) {
+    super(date_string)
+    this._direction = -1
+    this._index = 1
+    this._other_class = JDate
+  }
+}
+
 module.exports = {
   CalendarRound: CalendarRound,
   CalendarRoundFactory: CalendarRoundFactory,
@@ -866,4 +966,6 @@ module.exports = {
   PartialLongCount: PartialLongCount,
   PatternMatcher: PatternMatcher,
   CorrelationConstant: CorrelationConstant,
+  GDate: GDate,
+  JDate: JDate,
 }
