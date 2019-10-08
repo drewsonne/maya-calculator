@@ -1,5 +1,6 @@
 var moonbeams = require('moonbeams')
 var moment = require('moment-timezone')
+var jDate = require('./jdate.js')
 
 class LinkedListElement {
   constructor (younger_sibling) {
@@ -241,6 +242,20 @@ class MayaDate extends LinkedListElement {
     }
     return `${Math.floor(gd.day)}/${gd.month}/${gdYear} ${era}`
   }
+
+  get julian () {
+    let jd = jDate.julianFromGregorian(
+      moonbeams.jdToCalendar(this.julianDay),
+    )
+    let jdYear = jd.year
+    let era = 'CE'
+    if (jdYear < 0) {
+      era = 'BCE'
+      jdYear = Math.abs(jdYear + 1)
+    }
+    return `${Math.floor(jd.day)}/${jd.month}/${jdYear} ${era}`
+
+  }
 }
 
 class Factory {
@@ -354,6 +369,7 @@ class PartialLongCount {
             </td>
             <td class="long_count">${lc}</td>
             <td class="gregorian">${lc.gregorian}</td>
+            <td class="julian">${lc.julian}</td>
             <td class="lord_of_night">${lc.lord_of_night}</td>
             <td class="comment"></td>
         </tr>
@@ -405,6 +421,7 @@ class LongCount extends MayaDate {
                 ${this.toString()}
             </td>
             <td class="gregorian">${this.gregorian}</td>
+            <td class="julian">${this.julian}</td>
             <td class="lord_of_night">${this.lord_of_night}</td>
             <td class="comment">${this.comment}</td>
         </tr>
@@ -446,6 +463,7 @@ class DistanceNumber extends MayaDate {
                 ${distance_string}
             </td>
             <td class="gregorian">${this.gregorian}</td>
+            <td class="julian">${this.julian}</td>
             <td class="lord_of_night"></td>
             <td class="comment">${this.comment}</td>
         </tr>
@@ -456,6 +474,7 @@ class DistanceNumber extends MayaDate {
                 ${'-'.repeat(separator_length)}
             </td>
             <td class="gregorian">${this.gregorian}</td>
+            <td class="julian">${this.julian}</td>
             <td class="lord_of_night"></td>
             <td class="comment"></td>
         </tr>`,
@@ -626,6 +645,7 @@ class PartialCalendarRound {
             </td>
             <td class="long_count"></td>
             <td class="gregorian"></td>
+            <td class="julian"></td>
             <td class="lord_of_night"></td>
             <td class="comment"></td>
         </tr>
@@ -855,103 +875,24 @@ class CorrelationConstant {
 
 }
 
-class DateMapping {
-  constructor (julian, gregorian, offset) {
-    let julianIsBCE = false
-    let julianParts = julian.split('-')
-    if (julian[0] === '-') {
-      julian = `${julianParts[1]}-${julianParts[2]}-${julianParts[3]}`
-      julianIsBCE = true
-    }
+function jdToJulianDate (jd) {
+  let mjd = jd - 2400000.5
+  let n = Number(mjd) + 678883
+  let a = 4 * n + 3
+  let b = 5 * ((a % 1461) / 4) + 2
+  let y = a / 1461
+  let m = b / 153
+  let d = (b % 153) / 5
 
-    let gregorianIsBCE = false
-    let gregorianParts = gregorian.split('-')
-    if (gregorian[0] === '-') {
-      gregorian = `${gregorianParts[1]}-${gregorianParts[2]}-${gregorianParts[3]}`
-      gregorianIsBCE = true
-    }
+  let day = d + 1
+  let month = (m + 3) % 12
+  let year = y - m / 12
 
-    this.julian = moment.tz(julian, 'UTC')
-    if (julianIsBCE) {
-      this.julian.year(-Math.abs(parseInt(julianParts[1])))
-    }
-
-    this.gregorian = moment.tz(gregorian, 'UTC')
-    if (gregorianIsBCE) {
-      this.julian.year(-Math.abs(parseInt(gregorianParts[1])))
-    }
-    this.offset = offset
-  }
-
-  check (index) {
-    if (index === 0) {
-      return this.julian
-    } else {
-      return this.gregorian
-    }
-  }
-}
-
-class GJDate {
-  constructor (date_string) {
-    const date_parts = date_string.split('-')
-    let isBCE = false
-    if (date_parts[0] === '-') {
-      date_string = `${date_parts[1]}-${date_parts[2]}-${date_parts[3]}`
-      isBCE = true
-    }
-
-    this._date = moment.tz(date_string, 'UTC')
-    if (isBCE) {
-      this._date.year(-Math.abs(parseInt(date_parts[1])))
-    }
-    this.mapping = [
-      new DateMapping('-500-03-05', '-500-02-28', -6),
-      new DateMapping('0100-02-29', '0100-02-27', -2),
-      new DateMapping('0100-03-02', '0100-03-01', -1),
-      new DateMapping('0200-02-28', '0200-02-27', -1),
-    ]
-    this._index = undefined
-    this._direction = undefined
-    this._other_class = undefined
-  }
-
-  switch () {
-    let foundDate = false
-    let e
-    for (e of this.mapping) {
-      if (this._date.isSameOrAfter(e.check(this._index))) {
-        foundDate = true
-        break
-      }
-    }
-    let offset_date = this._date.clone()
-    offset_date = offset_date.add(this._direction * e.offset, 'days')
-    return new this._other_class(offset_date.format('YYYY-MM-DD'))
-  }
-
-  format (date_format) {
-    return this._date.format(date_format)
-  }
-}
-
-class JDate extends GJDate {
-  constructor (date_string) {
-    super(date_string)
-    this._direction = 1
-    this._index = 0
-    this._other_class = GDate
-  }
-
-}
-
-class GDate extends GJDate {
-  constructor (date_string) {
-    super(date_string)
-    this._direction = -1
-    this._index = 1
-    this._other_class = JDate
-  }
+  return new Date(
+    Math.floor(year),
+    Math.floor(month),
+    Math.floor(day),
+  )
 }
 
 module.exports = {
@@ -966,6 +907,4 @@ module.exports = {
   PartialLongCount: PartialLongCount,
   PatternMatcher: PatternMatcher,
   CorrelationConstant: CorrelationConstant,
-  GDate: GDate,
-  JDate: JDate,
 }

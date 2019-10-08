@@ -107,6 +107,7 @@ $(document).ready(function () {
             <th>Pos.</th>
             <th>Long Count</th>
             <th>Gregorian</th>
+            <th>Julian</th>
             <th>Night</th>
             <th class="left_align">Annotation</th>
         </tr>`),

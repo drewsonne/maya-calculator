@@ -108,6 +108,7 @@ $(document).ready(function () {
             <th>Pos.</th>
             <th>Long Count</th>
             <th>Gregorian</th>
+            <th>Julian</th>
             <th>Night</th>
             <th class="left_align">Annotation</th>
         </tr>`),
@@ -155,9 +156,157 @@ $(document).ready(function () {
   })
 })
 
-},{"./model.js":2,"./tutorial.js":3}],2:[function(require,module,exports){
+},{"./model.js":3,"./tutorial.js":4}],2:[function(require,module,exports){
+var moment = require('moment-timezone')
+
+class JDate {
+  constructor (year, month, date) {
+    this._gregorian_date = [year, month, date]
+    this.year = undefined
+    this.month = undefined
+    this.day = undefined
+
+    this.month_day_mapping = {
+      1: 31,
+      3: 31,
+      4: 30,
+      5: 31,
+      6: 30,
+      7: 31,
+      8: 31,
+      9: 30,
+      10: 31,
+      11: 30,
+      12: 31,
+    }
+
+    this.direction = (this.year < 0) ? -1 : 1
+  }
+
+  normalize () {
+    this.year = this._gregorian_date[0]
+    this.month = this._gregorian_date[1]
+    this.day = this._gregorian_date[2]
+
+    this.day += this.julian_offset()
+
+    this.normalize_month_day()
+    return this
+  }
+
+  normalize_month_day () {
+    let days_in_month = this.daysInMonth(this.month)
+    if (this.day > days_in_month) {
+      let overflow = this.day - days_in_month
+      this.month += (this.direction * 1)
+      this.day = overflow
+    } else if (this.day < 1) {
+      this.month -= 1
+      this.day = this.daysInMonth(this.month) + this.day
+    }
+
+    if (this.month > 12) {
+      let overflow_months = this.month - 12
+      this.year += (this.direction * 1)
+      this.month = overflow_months
+    }
+  }
+
+  daysInMonth (monday_num) {
+    if (this.month === 2) {
+      return this.isLeapYear() ? 29 : 28
+    }
+    return this.month_day_mapping[this.month]
+  }
+
+  isLeapYear () {
+    return (this.year % 4) === 0
+  }
+
+  julian_offset () {
+    let date_number = parseInt(this.toString().split('/').reverse().join(''))
+    if (date_number <= 0) {
+      if (date_number < -2000000) {
+        return 4
+      } else if (date_number > -1000301) {
+        return 3
+      } else {
+        return 2
+      }
+    } else if (date_number <= 1000228) {
+      return 2
+    } else if (date_number <= 2000228) {
+      return 1
+    } else if (date_number <= 3000228) {
+      return 0
+    } else if (date_number <= 3000302) {
+      return -1
+    } else if (date_number <= 5000303) {
+      return -2
+    } else if (date_number <= 6000304) {
+      return -3
+    } else if (date_number <= 7000305) {
+      return -4
+    } else if (date_number <= 9000306) {
+      return -5
+    } else if (date_number <= 10000307) {
+      return -6
+    } else if (date_number <= 11000308) {
+      return -7
+    } else if (date_number <= 13000309) {
+      return -8
+    } else if (date_number <= 14000310) {
+      return -9
+    } else if (date_number <= 17000228) {
+      return -10
+    } else if (date_number <= 18000228) {
+      return -11
+    } else if (date_number <= 19000228) {
+      return -12
+    } else if (date_number <= 21000228) {
+      return -13
+    } else if (date_number <= 21000314) {
+      return -14
+    }
+    return 0
+  }
+
+  toString () {
+    let year = this.year.toString()
+    let month = this.month.toString()
+    let day = this.day.toString()
+    if (year.length < 4) {
+      year = `0${year}`
+    }
+
+    if (month.length < 2) {
+      month = `0${month}`
+    }
+
+    if (day.length < 2) {
+      day = `0${day}`
+    }
+
+    return `${day}/${month}/${year}`
+  }
+}
+
+function julianFromGregorian (gregorian_date) {
+  return new JDate(
+    gregorian_date.year,
+    gregorian_date.month,
+    Math.floor(gregorian_date.day),
+  ).normalize()
+}
+
+module.exports = {
+  julianFromGregorian: julianFromGregorian,
+}
+
+},{"moment-timezone":7}],3:[function(require,module,exports){
 var moonbeams = require('moonbeams')
 var moment = require('moment-timezone')
+var jDate = require('./jdate.js')
 
 class LinkedListElement {
   constructor (younger_sibling) {
@@ -399,6 +548,20 @@ class MayaDate extends LinkedListElement {
     }
     return `${Math.floor(gd.day)}/${gd.month}/${gdYear} ${era}`
   }
+
+  get julian () {
+    let jd = jDate.julianFromGregorian(
+      moonbeams.jdToCalendar(this.julianDay),
+    )
+    let jdYear = jd.year
+    let era = 'CE'
+    if (jdYear < 0) {
+      era = 'BCE'
+      jdYear = Math.abs(jdYear + 1)
+    }
+    return `${Math.floor(jd.day)}/${jd.month}/${jdYear} ${era}`
+
+  }
 }
 
 class Factory {
@@ -512,6 +675,7 @@ class PartialLongCount {
             </td>
             <td class="long_count">${lc}</td>
             <td class="gregorian">${lc.gregorian}</td>
+            <td class="julian">${lc.julian}</td>
             <td class="lord_of_night">${lc.lord_of_night}</td>
             <td class="comment"></td>
         </tr>
@@ -563,6 +727,7 @@ class LongCount extends MayaDate {
                 ${this.toString()}
             </td>
             <td class="gregorian">${this.gregorian}</td>
+            <td class="julian">${this.julian}</td>
             <td class="lord_of_night">${this.lord_of_night}</td>
             <td class="comment">${this.comment}</td>
         </tr>
@@ -604,6 +769,7 @@ class DistanceNumber extends MayaDate {
                 ${distance_string}
             </td>
             <td class="gregorian">${this.gregorian}</td>
+            <td class="julian">${this.julian}</td>
             <td class="lord_of_night"></td>
             <td class="comment">${this.comment}</td>
         </tr>
@@ -614,6 +780,7 @@ class DistanceNumber extends MayaDate {
                 ${'-'.repeat(separator_length)}
             </td>
             <td class="gregorian">${this.gregorian}</td>
+            <td class="julian">${this.julian}</td>
             <td class="lord_of_night"></td>
             <td class="comment"></td>
         </tr>`,
@@ -784,6 +951,7 @@ class PartialCalendarRound {
             </td>
             <td class="long_count"></td>
             <td class="gregorian"></td>
+            <td class="julian"></td>
             <td class="lord_of_night"></td>
             <td class="comment"></td>
         </tr>
@@ -1013,103 +1181,24 @@ class CorrelationConstant {
 
 }
 
-class DateMapping {
-  constructor (julian, gregorian, offset) {
-    let julianIsBCE = false
-    let julianParts = julian.split('-')
-    if (julian[0] === '-') {
-      julian = `${julianParts[1]}-${julianParts[2]}-${julianParts[3]}`
-      julianIsBCE = true
-    }
+function jdToJulianDate (jd) {
+  let mjd = jd - 2400000.5
+  let n = Number(mjd) + 678883
+  let a = 4 * n + 3
+  let b = 5 * ((a % 1461) / 4) + 2
+  let y = a / 1461
+  let m = b / 153
+  let d = (b % 153) / 5
 
-    let gregorianIsBCE = false
-    let gregorianParts = gregorian.split('-')
-    if (gregorian[0] === '-') {
-      gregorian = `${gregorianParts[1]}-${gregorianParts[2]}-${gregorianParts[3]}`
-      gregorianIsBCE = true
-    }
+  let day = d + 1
+  let month = (m + 3) % 12
+  let year = y - m / 12
 
-    this.julian = moment.tz(julian, 'UTC')
-    if (julianIsBCE) {
-      this.julian.year(-Math.abs(parseInt(julianParts[1])))
-    }
-
-    this.gregorian = moment.tz(gregorian, 'UTC')
-    if (gregorianIsBCE) {
-      this.julian.year(-Math.abs(parseInt(gregorianParts[1])))
-    }
-    this.offset = offset
-  }
-
-  check (index) {
-    if (index === 0) {
-      return this.julian
-    } else {
-      return this.gregorian
-    }
-  }
-}
-
-class GJDate {
-  constructor (date_string) {
-    const date_parts = date_string.split('-')
-    let isBCE = false
-    if (date_parts[0] === '-') {
-      date_string = `${date_parts[1]}-${date_parts[2]}-${date_parts[3]}`
-      isBCE = true
-    }
-
-    this._date = moment.tz(date_string, 'UTC')
-    if (isBCE) {
-      this._date.year(-Math.abs(parseInt(date_parts[1])))
-    }
-    this.mapping = [
-      new DateMapping('-500-03-05', '-500-02-28', -6),
-      new DateMapping('0100-02-29', '0100-02-27', -2),
-      new DateMapping('0100-03-02', '0100-03-01', -1),
-      new DateMapping('0200-02-28', '0200-02-27', -1),
-    ]
-    this._index = undefined
-    this._direction = undefined
-    this._other_class = undefined
-  }
-
-  switch () {
-    let foundDate = false
-    let e
-    for (e of this.mapping) {
-      if (this._date.isSameOrAfter(e.check(this._index))) {
-        foundDate = true
-        break
-      }
-    }
-    let offset_date = this._date.clone()
-    offset_date = offset_date.add(this._direction * e.offset, 'days')
-    return new this._other_class(offset_date.format('YYYY-MM-DD'))
-  }
-
-  format (date_format) {
-    return this._date.format(date_format)
-  }
-}
-
-class JDate extends GJDate {
-  constructor (date_string) {
-    super(date_string)
-    this._direction = 1
-    this._index = 0
-    this._other_class = GDate
-  }
-
-}
-
-class GDate extends GJDate {
-  constructor (date_string) {
-    super(date_string)
-    this._direction = -1
-    this._index = 1
-    this._other_class = JDate
-  }
+  return new Date(
+    Math.floor(year),
+    Math.floor(month),
+    Math.floor(day),
+  )
 }
 
 module.exports = {
@@ -1124,11 +1213,9 @@ module.exports = {
   PartialLongCount: PartialLongCount,
   PatternMatcher: PatternMatcher,
   CorrelationConstant: CorrelationConstant,
-  GDate: GDate,
-  JDate: JDate,
 }
 
-},{"moment-timezone":6,"moonbeams":9}],3:[function(require,module,exports){
+},{"./jdate.js":2,"moment-timezone":7,"moonbeams":10}],4:[function(require,module,exports){
 var introJs = require('intro.js')
 
 class TutorialState {
@@ -1158,7 +1245,7 @@ class TutorialState {
 
 module.exports = new TutorialState()
 
-},{"intro.js":4}],4:[function(require,module,exports){
+},{"intro.js":5}],5:[function(require,module,exports){
 (function (global){
 /**
  * Intro.js v2.9.3
@@ -3693,7 +3780,7 @@ module.exports = new TutorialState()
 });
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 module.exports={
 	"version": "2019b",
 	"zones": [
@@ -4294,11 +4381,11 @@ module.exports={
 		"Pacific/Tarawa|Pacific/Wallis"
 	]
 }
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 var moment = module.exports = require("./moment-timezone");
 moment.tz.load(require('./data/packed/latest.json'));
 
-},{"./data/packed/latest.json":5,"./moment-timezone":7}],7:[function(require,module,exports){
+},{"./data/packed/latest.json":6,"./moment-timezone":8}],8:[function(require,module,exports){
 //! moment-timezone.js
 //! version : 0.5.26
 //! Copyright (c) JS Foundation and other contributors
@@ -4927,7 +5014,7 @@ moment.tz.load(require('./data/packed/latest.json'));
 	return moment;
 }));
 
-},{"moment":8}],8:[function(require,module,exports){
+},{"moment":9}],9:[function(require,module,exports){
 //! moment.js
 
 ;(function (global, factory) {
@@ -9531,7 +9618,7 @@ moment.tz.load(require('./data/packed/latest.json'));
 
 })));
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 'use strict';
 // Moonbeams.js
 // (c) 2014 Michael Garvin
