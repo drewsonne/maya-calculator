@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.7] - 2019-10-08
+### Added
+
+ - Julian Dates
+
 ## [1.0.6] - 2019-09-15
 ### Added
 
