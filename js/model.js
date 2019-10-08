@@ -1,4 +1,6 @@
 var moonbeams = require('moonbeams')
+var moment = require('moment-timezone')
+var jDate = require('./jdate.js')
 
 class LinkedListElement {
   constructor (younger_sibling) {
@@ -240,6 +242,20 @@ class MayaDate extends LinkedListElement {
     }
     return `${Math.floor(gd.day)}/${gd.month}/${gdYear} ${era}`
   }
+
+  get julian () {
+    let jd = jDate.julianFromGregorian(
+      moonbeams.jdToCalendar(this.julianDay),
+    )
+    let jdYear = jd.year
+    let era = 'CE'
+    if (jdYear < 0) {
+      era = 'BCE'
+      jdYear = Math.abs(jdYear + 1)
+    }
+    return `${Math.floor(jd.day)}/${jd.month}/${jdYear} ${era}`
+
+  }
 }
 
 class Factory {
@@ -353,6 +369,7 @@ class PartialLongCount {
             </td>
             <td class="long_count">${lc}</td>
             <td class="gregorian">${lc.gregorian}</td>
+            <td class="julian">${lc.julian}</td>
             <td class="lord_of_night">${lc.lord_of_night}</td>
             <td class="comment"></td>
         </tr>
@@ -404,6 +421,7 @@ class LongCount extends MayaDate {
                 ${this.toString()}
             </td>
             <td class="gregorian">${this.gregorian}</td>
+            <td class="julian">${this.julian}</td>
             <td class="lord_of_night">${this.lord_of_night}</td>
             <td class="comment">${this.comment}</td>
         </tr>
@@ -445,6 +463,7 @@ class DistanceNumber extends MayaDate {
                 ${distance_string}
             </td>
             <td class="gregorian">${this.gregorian}</td>
+            <td class="julian">${this.julian}</td>
             <td class="lord_of_night"></td>
             <td class="comment">${this.comment}</td>
         </tr>
@@ -455,6 +474,7 @@ class DistanceNumber extends MayaDate {
                 ${'-'.repeat(separator_length)}
             </td>
             <td class="gregorian">${this.gregorian}</td>
+            <td class="julian">${this.julian}</td>
             <td class="lord_of_night"></td>
             <td class="comment"></td>
         </tr>`,
@@ -625,6 +645,7 @@ class PartialCalendarRound {
             </td>
             <td class="long_count"></td>
             <td class="gregorian"></td>
+            <td class="julian"></td>
             <td class="lord_of_night"></td>
             <td class="comment"></td>
         </tr>
@@ -852,6 +873,26 @@ class CorrelationConstant {
     }
   }
 
+}
+
+function jdToJulianDate (jd) {
+  let mjd = jd - 2400000.5
+  let n = Number(mjd) + 678883
+  let a = 4 * n + 3
+  let b = 5 * ((a % 1461) / 4) + 2
+  let y = a / 1461
+  let m = b / 153
+  let d = (b % 153) / 5
+
+  let day = d + 1
+  let month = (m + 3) % 12
+  let year = y - m / 12
+
+  return new Date(
+    Math.floor(year),
+    Math.floor(month),
+    Math.floor(day),
+  )
 }
 
 module.exports = {

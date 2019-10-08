@@ -1,4 +1,5 @@
 var model = require('./model.js')
+var tutorial = require('./tutorial.js')
 var DateTime = luxon.DateTime
 
 class MayaCalculator {
@@ -89,6 +90,8 @@ class MayaCalculator {
 
 $(document).ready(function () {
 
+  tutorial.initialise()
+
   const corr = new model.CorrelationConstant()
   const calculator = new MayaCalculator(corr)
   let input = $('#calendar_input')
@@ -104,6 +107,7 @@ $(document).ready(function () {
             <th>Pos.</th>
             <th>Long Count</th>
             <th>Gregorian</th>
+            <th>Julian</th>
             <th>Night</th>
             <th class="left_align">Annotation</th>
         </tr>`),
