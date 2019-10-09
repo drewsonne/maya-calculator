@@ -2,7 +2,7 @@ var jDate = require('./jdate.js')
 
 describe('gregorian to julian', () => {
   let dates = [
-    
+
     ['01/03/-100', '-100-02-27'],
     ['02/03/-100', '-100-02-28'],
     ['03/03/-100', '-100-03-01'],

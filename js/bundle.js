@@ -768,8 +768,8 @@ class DistanceNumber extends MayaDate {
             <td class="distance_number">
                 ${distance_string}
             </td>
-            <td class="gregorian">${this.gregorian}</td>
-            <td class="julian">${this.julian}</td>
+            <td class="gregorian"></td>
+            <td class="julian"></td>
             <td class="lord_of_night"></td>
             <td class="comment">${this.comment}</td>
         </tr>
@@ -779,8 +779,8 @@ class DistanceNumber extends MayaDate {
             <td class="long_count">
                 ${'-'.repeat(separator_length)}
             </td>
-            <td class="gregorian">${this.gregorian}</td>
-            <td class="julian">${this.julian}</td>
+            <td class="gregorian"></td>
+            <td class="julian"></td>
             <td class="lord_of_night"></td>
             <td class="comment"></td>
         </tr>`,
