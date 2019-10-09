@@ -510,7 +510,7 @@ class EmptyLine extends LinkedListElement {
   spans () {
     return $(`
         <tr class="data-row">
-            <td colspan="5">&nbsp;</td>
+            <td colspan="7">&nbsp;</td>
         </tr>
       `)
   }
