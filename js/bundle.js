@@ -798,7 +798,7 @@ class Comment extends LinkedListElement {
     return $(`
         <tr class="data-row">
             <td class="calendar_round"></td>
-            <td class="comment" colspan="5">
+            <td class="comment" colspan="6">
                 <span class="comment">
                     ${this.comment}
                 </span>
