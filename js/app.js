@@ -90,8 +90,6 @@ class MayaCalculator {
 
 $(document).ready(function () {
 
-  tutorial.initialise()
-
   const corr = new model.CorrelationConstant()
   const calculator = new MayaCalculator(corr)
   let input = $('#calendar_input')
@@ -126,6 +124,8 @@ $(document).ready(function () {
     let saved_calculation = atob(saved_calculation_raw)
     input.html(saved_calculation)
     evaluate(saved_calculation)
+  } else {
+    evaluate('')
   }
 
   // $(window).on('hashchange', function (e) {
@@ -153,4 +153,9 @@ $(document).ready(function () {
     corr.value = $(e.target).val()
     input.trigger('keyup')
   })
+
+  tutorial.initialise(input, false, evaluate, undefined)
+  window.startTutorial = function () {
+    tutorial.initialise(input, true, evaluate, input.val().trim())
+  }
 })

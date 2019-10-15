@@ -10,20 +10,25 @@
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link href="css/app.css" rel="stylesheet">
+    <link href="css/open-iconic-bootstrap.css" rel="stylesheet">
 
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180"
+          href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32"
+          href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16"
+          href="favicon/favicon-16x16.png">
     <link rel="manifest" href="favicon/site.webmanifest">
     <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
     <link rel="shortcut icon" href="favicon/favicon.ico">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-config" content="favicon/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
+    <link href="css/introjs.min.css" rel="stylesheet">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <span class="navbar-brand mb-0 h1">
+    <span id="logo" class="navbar-brand mb-0 h1">
         <img src="ajaw.png" width="30" height="30"
              class="d-inline-block align-top" alt="Maya Calculator">
         Maya Calculator
@@ -35,12 +40,20 @@
                     <option value="394483">394483 - Bowditch</option>
                     <option value="489138">489138 - Makesom</option>
                     <option value="489384">489384 - Spinden</option>
-                    <option value="584281">584281 - Martin&eacute;z-Hernando</option>
+                    <option value="584281">584281 - Martin&eacute;z-Hernando
+                    </option>
                     <option value="584283">584283 - GMT</option>
                     <option value="584285">584285 - Astronomical</option>
                     <option value="584286">584286 - Martin-Skidmore</option>
                     <option value="660208">660208 - Wells, Fuls</option>
                 </select>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            <li class="nav-item active" id="help">
+                <a class="btn btn-large btn-secondary"
+                   href="javascript:void(0);"
+                   onclick="javascript:startTutorial();">Help</a>
             </li>
         </ul>
     </div>

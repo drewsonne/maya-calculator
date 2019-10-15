@@ -65,7 +65,9 @@ class JDate {
   }
 
   julian_offset () {
-    let date_number = parseInt(this.toString().split('/').reverse().join(''))
+    let date_number = parseInt(
+      this.toString().split('/').reverse().join('')
+    )
     if (date_number <= 0) {
       if (date_number < -2000000) {
         return 4
