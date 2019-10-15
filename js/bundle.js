@@ -1253,7 +1253,7 @@ class TutorialState {
     intro.addSteps([
       {
         element: $('span#logo').get(0),
-        intro: 'Welcome to the Maya Date Calculator!<br/> <br/> This tutorial will walk you through the features of this Calculator. Click \'Next\' or press the return key to get started.',
+        intro: 'Welcome to the Maya Date Calculator!<br/> <br/> It looks like this is the first time you\'ve visited. This tutorial will walk you through the features of this Calculator. Click \'Next\' or press the return key to get started, or click \'Skip\' to exit the tutorial.',
       },
       {
         element: $('textarea#calendar_input').get(0),
@@ -1340,8 +1340,8 @@ class TutorialState {
       this.setRun(true)
       this.start(evaluate)
       if (snapback !== undefined) {
-        // $(this.input_dom).html(snapback)
-        // evaluate(snapback)
+        $(this.input_dom).html(snapback)
+        evaluate(snapback)
       }
     }
   }
