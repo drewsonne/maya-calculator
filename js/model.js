@@ -417,9 +417,7 @@ class LongCount extends MayaDate {
             <td class="calendar_round_position">
                 ${new CalendarRound(this.total_k_in()).total_days}
             </td>
-            <td class="long_count">
-                ${this.toString()}
-            </td>
+            <td class="long_count">${this}</td>
             <td class="gregorian">${this.gregorian}</td>
             <td class="julian">${this.julian}</td>
             <td class="lord_of_night">${this.lord_of_night}</td>
