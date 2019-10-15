@@ -117,8 +117,8 @@ class TutorialState {
       this.setRun(true)
       this.start(evaluate)
       if (snapback !== undefined) {
-        // $(this.input_dom).html(snapback)
-        // evaluate(snapback)
+        $(this.input_dom).html(snapback)
+        evaluate(snapback)
       }
     }
   }
