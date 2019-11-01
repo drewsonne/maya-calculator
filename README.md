@@ -1,7 +1,7 @@
-# maya-calculator
+# maya-date-calculator
 [![Build Status](https://travis-ci.com/drewsonne/maya-calculator.svg?branch=master)](https://travis-ci.com/drewsonne/maya-calculator)
 
-A simple text based maya calculator
+A simple text based maya date calculator
 
 # Description
 This calculator is designed to be simple, lightweight, and resistant to
