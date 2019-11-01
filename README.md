@@ -1,4 +1,6 @@
 # maya-calculator
+[![Build Status](https://travis-ci.com/drewsonne/maya-calculator.svg?branch=master)](https://travis-ci.com/drewsonne/maya-calculator)
+
 A simple text based maya calculator
 
 # Description
