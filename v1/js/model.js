@@ -40,7 +40,7 @@ class PatternMatcher {
   get long_count () {
     let matches = this.value.match(
       this.lc_pattern,
-    )
+    );
     if (matches) {
       return matches[0].trim()
     }
@@ -254,7 +254,6 @@ class MayaDate extends LinkedListElement {
       jdYear = Math.abs(jdYear + 1)
     }
     return `${Math.floor(jd.day)}/${jd.month}/${jdYear} ${era}`
-
   }
 }
 
