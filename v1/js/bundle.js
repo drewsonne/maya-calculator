@@ -1221,7 +1221,7 @@ module.exports = {
 }
 
 },{"./jdate.js":2,"moment-timezone":7,"moonbeams":10}],4:[function(require,module,exports){
-var introJs = require('intro.js')
+var introJs = require('../../node_modules/intro.js/intro')
 
 class TutorialState {
   constructor () {

@@ -1,4 +1,4 @@
-var introJs = require('intro.js')
+var introJs = require('../../node_modules/intro.js/intro')
 
 class TutorialState {
   constructor () {

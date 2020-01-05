@@ -218,14 +218,14 @@ describe('maya to gregorian/julian', () => {
     ['0.1.1.1.1', '21/2/1910 BCE', 591864],
   ]
 
-  let corr = new model.CorrelationConstant()
+  let corr = new model.CorrelationConstant();
   corr.setStatic(584283)
 
   test.each(dates)(
     '%s -> %s (%s)',
     (lc_raw, date, julian) => {
       let lc = new model.LongCount(lc_raw, undefined, corr)
-      // expect(lc.gregorian).toBe(date)
+      expect(lc.gregorian).toBe(date)
       expect(lc.julianDay).toBe(julian)
     },
   )
