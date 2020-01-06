@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Maya Calendar Calculator</title>
+</head>
+<style type="text/css">
+    .grid-container {
+        display: grid;
+        grid-template-columns: 100px 1fr 100px;
+        grid-template-rows: 60px 60px 1fr 100px;
+        grid-template-areas: "Navbar Navbar Navbar" "Top-Margin Top-Margin Top-Margin" "Left-Margin Workspace Right-Margin" "Bottom-Margin Bottom-Margin Bottom-Margin";
+    }
+
+    .Navbar {
+        grid-area: Navbar;
+        background-color: #f8f9fa;
+        padding: 10px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        position: relative;
+    }
+
+    .Top-Margin {
+        grid-area: Top-Margin;
+    }
+
+    .Left-Margin {
+        grid-area: Left-Margin;
+    }
+
+    .Right-Margin {
+        grid-area: Right-Margin;
+    }
+
+    .Bottom-Margin {
+        grid-area: Bottom-Margin;
+    }
+
+    .Workspace {
+        grid-area: Workspace;
+        border: none;
+        outline: none;
+        min-height: 100px;
+    }
+
+    #title {
+        font-size: 1.5em;
+        margin: 0;
+        padding-left: 10px;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+    }
+
+    html, body {
+        margin: 0;
+    }
+</style>
+<body>
+<div class="grid-container">
+    <div class="Navbar">
+        <img src="ajaw.png" width="40" height="40" alt="Maya Calculator">
+        <span id="title">
+            Maya Calendar Calculator
+        </span>
+    </div>
+    <div class="Top-Margin"></div>
+    <div class="Left-Margin"></div>
+    <div class="Right-Margin"></div>
+    <div class="Bottom-Margin"></div>
+    <div class="Workspace" contenteditable></div>
+</div>
+</body>
+</html>

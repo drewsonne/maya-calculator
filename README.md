@@ -22,7 +22,7 @@ given Long Count Date.
 
 Eg, `8.19.10.11.0` becomes `8 Ajaw 18 Yaxk'in 8.19.10.11. 0`
 
-If a Distance Number (prefixed with either `+` or `-`) is added after a
+If a Distance Numeric (prefixed with either `+` or `-`) is added after a
 Long Count date, the calculator will compute the subsequent Long Count
 date along with the Calendar Round.
 
