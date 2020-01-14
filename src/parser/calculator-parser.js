@@ -53,7 +53,8 @@ const Line = require('./complex-tokens/line');
 const Comment = require('./complex-tokens/comment');
 const CalendarRoundWindowing = require('./calendar-round-windowing');
 const FullDateWindowing = require('./full-date-windowing');
-const mayaDate = require('@drewsonne/maya-dates');
+import mayaDate from '@drewsonne/maya-dates'
+// const mayaDate = require('@drewsonne/maya-dates');
 
 const WAITING_TO_START = 0;
 const PARSING_LINE = 1;
