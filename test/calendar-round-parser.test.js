@@ -10,7 +10,7 @@ describe('parse-complex-calendar-rounds', () => {
         [[new Numeric('4'), new Text('Ajaw'), new Text('8Kumk\'u')]],
         [[new Text('4Ajaw'), new Text('8Kumk\'u')]],
     ];
-    let expected = new mayaDate.cr.CalendarRound(4, 'Ajaw', 8, 'Kumk\'u');
+    let expected = mayaDate.cr.getCalendarRound(4, 'Ajaw', 8, 'Kumk\'u');
     test.each(dates)(
         '%s',
         (raw_date) => {

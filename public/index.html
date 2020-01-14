@@ -52,23 +52,30 @@
         transform: translate(0, -50%);
     }
 
+    .Workspace > .Page > .Input {
+        border-style: solid;
+        border-width: 1px;
+        border-color: lightgray;
+        width: 100%;
+        min-height: 35px;
+        margin-bottom: 10px;
+        outline-width: 0;
+        padding-top: 5px;
+        padding-left: 10px;
+    }
+
+    .Workspace > .Page > .Output {
+        border-style: none;
+        width: 100%;
+        min-height: 25px;
+        margin-bottom: 10px;
+    }
+
     html, body {
         margin: 0;
     }
 </style>
 <body>
-<div class="grid-container">
-    <div class="Navbar">
-        <img src="ajaw.png" width="40" height="40" alt="Maya Calculator">
-        <span id="title">
-            Maya Calendar Calculator
-        </span>
-    </div>
-    <div class="Top-Margin"></div>
-    <div class="Left-Margin"></div>
-    <div class="Right-Margin"></div>
-    <div class="Bottom-Margin"></div>
-    <div class="Workspace" contenteditable></div>
-</div>
+<div id="app"></div>
 </body>
 </html>
