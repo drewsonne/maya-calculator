@@ -5,7 +5,7 @@ const Text = require('../src/parser/tokens/text');
 const Numeric = require('../src/parser/tokens/numeric');
 const Operator = require('../src/parser/tokens/operator');
 
-const parser = require('../src/parser/calculator-parser');
+const parser = require('../src/parser/calculator-parser-primitive');
 
 describe('parse-raw-text', () => {
     let raw_texts = [

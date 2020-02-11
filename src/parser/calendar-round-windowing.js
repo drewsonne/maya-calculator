@@ -25,7 +25,6 @@ class CalendarRoundWindowing extends Windowing {
                 }
             }
             windows = windowGenerator.next();
-
         }
         return null;
     }
