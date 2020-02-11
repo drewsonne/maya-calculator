@@ -1,4 +1,4 @@
-const parser = require('../src/parser/calculator-parser');
+const parser = require('../src/parser/calculator-parser-primitive');
 test('parse-raw-text-to-complex', () => {
     let raw = `8.19.10.11 # (1) A long count date
 +7.13 # (2) A distance number

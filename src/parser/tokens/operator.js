@@ -3,7 +3,7 @@ const Base = require('./base');
 class Operator extends Base {
 
     toString() {
-        return this.raw_text;
+        return ` ${this.raw_text} `;
     }
 }
 

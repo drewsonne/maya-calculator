@@ -110,11 +110,10 @@ class CalendarRoundParser {
     }
 
     is_two_part() {
-        let is_valid = (
-            (this.parts[0] instanceof Text) &&
-            (this.parts[1] instanceof Text)
-        );
-        return is_valid
+        return (
+          (this.parts[0] instanceof Text) &&
+          (this.parts[1] instanceof Text)
+        )
     }
 }
 
