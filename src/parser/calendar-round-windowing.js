@@ -1,7 +1,7 @@
 import CalendarRoundParser from './calendar-round-parser';
 import Windowing from './windowing';
 
-class CalendarRoundWindowing extends Windowing {
+export default class CalendarRoundWindowing extends Windowing {
   run() {
     if (this.parts.length < 3) {
       return null;
@@ -28,5 +28,3 @@ class CalendarRoundWindowing extends Windowing {
     return null;
   }
 }
-
-module.exports = CalendarRoundWindowing;

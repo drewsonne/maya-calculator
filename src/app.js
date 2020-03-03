@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Workspace from './workspace/workspace';
 import logo from './ajaw.png';
 
-class App extends Component {
+export default class App extends Component {
   // eslint-disable-next-line class-methods-use-this
   render() {
     return (
@@ -20,5 +20,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;

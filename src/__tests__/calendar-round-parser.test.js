@@ -1,7 +1,7 @@
 import mayaDate from '@drewsonne/maya-dates';
-import CalendarRoundParser from '../src/parser/calendar-round-parser';
-import Numeric from '../src/parser/tokens/numeric';
-import Text from '../src/parser/tokens/text';
+import CalendarRoundParser from '../parser/calendar-round-parser';
+import Numeric from '../parser/tokens/numeric';
+import Text from '../parser/tokens/text';
 
 describe('parse-complex-calendar-rounds', () => {
   const dates = [

@@ -1,4 +1,4 @@
-import ComplexCalculatorParser from '../src/parser/calculator-parser-complex';
+import ComplexCalculatorParser from '../parser/calculator-parser-complex';
 
 test('parse-raw-text-to-complex', () => {
   const raw = `8.19.10.11 # (1) A long count date

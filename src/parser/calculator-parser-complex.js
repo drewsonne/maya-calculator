@@ -9,7 +9,7 @@ import LongCountToken from './complex-tokens/long-count';
 import TypeChecker from './type-checker';
 
 import CommentCollapsing from './collapser/comment';
-import wildcard from "./tokens/wildcard";
+import wildcard from './tokens/wildcard';
 
 
 const WAITING_TO_START = 0;
@@ -31,7 +31,7 @@ class _State {
   }
 }
 
-class ComplexCalculatorParser {
+export default class ComplexCalculatorParser {
   constructor(rawText) {
     this.rawText = rawText;
   }
@@ -133,5 +133,3 @@ class ComplexCalculatorParser {
     return prefix.concat([element]).concat(suffix);
   }
 }
-
-export default ComplexCalculatorParser;

@@ -2,9 +2,8 @@ import FullDateParser from './full-date-parser';
 import Windowing from './windowing';
 
 
-class FullDateWindowing extends Windowing {
+export default class FullDateWindowing extends Windowing {
   run() {
-    // debugger;
     if (this.parts.length < 2) {
       return null;
     }
@@ -30,5 +29,3 @@ class FullDateWindowing extends Windowing {
     return null;
   }
 }
-
-module.exports = FullDateWindowing;

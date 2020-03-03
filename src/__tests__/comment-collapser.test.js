@@ -1,8 +1,8 @@
 import mayadate from '@drewsonne/maya-dates';
-import Operator from '../src/parser/tokens/operator';
-import CommentCollapser from '../src/parser/collapser/comment';
-import Line from '../src/parser/complex-tokens/line';
-import Comment from '../src/parser/complex-tokens/comment';
+import Operator from '../parser/tokens/operator';
+import CommentCollapser from '../parser/collapser/comment';
+import Line from '../parser/complex-tokens/line';
+import Comment from '../parser/complex-tokens/comment';
 
 expect.extend({
   toBeLC(received, expectedLC) {

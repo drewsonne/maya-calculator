@@ -1,4 +1,4 @@
-import Windowing from '../src/parser/windowing';
+import Windowing from '../parser/windowing';
 
 test('windowing-functionality', () => {
   const source = [

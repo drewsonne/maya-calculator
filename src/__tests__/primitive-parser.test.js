@@ -1,10 +1,10 @@
-import linestart from '../src/parser/tokens/line-start';
-import lineend from '../src/parser/tokens/line-end';
-import commentstart from '../src/parser/tokens/comment-start';
-import Text from '../src/parser/tokens/text';
-import Numeric from '../src/parser/tokens/numeric';
-import Operator from '../src/parser/tokens/operator';
-import PrimitiveCalculatorParser from '../src/parser/calculator-parser-primitive';
+import linestart from '../parser/tokens/line-start';
+import lineend from '../parser/tokens/line-end';
+import commentstart from '../parser/tokens/comment-start';
+import Text from '../parser/tokens/text';
+import Numeric from '../parser/tokens/numeric';
+import Operator from '../parser/tokens/operator';
+import PrimitiveCalculatorParser from '../parser/calculator-parser-primitive';
 
 describe('parse-raw-text', () => {
   const rawTexts = [

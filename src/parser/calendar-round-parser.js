@@ -9,7 +9,7 @@ const THREE_PART_LITTLE_ENDIAN = 2;
 const TWO_PART = 4;
 
 
-class CalendarRoundParser {
+export default class CalendarRoundParser {
   /**
    *
    * @param parts {TokenBase[]}
@@ -116,6 +116,3 @@ class CalendarRoundParser {
     );
   }
 }
-
-
-module.exports = CalendarRoundParser;

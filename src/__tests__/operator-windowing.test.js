@@ -1,8 +1,8 @@
 import mayadate from '@drewsonne/maya-dates';
-import Operator from '../src/parser/tokens/operator';
-import OperatorWindowing from '../src/parser/operator-windowing';
-import linestart from '../src/parser/tokens/line-start';
-import lineend from '../src/parser/tokens/line-end';
+import Operator from '../parser/tokens/operator';
+import OperatorWindowing from '../parser/operator-windowing';
+import linestart from '../parser/tokens/line-start';
+import lineend from '../parser/tokens/line-end';
 
 describe('window-operators', () => {
   const parsedInput = [
