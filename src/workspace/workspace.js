@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Page from "./page";
-import ComplexCalculatorParser from "../parser/calculator-parser-complex";
-import Calculator from "../calculator";
+import Page from './page';
+import ComplexCalculatorParser from '../parser/calculator-parser-complex';
+import Calculator from '../calculator';
 
 // const ComplexCalculatorParser = require('../parser/calculator-parser');
 
@@ -9,7 +9,7 @@ class Workspace extends Component {
   constructor() {
     super();
     this.state = {
-      'pages': [{id: 0, inputContent: '', elements: []}]
+      pages: [{ id: 0, inputContent: '', elements: [] }]
     };
     this.onInput = this.onInput.bind(this);
     this.inputTimers = {};
@@ -25,34 +25,42 @@ class Workspace extends Component {
   render() {
     const that = this;
     return (
-      <div className="Workspace">{this.state.pages.map(page => {
-        return <Page key={page.id} onInput={this.onInput} id={page.id}
-                     content={page.inputContent} elements={that.state.pages[page.id].elements}/>;
-      })}</div>
+      <div className="Workspace">{this.state.pages.map((page) => <Page
+        key={page.id}
+        onInput={this.onInput}
+        id={page.id}
+        content={page.inputContent}
+        elements={that.state.pages[page.id].elements}
+      />)}</div>
     );
   }
 
-  onInput(a, b, c, d) {
+  onInput(textBox) {
     // Resize textbox to fit text
-    a.target.style.height = "5px";
-    a.target.style.height = (a.target.scrollHeight) + "px";
-    let page_id = a.target.id.split('_')[1];
-    page_id = parseInt(page_id, 10);
-    let content = a.target.value;
-    let that = this;
-    clearTimeout(that.inputTimers[page_id]);
-    that.inputTimers[page_id] = setTimeout(function () {
-      clearTimeout(that.inputTimers[page_id]);
-      if (content.includes('---')) {
-        let content_parts = content.split('---');
-        let content = content_parts[0];
-        let after = content_parts[1];
-        that.updatePage(page_id, content);
-        that.appendPage(after);
-      }
 
-      that.state.pages[page_id].elements = new Calculator(
-        that.parser.run(content)
+    // eslint-disable-next-line no-param-reassign
+    textBox.target.style.height = '5px';
+    // eslint-disable-next-line no-param-reassign
+    textBox.target.style.height = `${textBox.target.scrollHeight}px`;
+
+    let pageId = textBox.target.id.split('_')[1];
+    pageId = parseInt(pageId, 10);
+    const content = textBox.target.value;
+    // const after = null;
+    const that = this;
+    clearTimeout(that.inputTimers[pageId]);
+    that.inputTimers[pageId] = setTimeout(() => {
+      clearTimeout(that.inputTimers[pageId]);
+      // Disable page appending
+      // if (content.includes('---')) {
+      //   [content, after] = content.split('---');
+      //   that.updatePage(pageId, content);
+      //   that.appendPage(after);
+      // }
+
+      const parts = that.parser.run(content);
+      that.state.pages[pageId].elements = new Calculator(
+        parts
       ).run();
 
       that.setState(that.state);
@@ -60,18 +68,18 @@ class Workspace extends Component {
   }
 
   updatePage(id, content) {
-    let state = this.state;
-    let pages = state.pages;
+    const { state } = this;
+    const { pages } = state;
     pages[id].inputContent = content;
     state.pages = pages;
     this.setState(state);
   }
 
   addPage(id, content) {
-    let state = this.state;
-    let pages = state.pages;
+    const { state } = this;
+    const { pages } = state;
     pages.push({
-      id: id,
+      id,
       inputContent: content
     });
     state.pages = pages;

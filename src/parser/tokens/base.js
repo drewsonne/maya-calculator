@@ -1,6 +1,10 @@
-class TokenBase {
-  constructor(raw_text) {
-    this.raw_text = raw_text;
+import Comment from '../complex-tokens/comment';
+import CommentHolder from './comment-holder-interface';
+
+export default class TokenBase extends CommentHolder {
+  constructor(rawText) {
+    super();
+    this.raw_text = rawText;
   }
 
   equal(other) {
@@ -11,7 +15,7 @@ class TokenBase {
     return this.raw_text;
   }
 
-  is_coeff() {
+  isCoeff() {
     return /^[\d*]+$/.test(this.raw_text);
   }
 
@@ -19,6 +23,5 @@ class TokenBase {
     registry.push(this);
     return registry;
   }
-}
 
-module.exports = TokenBase;
+}

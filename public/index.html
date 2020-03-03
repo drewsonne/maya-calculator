@@ -72,12 +72,26 @@
         margin-bottom: 10px;
         text-align: right;
     }
+
     .monospace {
         font-family: monospace;
     }
 
+    .center_align {
+        text-align: center;
+    }
+
     table {
         width: 100%;
+        border-width: 0;
+    }
+
+    tbody > tr:nth-child(even) {
+        background: #EEE
+    }
+
+    tbody > tr:nth-child(old) {
+        background: #FFF
     }
 
     html, body {

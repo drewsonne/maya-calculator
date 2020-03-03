@@ -52,19 +52,19 @@ describe('parse calendar-round', () => {
   test.each(sources)(
     '%s',
     (source) => {
-      let cr = parser.parse(source)
-      expect(cr.toString().trim()).toBe('2 Ak\'bal 6 Muwan')
+      let calendarRound = parser.parse(source)
+      expect(calendarRound.toString().trim()).toBe('2 Ak\'bal 6 Muwan')
     })
 })
 
 test('parse components calendar-round', () => {
   let parser = new model.CalendarRoundFactory()
 
-  let cr = parser.parse('6 Imix 4K\'ank\'in')
-  expect(cr.total_days).toBe(7581)
+  let calendarRound = parser.parse('6 Imix 4K\'ank\'in')
+  expect(calendarRound.total_days).toBe(7581)
 
-  cr = parser.parse('13 Ajaw 3Sek')
-  expect(cr.total_days).toBe(100)
+  calendarRound = parser.parse('13 Ajaw 3Sek')
+  expect(calendarRound.total_days).toBe(100)
 })
 
 describe('split calendar-round', () => {
@@ -81,8 +81,8 @@ describe('split calendar-round', () => {
   let parser = new model.CalendarRoundFactory()
   test.each(crs)(
     '%s -> (%s)',
-    (cr, expected_parts) => {
-      let parts = parser.split(cr)
+    (calendarRound, expected_parts) => {
+      let parts = parser.split(calendarRound)
       for (let j = 0; j < expected_parts.length; j++) {
         expect(parts[j]).toBe(expected_parts[j])
       }
@@ -141,45 +141,45 @@ describe('maya date pattern-matcher', () => {
 
   let dates = []
   long_counts.forEach(function (lc) {
-    double_dates.forEach(function (cr) {
-      [`${lc} ${cr}`, `${cr} ${lc}`].forEach(function (full_date) {
-        dates.push([full_date, cr, lc])
+    double_dates.forEach(function (calendarRound) {
+      [`${lc} ${calendarRound}`, `${calendarRound} ${lc}`].forEach(function (full_date) {
+        dates.push([full_date, calendarRound, lc])
       })
     })
   })
   test.each(dates)(
     '%s/%s',
-    (full_date, cr, lc) => {
+    (full_date, calendarRound, lc) => {
       let matcher = new model.PatternMatcher(full_date)
       expect(matcher.has_calendar_round).toBeTruthy()
       expect(matcher.has_long_count).toBeTruthy()
-      expect(matcher.calendar_round).toBe(cr)
+      expect(matcher.calendar_round).toBe(calendarRound)
       expect(matcher.long_count).toBe(lc)
     },
   )
 
   test.each(double_dates)(
     '%s',
-    (cr) => {
-      let matcher = new model.PatternMatcher(cr)
+    (calendarRound) => {
+      let matcher = new model.PatternMatcher(calendarRound)
       expect(matcher.has_calendar_round).toBeTruthy()
-      expect(matcher.calendar_round).toBe(cr)
+      expect(matcher.calendar_round).toBe(calendarRound)
       expect(matcher.has_long_count).toBeFalsy()
     },
   )
 
   test.each(long_counts)(
     '%s',
-    (cr) => {
-      let matcher = new model.PatternMatcher(cr)
+    (calendarRound) => {
+      let matcher = new model.PatternMatcher(calendarRound)
       expect(matcher.has_long_count).toBeTruthy()
-      expect(matcher.long_count).toBe(cr)
+      expect(matcher.long_count).toBe(calendarRound)
       expect(matcher.has_calendar_round).toBeFalsy()
     },
   )
 })
 
-test('cr thesholds', () => {
+test('calendarRound thesholds', () => {
   expect(
     new model.LongCount('0.0.0.1.17').calendar_round.toString(),
   ).toBe('2 Kaban 0 Wo ')

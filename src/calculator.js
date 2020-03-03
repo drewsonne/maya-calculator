@@ -1,16 +1,13 @@
 export default class Calculator {
   constructor(lines) {
     this.lines = lines;
-    this.register = [];
   }
 
   run() {
-    for (let line of this.lines) {
-      for (let token of line) {
-        this.register = token.process(this.register);
-      }
-    }
-    return this.register;
+    return this.lines.reduce((register, line) => (
+      (line.length === 0)
+        ? line.process(register)
+        : line.reduce((tokenRegister, token) => token.process(tokenRegister), register)
+    ), []);
   }
-
 }

@@ -1,11 +1,11 @@
 
 
 export default class FullDateParser {
-    constructor(...parts) {
-        this.parts = parts;
+    constructor(...lineParts) {
+        this.lineParts = lineParts;
     }
 
     run() {
-        debugger;
+        ;
     }
 }

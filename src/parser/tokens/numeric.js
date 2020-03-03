@@ -1,12 +1,7 @@
-const Base = require('./base');
+import Base from './base';
 
-class Numeric extends Base {
-
-    toString() {
-        return this.raw_text;
-    }
+export default class Numeric extends Base {
+  toString() {
+    return this.raw_text;
+  }
 }
-
-Numeric.prototype.TYPE = 'numeric';
-
-module.exports = Numeric;

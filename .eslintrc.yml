@@ -1,0 +1,25 @@
+env:
+  browser: true
+  commonjs: true
+  es6: true
+extends:
+  - airbnb-base
+  - eslint:recommended
+  - plugin:jest/style
+  - plugin:jest/recommended
+  - plugin:react/recommended
+globals:
+  Atomics: readonly
+  SharedArrayBuffer: readonly
+parserOptions:
+  ecmaVersion: 2018
+  ecmaFeatures:
+    jsx: true
+rules:
+  "jest/consistent-test-it": error
+  "react/jsx-uses-react": error
+  "react/jsx-uses-vars": error
+  "comma-dangle": off
+plugins:
+  - jest
+  - react

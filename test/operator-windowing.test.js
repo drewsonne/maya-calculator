@@ -1,6 +1,6 @@
-import mayadate from "@drewsonne/maya-dates";
+import mayadate from '@drewsonne/maya-dates';
 import Operator from '../src/parser/tokens/operator';
-import OperatorWindowing from "../src/parser/operator-windowing";
+import OperatorWindowing from '../src/parser/operator-windowing';
 import linestart from '../src/parser/tokens/line-start';
 import lineend from '../src/parser/tokens/line-end';
 
@@ -14,7 +14,7 @@ describe('window-operators', () => {
         new mayadate.lc.LongCount(1, 1),
         lineend
       ],
-      ' 0. 1. 1. 2. 2'
+      [' 0. 1. 1. 2. 2', 1, 3]
     ],
     [
       [
@@ -23,19 +23,22 @@ describe('window-operators', () => {
         new Operator('+'),
         lineend,
         linestart,
-        new mayadate.lc.LongCount(1, 1)
+        new mayadate.lc.LongCount(1, 1),
+        lineend
       ],
-      ' 0. 1. 1. 2. 2'
+      [' 0. 1. 1. 2. 2', 1, 5]
     ]
   ];
 
   parsedInput.forEach((args, i) => {
     const lines = args[0];
-    const expected = args[1];
+    const [expected, expectedStart, expectedLength] = args[1];
     it(`${lines} -> ${expected}`, () => {
-      let [start, result, length] = new OperatorWindowing(lines).run();
+      const [start, result, length] = new OperatorWindowing(lines).run();
+      expect(start).toBe(expectedStart);
+      expect(length).toBe(expectedLength);
       expect(
-        `${result.equals()}`
+        `${result}`
       ).toBe(
         expected
       );

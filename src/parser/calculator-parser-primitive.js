@@ -4,30 +4,35 @@ import commentstart from './tokens/comment-start';
 import Text from './tokens/text';
 import Numeric from './tokens/numeric';
 import Operator from './tokens/operator';
-import Wildcard from './tokens/wildcard';
+import wildcard from './tokens/wildcard';
 
-class PrimitiveCalculatorParser {
-  constructor(raw_text) {
-    this.raw_text = raw_text;
+const concat = (x, y) => x.concat(y);
+
+// eslint-disable-next-line no-extend-native,func-names
+Array.prototype.flatMap = function (f) {
+  return this.map(f).reduce(concat, []);
+};
+
+export default class PrimitiveCalculatorParser {
+  constructor(rawText) {
+    this.rawText = rawText;
   }
 
   run() {
-    let lines = this.raw_text.split(/\n/);
-    let tokens = [];
-    for (let line of lines) {
-      tokens.push(linestart);
-      if (line.trim() !== "") {
-        let parts = line.trim().split(' ');
-        for (let i = 0; i < parts.length; i++) {
-          let part = parts[i];
+    const lines = this.rawText.split(/\n/);
+    return lines.map((line) => {
+      const tokens = new Array(linestart);
+      if (line.trim() !== '') {
+        const parts = line.trim().split(' ');
+        for (let i = 0; i < parts.length; i += 1) {
+          const part = parts[i];
           if (part === '*') {
-            tokens.push(new Wildcard(part[0]));
+            tokens.push(wildcard);
           } else if (['+', '-'].includes(part[0])) {
             tokens.push(new Operator(part[0]));
             if (part.length > 1) {
               parts[i] = part.slice(1, part.length);
-              i--;
-              continue;
+              i -= 1;
             }
           } else if (part[0] === '#') {
             tokens.push(commentstart);
@@ -46,9 +51,7 @@ class PrimitiveCalculatorParser {
         }
       }
       tokens.push(lineend);
-    }
-    return tokens;
+      return tokens;
+    }).flatMap((t) => t);
   }
 }
-
-export default PrimitiveCalculatorParser;
