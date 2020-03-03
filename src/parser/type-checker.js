@@ -1,89 +1,112 @@
-import linestart from "./tokens/line-start";
-import lineend from "./tokens/line-end";
-import commentstart from "./tokens/comment-start";
-import Numeric from "./tokens/numeric";
-import Operator from "./tokens/operator";
+import linestart from './tokens/line-start';
+import lineend from './tokens/line-end';
+import commentstart from './tokens/comment-start';
+import Numeric from './tokens/numeric';
+import Operator from './tokens/operator';
+import wildcard from './tokens/wildcard';
+import Text from './tokens/text';
 
-
-function is_processed_obj(part) {
-  return is_calendar_round(part) || is_long_count(part);
-}
-
-function is_long_count(part) {
+function isLongCount(part) {
+  // eslint-disable-next-line no-prototype-builtins
   return part.hasOwnProperty('parts');
 }
 
-function is_long_count_token(part) {
+function isLongCountToken(part) {
+  // eslint-disable-next-line no-prototype-builtins
   return part.hasOwnProperty('long_count_obj');
 }
 
-function is_line_start(part) {
+function isLineStart(part) {
   return part === linestart;
 }
 
-function is_line_end(part) {
+function isLineEnd(part) {
   return part === lineend;
 }
 
-function is_comment_start(part) {
+function isCommentStart(part) {
   return part === commentstart;
 }
 
-function is_text(part) {
+function isComment(part) {
+  // eslint-disable-next-line no-prototype-builtins
+  return part.hasOwnProperty('commentText');
+}
+
+function isText(part) {
   return part instanceof Text;
 }
 
-function is_integer(part) {
-  if (is_numeric(part)) {
-    return /\d+/.test(part);
-  }
-  return false;
-}
-
-function is_numeric(part) {
+function isNumeric(part) {
   return part instanceof Numeric;
 }
 
-function is_operator(part) {
-  return part instanceof Operator;
-}
-
-function is_calendar_round(part) {
-  return part.hasOwnProperty('tzolkin') && part.hasOwnProperty('haab');
-}
-
-function is_plus_operator(part) {
-  return is_operator_type(part, '+');
-}
-
-function is_minus_operator(part) {
-  return is_operator_type(part, '-');
-}
-
-function is_operator_type(part, operator_type) {
-  if (part.hasOwnProperty('raw_text')) {
-    return operator_type === part.raw_text;
+function isInteger(part) {
+  if (isNumeric(part)) {
+    return /^\d+$/.test(part);
   }
   return false;
 }
 
-function is_full_date(part) {
+function isOperator(part) {
+  return part instanceof Operator;
+}
+
+function isCalendarRound(part) {
+  // eslint-disable-next-line no-prototype-builtins
+  return part.hasOwnProperty('tzolkin') && part.hasOwnProperty('haab');
+}
+
+function isOperatorType(part, operatorType) {
+  // eslint-disable-next-line no-prototype-builtins
+  if (part.hasOwnProperty('raw_text')) {
+    return operatorType === part.raw_text;
+  }
+  return false;
+}
+
+function isPlusOperator(part) {
+  return isOperatorType(part, '+');
+}
+
+function isMinusOperator(part) {
+  return isOperatorType(part, '-');
+}
+
+function isFullDate(part) {
+  // eslint-disable-next-line no-prototype-builtins
   return part.hasOwnProperty('lc') && part.hasOwnProperty('lc');
 }
 
+function isLine(part) {
+  // eslint-disable-next-line no-prototype-builtins
+  return part.hasOwnProperty('line_parts');
+}
+
+function isProcessedObj(part) {
+  return isCalendarRound(part) || isLongCount(part);
+}
+
+function isWildcard(part) {
+  return wildcard === part;
+}
+
 export default {
-  is_full_date,
-  is_processed_obj,
-  is_long_count,
-  is_long_count_token,
-  is_line_start,
-  is_line_end,
-  is_comment_start,
-  is_text,
-  is_numeric,
-  is_operator,
-  is_calendar_round,
-  is_plus_operator,
-  is_minus_operator,
-  is_integer
+  isFullDate,
+  isProcessedObj,
+  isLongCount,
+  isLongCountToken,
+  isLineStart,
+  isLineEnd,
+  isCommentStart,
+  isText,
+  isNumeric,
+  isOperator,
+  isCalendarRound,
+  isPlusOperator,
+  isMinusOperator,
+  isInteger,
+  isLine,
+  isComment,
+  isWildcard
 };

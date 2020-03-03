@@ -1,3 +1,5 @@
-modules.exports = {
-    'Workspace': require('./workspace')
+import Workspace from './workspace';
+
+export default {
+  Workspace
 };

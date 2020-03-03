@@ -1,11 +1,13 @@
-class Comment {
-    constructor(text) {
-        this.text = text;
-    }
+export default class Comment {
+  constructor(text) {
+    this.commentText = text;
+  }
 
-    toString() {
-        return `# ${this.text}`;
-    }
+  get raw() {
+    return this.commentText;
+  }
+
+  toString() {
+    return `# ${this.commentText}`;
+  }
 }
-
-module.exports = Comment;

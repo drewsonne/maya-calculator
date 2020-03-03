@@ -1,9 +1,13 @@
-const Base = require('./base');
+import Base from './base';
 
 class Wildcard extends Base {
+  constructor() {
+    super('*');
+  }
+
   toString() {
     return this.raw_text;
   }
 }
 
-module.exports = Wildcard;
+export default new Wildcard();

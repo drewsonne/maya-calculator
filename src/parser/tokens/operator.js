@@ -1,10 +1,7 @@
-const Base = require('./base');
+import Base from './base';
 
-class Operator extends Base {
-
-    toString() {
-        return ` ${this.raw_text} `;
-    }
+export default class Operator extends Base {
+  toString() {
+    return ` ${this.raw_text} `;
+  }
 }
-
-module.exports = Operator;

@@ -1,13 +1,13 @@
-const Base = require('./base');
+import Base from './base';
 
 class CommentStart extends Base {
-    constructor() {
-        super('#');
-    }
+  constructor() {
+    super('#');
+  }
 
-    equal(other) {
-        return this === other;
-    }
+  equal(other) {
+    return this === other;
+  }
 }
 
-module.exports = new CommentStart();
+export default new CommentStart();

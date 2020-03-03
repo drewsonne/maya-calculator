@@ -1,43 +1,55 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import TypeChecker from '../parser/type-checker';
-import LongCount from "../elements/long-count";
-import CalendarRound from "../elements/calendar-round";
+import LongCount from '../elements/long-count';
+import EmptyLine from '../elements/empty-line';
+import CalendarRound from '../elements/calendar-round';
 
-class Page extends Component {
-
+export default class Page extends Component {
   render() {
     return (
       <div className="Page">
         <textarea
           className="Input"
           onInput={this.props.onInput}
-          id={'page_' + this.props.id}
+          id={`page_${this.props.id}`}
         />
         <div className="Output">
           <table className="monospace">
             <thead>
             <tr>
-              <th>C. Round</th>
-              <th>Pos.</th>
-              <th>Long Count</th>
-              <th>Gregorian</th>
-              <th>Julian</th>
-              <th>Night</th>
-              <th className="left_align">Annotation</th>
+              <th colSpan={3} className="center_align">Calendar Round</th>
+              <th rowSpan={2}>Long Count</th>
+              <th rowSpan={2}>Night</th>
+              <th rowSpan={2}>Gregorian</th>
+              <th rowSpan={2}>Julian</th>
+              <th rowSpan={2}>Annotation</th>
+            </tr>
+            <tr>
+              <th>260-day</th>
+              <th>Haab</th>
+              <th>Position</th>
             </tr>
             </thead>
             <tbody>
-            {this.props.elements.map(element => {
-              if (TypeChecker.is_full_date(element)) {
-
-              } else if (TypeChecker.is_long_count_token(element)) {
-                return <LongCount lc={element.lc}/>;
-              } else if (TypeChecker.is_long_count(element)) {
-                return <LongCount lc={element}/>;
-              } else if (TypeChecker.is_calendar_round(element)) {
-                return <CalendarRound cr={element}/>;
+            {this.props.elements.map((element) => {
+              if (TypeChecker.isLine(element)) {
+                return <EmptyLine/>;
               }
+              if (TypeChecker.isFullDate(element)) {
+                return <EmptyLine/>;
+              }
+              if (TypeChecker.isLongCountToken(element)) {
+                return <LongCount lc={element.lc}/>;
+              }
+              if (TypeChecker.isLongCount(element)) {
+                return <LongCount lc={element}/>;
+              }
+              if (TypeChecker.isCalendarRound(element)) {
+                return <CalendarRound calendarRound={element}/>;
+              }
+              return <EmptyLine/>;
             })}
             </tbody>
           </table>
@@ -45,10 +57,10 @@ class Page extends Component {
       </div>
     );
   }
-
-  onInput(content) {
-    debugger
-  }
 }
 
-export default Page;
+Page.propTypes = {
+  onInput: PropTypes.func.isRequired,
+  id: PropTypes.number,
+  elements: PropTypes.array,
+};

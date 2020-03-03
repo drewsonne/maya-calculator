@@ -1,14 +1,18 @@
-const Base = require('./base');
+import Base from './base';
 
 class LineStart extends Base {
+  constructor() {
+    super('');
+  }
 
-    toString() {
-        return 'START_LINE';
-    }
+  // eslint-disable-next-line class-methods-use-this
+  toString() {
+    return 'START_LINE';
+  }
 
-    equal(other) {
-        return this === other;
-    }
+  equal(other) {
+    return this === other;
+  }
 }
 
-module.exports = new LineStart();
+export default new LineStart();

@@ -6903,7 +6903,7 @@ var luxon = (function (exports) {
       return this.isValid ? Formatter.create(this.loc.clone(opts), opts).formatDateTime(this) : INVALID$2;
     }
     /**
-     * Returns an array of format "parts", i.e. individual tokens along with metadata. This is allows callers to post-process individual sections of the formatted output.
+     * Returns an array of format "lineParts", i.e. individual tokens along with metadata. This is allows callers to post-process individual sections of the formatted output.
      * Defaults to the system's locale if no locale has been specified
      * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat/formatToParts
      * @param opts {Object} - Intl.DateTimeFormat constructor options, same as `toLocaleString`.

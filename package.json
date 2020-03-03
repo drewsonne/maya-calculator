@@ -3,13 +3,28 @@
   "version": "1.0.0",
   "description": "A calculator for dealing with Maya dates",
   "main": "src/app.js",
-  "repository": "git@github.com:drewsonne/maya-calculator.git",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:drewsonne/maya-calculator.git"
+  },
+  "keywords": [
+    "digital-humanities",
+    "maya",
+    "maya-calendar"
+  ],
   "author": "Drew J. Sonne <drew.sonne@gmail.com>",
-  "license": "LGPL-3.0-or-later",
+  "license": "GPL-3.0",
   "private": false,
   "devDependencies": {
     "browserify": "^16.5.0",
-    "jest": "^24.9.0",
+    "esdoc": "1.1.0",
+    "esdoc-standard-plugin": "1.0.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-jest": "^23.3.0",
+    "eslint-plugin-react": "^7.18.3",
+    "jest-cli": "^25.1.0",
     "regenerator-runtime": "^0.13.3"
   },
   "scripts": {
@@ -22,12 +37,13 @@
     "testEnvironment": "node"
   },
   "dependencies": {
-    "@drewsonne/maya-dates": "1.0.8",
+    "@drewsonne/maya-dates": "1.0.10",
     "intro.js": "^2.9.3",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-scripts": "0.9.5",
-    "jquery": "^3.4.1"
+    "jquery": "^3.4.1",
+    "prop-types": "^15.7.2"
   },
   "preset": "react-native"
 }
