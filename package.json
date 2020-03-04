@@ -2,7 +2,7 @@
   "name": "maya-calendar",
   "version": "1.0.0",
   "description": "A calculator for dealing with Maya dates",
-  "main": "src/app.js",
+  "browser": "src/app.js",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com:drewsonne/maya-calculator.git"
@@ -16,6 +16,9 @@
   "license": "GPL-3.0",
   "private": false,
   "devDependencies": {
+    "@babel/plugin-transform-modules-umd": "^7.8.3",
+    "@babel/preset-env": "^7.8.6",
+    "@babel/preset-react": "^7.8.3",
     "esdoc": "1.1.0",
     "esdoc-standard-plugin": "1.0.0",
     "eslint": "^6.8.0",
@@ -23,13 +26,10 @@
     "eslint-plugin-import": "^2.19.1",
     "eslint-plugin-jest": "^23.3.0",
     "eslint-plugin-react": "^7.18.3",
-    "regenerator-runtime": "^0.13.3",
-    "@babel/preset-env": "^7.8.6",
-    "@babel/preset-react": "^7.8.3",
-    "react-test-renderer": "^16.13.0"
+    "react-test-renderer": "^16.13.0",
+    "regenerator-runtime": "^0.13.3"
   },
   "scripts": {
-    "test": "jest",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject"
@@ -55,5 +55,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "jest": {
+    "verbose": true
   }
 }

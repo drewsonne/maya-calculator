@@ -4,6 +4,9 @@ import OperatorWindowing from '../parser/operator-windowing';
 import linestart from '../parser/tokens/line-start';
 import lineend from '../parser/tokens/line-end';
 
+jest.mock('@drewsonne/maya-dates');
+
+
 describe('window-operators', () => {
   const parsedInput = [
     [
@@ -37,11 +40,7 @@ describe('window-operators', () => {
       const [start, result, length] = new OperatorWindowing(lines).run();
       expect(start).toBe(expectedStart);
       expect(length).toBe(expectedLength);
-      expect(
-        `${result}`
-      ).toBe(
-        expected
-      );
+      expect(`${result}`).toBe(expected);
     });
   });
 });
