@@ -16,19 +16,13 @@
   "license": "GPL-3.0",
   "private": false,
   "devDependencies": {
-    "@babel/plugin-transform-modules-umd": "^7.8.3",
-    "@babel/preset-env": "^7.8.6",
-    "@babel/preset-react": "^7.8.3",
-    "@babel/preset-es2015": "^7.0.0-beta.53",
     "esdoc": "1.1.0",
     "esdoc-standard-plugin": "1.0.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.19.1",
     "eslint-plugin-jest": "^23.3.0",
-    "eslint-plugin-react": "^7.18.3",
-    "react-test-renderer": "^16.13.0",
-    "regenerator-runtime": "^0.13.3"
+    "eslint-plugin-react": "^7.18.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -45,21 +39,9 @@
     "react-scripts": "^3.4.0"
   },
   "preset": "react-native",
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
   "jest": {
     "transformIgnorePatterns": [
-      "node_modules/(?!(@drewsonne|lit-html)).*\\.js$"
+      "node_modules/(?!(@drewsonne)).*\\.js$"
     ]
   }
 }
