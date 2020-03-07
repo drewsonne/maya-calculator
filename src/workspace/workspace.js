@@ -9,11 +9,10 @@ class Workspace extends Component {
   constructor() {
     super();
     this.state = {
-      pages: [{ id: 0, inputContent: '', elements: [] }]
+      pages: [{id: 0, inputContent: '', elements: []}]
     };
     this.onInput = this.onInput.bind(this);
     this.inputTimers = {};
-    this.parser = new ComplexCalculatorParser();
   }
 
   createPage() {
@@ -58,7 +57,7 @@ class Workspace extends Component {
       //   that.appendPage(after);
       // }
 
-      const parts = that.parser.run(content);
+      const parts = new ComplexCalculatorParser(content).run();
       that.state.pages[pageId].elements = new Calculator(
         parts
       ).run();
@@ -68,16 +67,16 @@ class Workspace extends Component {
   }
 
   updatePage(id, content) {
-    const { state } = this;
-    const { pages } = state;
+    const {state} = this;
+    const {pages} = state;
     pages[id].inputContent = content;
     state.pages = pages;
     this.setState(state);
   }
 
   addPage(id, content) {
-    const { state } = this;
-    const { pages } = state;
+    const {state} = this;
+    const {pages} = state;
     pages.push({
       id,
       inputContent: content

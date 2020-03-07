@@ -28,6 +28,10 @@ export default class Line {
     );
   }
 
+  reduce(func, initial) {
+    return this.lineParts.reduce(func, initial);
+  }
+
   map(func) {
     return new Line(...this.lineParts.map(func));
   }

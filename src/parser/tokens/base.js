@@ -1,4 +1,3 @@
-import Comment from '../complex-tokens/comment';
 import CommentHolder from './comment-holder-interface';
 
 export default class TokenBase extends CommentHolder {

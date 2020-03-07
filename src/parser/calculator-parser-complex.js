@@ -45,6 +45,7 @@ export default class ComplexCalculatorParser {
       CalendarRoundWindowing,
       OperatorWindowing
     ].forEach((Windower) => {
+      debugger
       let parsed = new Windower(primitiveParts).run();
       while (parsed != null) {
         primitiveParts = this.replace(primitiveParts, ...parsed);
