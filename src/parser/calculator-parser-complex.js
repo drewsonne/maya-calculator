@@ -9,7 +9,7 @@ import LongCountToken from './complex-tokens/long-count';
 import TypeChecker from './type-checker';
 
 import CommentCollapsing from './collapser/comment';
-import wildcard from './tokens/wildcard';
+import wildcard from "./tokens/wildcard";
 
 
 const WAITING_TO_START = 0;
@@ -45,7 +45,6 @@ export default class ComplexCalculatorParser {
       CalendarRoundWindowing,
       OperatorWindowing
     ].forEach((Windower) => {
-      debugger
       let parsed = new Windower(primitiveParts).run();
       while (parsed != null) {
         primitiveParts = this.replace(primitiveParts, ...parsed);

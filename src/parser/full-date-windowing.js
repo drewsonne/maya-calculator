@@ -4,6 +4,7 @@ import Windowing from './windowing';
 
 export default class FullDateWindowing extends Windowing {
   run() {
+    // debugger;
     if (this.parts.length < 2) {
       return null;
     }
