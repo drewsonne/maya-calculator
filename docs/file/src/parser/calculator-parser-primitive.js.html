@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/parser/calculator-parser-primitive.js</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/calculator.js~Calculator.html">Calculator</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#parser">parser</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/calculator-parser-complex.js~ComplexCalculatorParser.html">ComplexCalculatorParser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/calculator-parser-primitive.js~PrimitiveCalculatorParser.html">PrimitiveCalculatorParser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/calendar-round-parser.js~CalendarRoundParser.html">CalendarRoundParser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/calendar-round-windowing.js~CalendarRoundWindowing.html">CalendarRoundWindowing</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/full-date-parser.js~FullDateParser.html">FullDateParser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/full-date-windowing.js~FullDateWindowing.html">FullDateWindowing</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/operator-windowing.js~OperatorWindowing.html">OperatorWindowing</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/windowing.js~Windowing.html">Windowing</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#parser-collapser">parser/collapser</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/collapser/base.js~Collapser.html">Collapser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/collapser/comment.js~CommentCollapser.html">CommentCollapser</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#parser-complex-tokens">parser/complex-tokens</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/complex-tokens/comment.js~Comment.html">Comment</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/complex-tokens/full-date.js~FullDate.html">FullDate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/complex-tokens/line.js~Line.html">Line</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/complex-tokens/long-count.js~LongCount.html">LongCount</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#parser-tokens">parser/tokens</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/tokens/base.js~TokenBase.html">TokenBase</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/tokens/comment-holder-interface.js~CommentHolder.html">CommentHolder</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/tokens/comment-start.js~CommentStart.html">CommentStart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/tokens/line-end.js~LineEnd.html">LineEnd</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/tokens/line-start.js~LineStart.html">LineStart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/tokens/numeric.js~Numeric.html">Numeric</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/tokens/operator.js~Operator.html">Operator</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/tokens/text.js~Text.html">Text</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/tokens/wildcard.js~Wildcard.html">Wildcard</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-commentStart">commentStart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-lineEnd">lineEnd</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-lineStart">lineStart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-wildcard">wildcard</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/parser/calculator-parser-primitive.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import mayadates from &apos;@drewsonne/maya-dates&apos;;
+
+import log from &apos;loglevel&apos;;
+import linestart from &apos;./tokens/line-start&apos;;
+import lineend from &apos;./tokens/line-end&apos;;
+import commentstart from &apos;./tokens/comment-start&apos;;
+import Text from &apos;./tokens/text&apos;;
+import Numeric from &apos;./tokens/numeric&apos;;
+import Operator from &apos;./tokens/operator&apos;;
+import wildcard from &apos;./tokens/wildcard&apos;;
+
+const concat = (x, y) =&gt; x.concat(y);
+
+// eslint-disable-next-line no-extend-native,func-names
+Array.prototype.flatMap = function (f) {
+  return this.map(f).reduce(concat, []);
+};
+
+export default class PrimitiveCalculatorParser {
+  constructor(rawText) {
+    this.rawText = rawText;
+  }
+
+  run() {
+    const lines = this.rawText.split(/\n/);
+    const that = this;
+    log.debug(&apos;[PrimitiveCalculatorParser] start parsing.&apos;);
+    const result = lines.map((line) =&gt; {
+      log.debug(`[PrimitiveCalculatorParser] found line: &apos;${line}&apos;`);
+      const tokens = new Array(linestart);
+      if (line.trim() !== &apos;&apos;) {
+        const parts = line.trim().split(&apos; &apos;);
+        for (let i = 0; i &lt; parts.length; i += 1) {
+          const part = parts[i];
+          log.trace(`[PrimitiveCalculatorParser] found line part: &apos;${part}&apos;`);
+          if (that.isWildcard(part)) {
+            log.trace(&apos;[PrimitiveCalculatorParser] part is wildcard&apos;);
+            tokens.push(wildcard);
+          } else if (that.hasOperator(part)) {
+            log.trace(&apos;[PrimitiveCalculatorParser] part is operator&apos;);
+            tokens.push(new Operator(part[0]));
+            if (part.length &gt; 1) {
+              parts[i] = part.slice(1, part.length);
+              i -= 1;
+            }
+          } else if (that.isComment(part)) {
+            log.trace(&apos;[PrimitiveCalculatorParser] part is comment&apos;);
+            tokens.push(commentstart);
+            if (part.length &gt; 1) {
+              tokens.push(
+                new Text(part.slice(1, part.length))
+              );
+            }
+          } else if (that.isLongCount(part)) {
+            log.trace(&apos;[PrimitiveCalculatorParser] part is long-count&apos;);
+            tokens.push(
+              new mayadates.factory.LongCountFactory().parse(part)
+            );
+          } else if (that.isNumeric(part)) {
+            log.trace(&apos;[PrimitiveCalculatorParser] part is numeric&apos;);
+            tokens.push(new Numeric(part));
+          } else if (that.isWord(part)) {
+            log.trace(&apos;[PrimitiveCalculatorParser] part is word&apos;);
+            tokens.push(new Text(part));
+          } else {
+            log.error(&apos;[PrimitiveCalculatorParser] could not determine type&apos;);
+            throw new Error(`Unexpected token found (${part}) in line (${line})`);
+          }
+        }
+      }
+      tokens.push(lineend);
+      return tokens;
+    }).flatMap((t) =&gt; t);
+    log.debug(&apos;[PrimitiveCalculatorParser] finish parsing.&apos;);
+    return result;
+  }
+
+  isWildcard(part) {
+    return part === &apos;*&apos;;
+  }
+
+  isComment(part) {
+    return part[0] === &apos;#&apos;;
+  }
+
+  isNumeric(part) {
+    return /^[\d*.]+$/.test(part);
+  }
+
+  isLongCount(part) {
+    return this.isNumeric(part) &amp;&amp; part.includes(&apos;.&apos;);
+  }
+
+  isWord(part) {
+    return /^[*()\w\d.&apos;]+$/.test(part);
+  }
+
+  hasOperator(part) {
+    return [&apos;+&apos;, &apos;-&apos;].includes(part[0]);
+  }
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

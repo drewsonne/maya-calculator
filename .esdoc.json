@@ -12,6 +12,12 @@
           "enable": true
         }
       }
+    },
+    {
+      "name": "esdoc-lint-plugin",
+      "option": {
+        "enable": true
+      }
     }
   ]
 }

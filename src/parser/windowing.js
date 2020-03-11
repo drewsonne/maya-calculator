@@ -1,3 +1,7 @@
+/**
+ * Windowing classes will take a list of elements into the constructor
+ * and `run()` will return 3 values.
+ */
 export default class Windowing {
   constructor(elements) {
     this.parts = elements;

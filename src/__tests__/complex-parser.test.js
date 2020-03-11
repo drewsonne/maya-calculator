@@ -32,7 +32,7 @@ describe('parse wildcards', () => {
   ];
   dates.forEach((args) => {
     const [raw, expected] = args;
-    it('%s -> %s', () => {
+    it(`${raw} -> ${expected}`, () => {
       const results = new ComplexCalculatorParser(raw).run();
       expect(`${results}`).toBe(expected);
     });

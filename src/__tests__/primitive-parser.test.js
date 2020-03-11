@@ -1,18 +1,18 @@
+import mayadate from '@drewsonne/maya-dates';
 import linestart from '../parser/tokens/line-start';
 import lineend from '../parser/tokens/line-end';
 import commentstart from '../parser/tokens/comment-start';
 import Text from '../parser/tokens/text';
-import Numeric from '../parser/tokens/numeric';
 import Operator from '../parser/tokens/operator';
 import PrimitiveCalculatorParser from '../parser/calculator-parser-primitive';
 
 describe('parse-raw-text', () => {
   const rawTexts = [
     [
-      '8.19.10.11',
+      '0.8.19.10.11',
       [
         linestart,
-        new Numeric('8.19.10.11'),
+        new mayadate.lc.LongCount(11, 10, 19, 8),
         lineend
       ]
     ],
@@ -20,7 +20,7 @@ describe('parse-raw-text', () => {
       '8.19.10.11 # (1) A long count date',
       [
         linestart,
-        new Numeric('8.19.10.11'),
+        new mayadate.lc.LongCount(11, 10, 19, 8),
         commentstart,
         new Text('(1)'),
         new Text('A'),
@@ -38,7 +38,7 @@ describe('parse-raw-text', () => {
 # (3) Do some calculations`,
       [
         linestart,
-        new Numeric('8.19.10.11'),
+        new mayadate.lc.LongCount(11, 10, 19, 8),
         commentstart,
         new Text('(1)'),
         new Text('A'),
@@ -48,7 +48,7 @@ describe('parse-raw-text', () => {
         lineend,
         linestart,
         new Operator('+'),
-        new Numeric('7.13'),
+        new mayadate.lc.DistanceNumber(13, 7),
         commentstart,
         new Text('(2)'),
         new Text('A'),
@@ -58,7 +58,7 @@ describe('parse-raw-text', () => {
         linestart,
         lineend,
         linestart,
-        new Numeric('9.17.5.0.0'),
+        new mayadate.lc.LongCount(0, 0, 5, 17, 9),
         lineend,
         linestart,
         commentstart,
@@ -84,7 +84,8 @@ describe('parse-raw-text', () => {
       for (let i = 1; i < expectedTokens.length - 1; i += 1) {
         const token = results[i];
         const expectedToken = expectedTokens[i];
-        expect(token.equal(expectedToken)).toBeTruthy();
+        const result = token.equal(expectedToken);
+        expect(result).toBeTruthy();
         expect(expectedToken.equal(token)).toBeTruthy();
       }
     });

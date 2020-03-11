@@ -5,6 +5,7 @@ import TypeChecker from '../parser/type-checker';
 import LongCount from '../elements/long-count';
 import EmptyLine from '../elements/empty-line';
 import CalendarRound from '../elements/calendar-round';
+import FullDate from '../elements/full-date';
 
 export default class Page extends Component {
   render() {
@@ -37,8 +38,8 @@ export default class Page extends Component {
               if (TypeChecker.isLine(element)) {
                 return <EmptyLine/>;
               }
-              if (TypeChecker.isFullDate(element)) {
-                return <EmptyLine/>;
+              if (TypeChecker.isFullDateToken(element)) {
+                return <FullDate lc={element.lc} cr={element.cr}/>;
               }
               if (TypeChecker.isLongCountToken(element)) {
                 return <LongCount lc={element.lc}/>;

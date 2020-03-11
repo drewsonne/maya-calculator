@@ -6,6 +6,7 @@ import Operator from './tokens/operator';
 import wildcard from './tokens/wildcard';
 import Text from './tokens/text';
 
+
 function isLongCount(part) {
   // eslint-disable-next-line no-prototype-builtins
   return part.hasOwnProperty('parts');
@@ -78,6 +79,11 @@ function isFullDate(part) {
   return part.hasOwnProperty('lc') && part.hasOwnProperty('lc');
 }
 
+function isFullDateToken(part) {
+  // eslint-disable-next-line no-prototype-builtins
+  return part.hasOwnProperty('full_date_obj');
+}
+
 function isLine(part) {
   // eslint-disable-next-line no-prototype-builtins
   return part.hasOwnProperty('line_parts');
@@ -108,5 +114,6 @@ export default {
   isInteger,
   isLine,
   isComment,
-  isWildcard
+  isWildcard,
+  isFullDateToken
 };

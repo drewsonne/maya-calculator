@@ -1,0 +1,4451 @@
+[
+  {
+    "__docId__": 1,
+    "kind": "external",
+    "name": "Infinity",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Infinity",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 2,
+    "kind": "external",
+    "name": "NaN",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~NaN",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 3,
+    "kind": "external",
+    "name": "undefined",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~undefined",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 4,
+    "kind": "external",
+    "name": "null",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~null",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 5,
+    "kind": "external",
+    "name": "Object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 6,
+    "kind": "external",
+    "name": "object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 7,
+    "kind": "external",
+    "name": "Function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 8,
+    "kind": "external",
+    "name": "function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 9,
+    "kind": "external",
+    "name": "Boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 10,
+    "kind": "external",
+    "name": "boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 11,
+    "kind": "external",
+    "name": "Symbol",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Symbol",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 12,
+    "kind": "external",
+    "name": "Error",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Error",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 13,
+    "kind": "external",
+    "name": "EvalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~EvalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 14,
+    "kind": "external",
+    "name": "InternalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~InternalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 15,
+    "kind": "external",
+    "name": "RangeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~RangeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 16,
+    "kind": "external",
+    "name": "ReferenceError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~ReferenceError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 17,
+    "kind": "external",
+    "name": "SyntaxError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~SyntaxError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 18,
+    "kind": "external",
+    "name": "TypeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~TypeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 19,
+    "kind": "external",
+    "name": "URIError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~URIError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 20,
+    "kind": "external",
+    "name": "Number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 21,
+    "kind": "external",
+    "name": "number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 22,
+    "kind": "external",
+    "name": "Date",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Date",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 23,
+    "kind": "external",
+    "name": "String",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~String",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 24,
+    "kind": "external",
+    "name": "string",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~string",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 25,
+    "kind": "external",
+    "name": "RegExp",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~RegExp",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 26,
+    "kind": "external",
+    "name": "Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 27,
+    "kind": "external",
+    "name": "Int8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 28,
+    "kind": "external",
+    "name": "Uint8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 29,
+    "kind": "external",
+    "name": "Uint8ClampedArray",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint8ClampedArray",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 30,
+    "kind": "external",
+    "name": "Int16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 31,
+    "kind": "external",
+    "name": "Uint16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 32,
+    "kind": "external",
+    "name": "Int32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 33,
+    "kind": "external",
+    "name": "Uint32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 34,
+    "kind": "external",
+    "name": "Float32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Float32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 35,
+    "kind": "external",
+    "name": "Float64Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Float64Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 36,
+    "kind": "external",
+    "name": "Map",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Map",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 37,
+    "kind": "external",
+    "name": "Set",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Set",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 38,
+    "kind": "external",
+    "name": "WeakMap",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~WeakMap",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 39,
+    "kind": "external",
+    "name": "WeakSet",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~WeakSet",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 40,
+    "kind": "external",
+    "name": "ArrayBuffer",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~ArrayBuffer",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 41,
+    "kind": "external",
+    "name": "DataView",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~DataView",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 42,
+    "kind": "external",
+    "name": "JSON",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~JSON",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 43,
+    "kind": "external",
+    "name": "Promise",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Promise",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 44,
+    "kind": "external",
+    "name": "Generator",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Generator",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 45,
+    "kind": "external",
+    "name": "GeneratorFunction",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~GeneratorFunction",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 46,
+    "kind": "external",
+    "name": "Reflect",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Reflect",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 47,
+    "kind": "external",
+    "name": "Proxy",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Proxy",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 48,
+    "kind": "file",
+    "name": "src/calculator.js",
+    "content": "export default class Calculator {\n  constructor(lines) {\n    this.lines = lines;\n  }\n\n  run() {\n    return this.lines.reduce((register, line) => {\n      if (line.length === 0) {\n        return line.process(register);\n      } else {\n        return line.reduce(\n          (tokenRegister, token) => token.process(tokenRegister), register\n        );\n      }\n    }, []);\n  }\n}\n",
+    "static": true,
+    "longname": "/home/drews/Development/maya-calculator/src/calculator.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 49,
+    "kind": "class",
+    "name": "Calculator",
+    "memberof": "src/calculator.js",
+    "static": true,
+    "longname": "src/calculator.js~Calculator",
+    "access": "public",
+    "export": true,
+    "importPath": "./src/calculator.js",
+    "importStyle": "Calculator",
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "interface": false
+  },
+  {
+    "__docId__": 50,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/calculator.js~Calculator",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/calculator.js~Calculator#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 2,
+    "undocument": true
+  },
+  {
+    "__docId__": 51,
+    "kind": "member",
+    "name": "lines",
+    "memberof": "src/calculator.js~Calculator",
+    "static": false,
+    "longname": "src/calculator.js~Calculator#lines",
+    "access": "public",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 52,
+    "kind": "method",
+    "name": "run",
+    "memberof": "src/calculator.js~Calculator",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/calculator.js~Calculator#run",
+    "access": "public",
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 53,
+    "kind": "file",
+    "name": "src/parser/calculator-parser-complex.js",
+    "content": "import mayadate from '@drewsonne/maya-dates';\nimport log from 'loglevel';\nimport Line from './complex-tokens/line';\nimport Comment from './complex-tokens/comment';\nimport CalendarRoundWindowing from './calendar-round-windowing';\nimport FullDateWindowing from './full-date-windowing';\nimport OperatorWindowing from './operator-windowing';\nimport PrimitiveCalculatorParser from './calculator-parser-primitive';\nimport LongCountToken from './complex-tokens/long-count';\nimport FullDateToken from './complex-tokens/full-date';\nimport TypeChecker from './type-checker';\n\nimport CommentCollapsing from './collapser/comment';\nimport wildcard from './tokens/wildcard';\n\n\nconst WAITING_TO_START = 0;\nconst PARSING_LINE = 1;\nconst FOUND_NUMERIC = 2;\nconst PARSING_COMMENT = 3;\n\nclass _State {\n  constructor(state) {\n    this.state = state;\n  }\n\n  set(newState) {\n    this.state = newState;\n  }\n\n  is(newState) {\n    return this.state === newState;\n  }\n}\n\nexport default class ComplexCalculatorParser {\n  constructor(rawText) {\n    this.rawText = rawText;\n  }\n\n  executeWindower(Windower, primitiveParts) {\n    let modifiableParts = primitiveParts;\n    const windowAction = new Windower(primitiveParts);\n    log.trace(`[ComplexCalculatorParser] windowing '${windowAction.constructor.name}'`);\n    let parsed = windowAction.run();\n    while (parsed != null) {\n      modifiableParts = this.replace(modifiableParts, ...parsed);\n      parsed = new Windower(modifiableParts).run();\n    }\n    return modifiableParts;\n  }\n\n  run() {\n    const lcFactory = new mayadate.factory.LongCountFactory();\n    let primitiveParts = new PrimitiveCalculatorParser(this.rawText).run();\n\n    primitiveParts = this.executeWindower(FullDateWindowing, primitiveParts);\n    primitiveParts = this.executeWindower(CalendarRoundWindowing, primitiveParts);\n    primitiveParts = this.executeWindower(OperatorWindowing, primitiveParts);\n\n    const state = new _State(WAITING_TO_START);\n    let current = [];\n    let cache = [];\n    let elements = [];\n    for (let i = 0; i < primitiveParts.length; i += 1) {\n      const part = primitiveParts[i];\n      if (state.is(PARSING_COMMENT)) {\n        if (TypeChecker.isLineEnd(part)) {\n          current.push(new Comment(`${cache.join(' ')}`));\n          elements.push(current);\n          state.set(WAITING_TO_START);\n          cache = [];\n          current = null;\n        } else {\n          cache.push(part);\n        }\n      } else if (state.is(WAITING_TO_START)) {\n        if (TypeChecker.isLineStart(part)) {\n          current = new Line();\n          state.set(PARSING_LINE);\n        } else {\n          throw new Error(`State WAITING_TO_START and element ${part} is unexpected`);\n        }\n      } else if (state.is(PARSING_LINE)) {\n        if (TypeChecker.isFullDate(part)) {\n          current.push(new FullDateToken(part));\n        } else if (TypeChecker.isLongCount(part)) {\n          current.push(new LongCountToken(part));\n        } else if (TypeChecker.isNumeric(part)) {\n          let numericResult;\n          if (TypeChecker.isInteger(part)) {\n            numericResult = part;\n          } else {\n            numericResult = new LongCountToken(lcFactory.parse(`${part}`));\n          }\n          current.push(numericResult);\n        } else if (TypeChecker.isCommentStart(part)) {\n          cache = [];\n          state.set(PARSING_COMMENT);\n        } else if (TypeChecker.isOperator(part)) {\n          current.push(part);\n        } else if (TypeChecker.isCalendarRound(part)) {\n          current.push(part);\n        } else if (TypeChecker.isProcessedObj(part)) {\n          current.push(part);\n        } else if (TypeChecker.isWildcard(part)) {\n          current.push(part);\n        } else if (TypeChecker.isText(part)) {\n          if (part.startsWithWildcard()) {\n            current.push(wildcard);\n            current.push(part.stripWildcard());\n          } else if (part.endsWithWildcard()) {\n            current.push(part.stripWildcard());\n            current.push(wildcard);\n          } else {\n            current.push(part);\n          }\n        } else if (TypeChecker.isLineEnd(part)) {\n          elements.push(current);\n          state.set(WAITING_TO_START);\n        } else {\n          throw new Error(`State PARSING_LINE and element ${part} is unexpected`);\n        }\n      } else if (state.is(FOUND_NUMERIC)) {\n        if (TypeChecker.isText(part)) {\n          throw new Error(`State FOUND_NUMERIC and element is_text(${part}) is unexpected`);\n        } else {\n          throw new Error(`State FOUND_NUMERIC and element ${part} is unexpected`);\n        }\n      } else {\n        throw new Error(`State ${state.state} and element ${part} is unexpected`);\n      }\n    }\n\n    elements = new CommentCollapsing(elements).run();\n    return elements;\n  }\n\n  // eslint-disable-next-line class-methods-use-this\n  replace(elements, start, element, length) {\n    const prefix = elements.slice(0, start);\n    const suffix = elements.slice(start + length);\n    return prefix.concat([element]).concat(suffix);\n  }\n}\n",
+    "static": true,
+    "longname": "/home/drews/Development/maya-calculator/src/parser/calculator-parser-complex.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 54,
+    "kind": "variable",
+    "name": "WAITING_TO_START",
+    "memberof": "src/parser/calculator-parser-complex.js",
+    "static": true,
+    "longname": "src/parser/calculator-parser-complex.js~WAITING_TO_START",
+    "access": "public",
+    "export": false,
+    "importPath": "./src/parser/calculator-parser-complex.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 17,
+    "undocument": true,
+    "type": {
+      "types": [
+        "number"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 55,
+    "kind": "variable",
+    "name": "PARSING_LINE",
+    "memberof": "src/parser/calculator-parser-complex.js",
+    "static": true,
+    "longname": "src/parser/calculator-parser-complex.js~PARSING_LINE",
+    "access": "public",
+    "export": false,
+    "importPath": "./src/parser/calculator-parser-complex.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 18,
+    "undocument": true,
+    "type": {
+      "types": [
+        "number"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 56,
+    "kind": "variable",
+    "name": "FOUND_NUMERIC",
+    "memberof": "src/parser/calculator-parser-complex.js",
+    "static": true,
+    "longname": "src/parser/calculator-parser-complex.js~FOUND_NUMERIC",
+    "access": "public",
+    "export": false,
+    "importPath": "./src/parser/calculator-parser-complex.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 19,
+    "undocument": true,
+    "type": {
+      "types": [
+        "number"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 57,
+    "kind": "variable",
+    "name": "PARSING_COMMENT",
+    "memberof": "src/parser/calculator-parser-complex.js",
+    "static": true,
+    "longname": "src/parser/calculator-parser-complex.js~PARSING_COMMENT",
+    "access": "public",
+    "export": false,
+    "importPath": "./src/parser/calculator-parser-complex.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 20,
+    "undocument": true,
+    "type": {
+      "types": [
+        "number"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 58,
+    "kind": "class",
+    "name": "_State",
+    "memberof": "src/parser/calculator-parser-complex.js",
+    "static": true,
+    "longname": "src/parser/calculator-parser-complex.js~_State",
+    "access": "private",
+    "export": false,
+    "importPath": "./src/parser/calculator-parser-complex.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 22,
+    "undocument": true,
+    "interface": false,
+    "ignore": true
+  },
+  {
+    "__docId__": 59,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/parser/calculator-parser-complex.js~_State",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/calculator-parser-complex.js~_State#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 23,
+    "undocument": true
+  },
+  {
+    "__docId__": 60,
+    "kind": "member",
+    "name": "state",
+    "memberof": "src/parser/calculator-parser-complex.js~_State",
+    "static": false,
+    "longname": "src/parser/calculator-parser-complex.js~_State#state",
+    "access": "public",
+    "description": null,
+    "lineNumber": 24,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 61,
+    "kind": "method",
+    "name": "set",
+    "memberof": "src/parser/calculator-parser-complex.js~_State",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/calculator-parser-complex.js~_State#set",
+    "access": "public",
+    "description": null,
+    "lineNumber": 27,
+    "undocument": true,
+    "params": [
+      {
+        "name": "newState",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 63,
+    "kind": "method",
+    "name": "is",
+    "memberof": "src/parser/calculator-parser-complex.js~_State",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/calculator-parser-complex.js~_State#is",
+    "access": "public",
+    "description": null,
+    "lineNumber": 31,
+    "undocument": true,
+    "params": [
+      {
+        "name": "newState",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 64,
+    "kind": "class",
+    "name": "ComplexCalculatorParser",
+    "memberof": "src/parser/calculator-parser-complex.js",
+    "static": true,
+    "longname": "src/parser/calculator-parser-complex.js~ComplexCalculatorParser",
+    "access": "public",
+    "export": true,
+    "importPath": "./src/parser/calculator-parser-complex.js",
+    "importStyle": "ComplexCalculatorParser",
+    "description": null,
+    "lineNumber": 36,
+    "undocument": true,
+    "interface": false
+  },
+  {
+    "__docId__": 65,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/parser/calculator-parser-complex.js~ComplexCalculatorParser",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/calculator-parser-complex.js~ComplexCalculatorParser#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 37,
+    "undocument": true
+  },
+  {
+    "__docId__": 66,
+    "kind": "member",
+    "name": "rawText",
+    "memberof": "src/parser/calculator-parser-complex.js~ComplexCalculatorParser",
+    "static": false,
+    "longname": "src/parser/calculator-parser-complex.js~ComplexCalculatorParser#rawText",
+    "access": "public",
+    "description": null,
+    "lineNumber": 38,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 67,
+    "kind": "method",
+    "name": "executeWindower",
+    "memberof": "src/parser/calculator-parser-complex.js~ComplexCalculatorParser",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/calculator-parser-complex.js~ComplexCalculatorParser#executeWindower",
+    "access": "public",
+    "description": null,
+    "lineNumber": 41,
+    "undocument": true,
+    "params": [
+      {
+        "name": "Windower",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "primitiveParts",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 68,
+    "kind": "method",
+    "name": "run",
+    "memberof": "src/parser/calculator-parser-complex.js~ComplexCalculatorParser",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/calculator-parser-complex.js~ComplexCalculatorParser#run",
+    "access": "public",
+    "description": null,
+    "lineNumber": 53,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 69,
+    "kind": "method",
+    "name": "replace",
+    "memberof": "src/parser/calculator-parser-complex.js~ComplexCalculatorParser",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/calculator-parser-complex.js~ComplexCalculatorParser#replace",
+    "access": "public",
+    "description": null,
+    "lineNumber": 140,
+    "undocument": true,
+    "params": [
+      {
+        "name": "elements",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "start",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "element",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "length",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 70,
+    "kind": "file",
+    "name": "src/parser/calculator-parser-primitive.js",
+    "content": "import mayadates from '@drewsonne/maya-dates';\n\nimport log from 'loglevel';\nimport linestart from './tokens/line-start';\nimport lineend from './tokens/line-end';\nimport commentstart from './tokens/comment-start';\nimport Text from './tokens/text';\nimport Numeric from './tokens/numeric';\nimport Operator from './tokens/operator';\nimport wildcard from './tokens/wildcard';\n\nconst concat = (x, y) => x.concat(y);\n\n// eslint-disable-next-line no-extend-native,func-names\nArray.prototype.flatMap = function (f) {\n  return this.map(f).reduce(concat, []);\n};\n\nexport default class PrimitiveCalculatorParser {\n  constructor(rawText) {\n    this.rawText = rawText;\n  }\n\n  run() {\n    const lines = this.rawText.split(/\\n/);\n    const that = this;\n    log.debug('[PrimitiveCalculatorParser] start parsing.');\n    const result = lines.map((line) => {\n      log.debug(`[PrimitiveCalculatorParser] found line: '${line}'`);\n      const tokens = new Array(linestart);\n      if (line.trim() !== '') {\n        const parts = line.trim().split(' ');\n        for (let i = 0; i < parts.length; i += 1) {\n          const part = parts[i];\n          log.trace(`[PrimitiveCalculatorParser] found line part: '${part}'`);\n          if (that.isWildcard(part)) {\n            log.trace('[PrimitiveCalculatorParser] part is wildcard');\n            tokens.push(wildcard);\n          } else if (that.hasOperator(part)) {\n            log.trace('[PrimitiveCalculatorParser] part is operator');\n            tokens.push(new Operator(part[0]));\n            if (part.length > 1) {\n              parts[i] = part.slice(1, part.length);\n              i -= 1;\n            }\n          } else if (that.isComment(part)) {\n            log.trace('[PrimitiveCalculatorParser] part is comment');\n            tokens.push(commentstart);\n            if (part.length > 1) {\n              tokens.push(\n                new Text(part.slice(1, part.length))\n              );\n            }\n          } else if (that.isLongCount(part)) {\n            log.trace('[PrimitiveCalculatorParser] part is long-count');\n            tokens.push(\n              new mayadates.factory.LongCountFactory().parse(part)\n            );\n          } else if (that.isNumeric(part)) {\n            log.trace('[PrimitiveCalculatorParser] part is numeric');\n            tokens.push(new Numeric(part));\n          } else if (that.isWord(part)) {\n            log.trace('[PrimitiveCalculatorParser] part is word');\n            tokens.push(new Text(part));\n          } else {\n            log.error('[PrimitiveCalculatorParser] could not determine type');\n            throw new Error(`Unexpected token found (${part}) in line (${line})`);\n          }\n        }\n      }\n      tokens.push(lineend);\n      return tokens;\n    }).flatMap((t) => t);\n    log.debug('[PrimitiveCalculatorParser] finish parsing.');\n    return result;\n  }\n\n  isWildcard(part) {\n    return part === '*';\n  }\n\n  isComment(part) {\n    return part[0] === '#';\n  }\n\n  isNumeric(part) {\n    return /^[\\d*.]+$/.test(part);\n  }\n\n  isLongCount(part) {\n    return this.isNumeric(part) && part.includes('.');\n  }\n\n  isWord(part) {\n    return /^[*()\\w\\d.']+$/.test(part);\n  }\n\n  hasOperator(part) {\n    return ['+', '-'].includes(part[0]);\n  }\n}\n",
+    "static": true,
+    "longname": "/home/drews/Development/maya-calculator/src/parser/calculator-parser-primitive.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 71,
+    "kind": "function",
+    "name": "concat",
+    "memberof": "src/parser/calculator-parser-primitive.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/parser/calculator-parser-primitive.js~concat",
+    "access": "public",
+    "export": false,
+    "importPath": "./src/parser/calculator-parser-primitive.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 12,
+    "undocument": true,
+    "params": [
+      {
+        "name": "x",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "y",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 72,
+    "kind": "function",
+    "name": "flatMap",
+    "memberof": "src/parser/calculator-parser-primitive.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/parser/calculator-parser-primitive.js~flatMap",
+    "access": "public",
+    "export": false,
+    "importPath": "./src/parser/calculator-parser-primitive.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 15,
+    "undocument": true,
+    "params": [
+      {
+        "name": "f",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 73,
+    "kind": "class",
+    "name": "PrimitiveCalculatorParser",
+    "memberof": "src/parser/calculator-parser-primitive.js",
+    "static": true,
+    "longname": "src/parser/calculator-parser-primitive.js~PrimitiveCalculatorParser",
+    "access": "public",
+    "export": true,
+    "importPath": "./src/parser/calculator-parser-primitive.js",
+    "importStyle": "PrimitiveCalculatorParser",
+    "description": null,
+    "lineNumber": 19,
+    "undocument": true,
+    "interface": false
+  },
+  {
+    "__docId__": 74,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/parser/calculator-parser-primitive.js~PrimitiveCalculatorParser",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/calculator-parser-primitive.js~PrimitiveCalculatorParser#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 20,
+    "undocument": true
+  },
+  {
+    "__docId__": 75,
+    "kind": "member",
+    "name": "rawText",
+    "memberof": "src/parser/calculator-parser-primitive.js~PrimitiveCalculatorParser",
+    "static": false,
+    "longname": "src/parser/calculator-parser-primitive.js~PrimitiveCalculatorParser#rawText",
+    "access": "public",
+    "description": null,
+    "lineNumber": 21,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 76,
+    "kind": "method",
+    "name": "run",
+    "memberof": "src/parser/calculator-parser-primitive.js~PrimitiveCalculatorParser",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/calculator-parser-primitive.js~PrimitiveCalculatorParser#run",
+    "access": "public",
+    "description": null,
+    "lineNumber": 24,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 77,
+    "kind": "method",
+    "name": "isWildcard",
+    "memberof": "src/parser/calculator-parser-primitive.js~PrimitiveCalculatorParser",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/calculator-parser-primitive.js~PrimitiveCalculatorParser#isWildcard",
+    "access": "public",
+    "description": null,
+    "lineNumber": 78,
+    "undocument": true,
+    "params": [
+      {
+        "name": "part",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 78,
+    "kind": "method",
+    "name": "isComment",
+    "memberof": "src/parser/calculator-parser-primitive.js~PrimitiveCalculatorParser",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/calculator-parser-primitive.js~PrimitiveCalculatorParser#isComment",
+    "access": "public",
+    "description": null,
+    "lineNumber": 82,
+    "undocument": true,
+    "params": [
+      {
+        "name": "part",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 79,
+    "kind": "method",
+    "name": "isNumeric",
+    "memberof": "src/parser/calculator-parser-primitive.js~PrimitiveCalculatorParser",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/calculator-parser-primitive.js~PrimitiveCalculatorParser#isNumeric",
+    "access": "public",
+    "description": null,
+    "lineNumber": 86,
+    "undocument": true,
+    "params": [
+      {
+        "name": "part",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 80,
+    "kind": "method",
+    "name": "isLongCount",
+    "memberof": "src/parser/calculator-parser-primitive.js~PrimitiveCalculatorParser",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/calculator-parser-primitive.js~PrimitiveCalculatorParser#isLongCount",
+    "access": "public",
+    "description": null,
+    "lineNumber": 90,
+    "undocument": true,
+    "params": [
+      {
+        "name": "part",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 81,
+    "kind": "method",
+    "name": "isWord",
+    "memberof": "src/parser/calculator-parser-primitive.js~PrimitiveCalculatorParser",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/calculator-parser-primitive.js~PrimitiveCalculatorParser#isWord",
+    "access": "public",
+    "description": null,
+    "lineNumber": 94,
+    "undocument": true,
+    "params": [
+      {
+        "name": "part",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 82,
+    "kind": "method",
+    "name": "hasOperator",
+    "memberof": "src/parser/calculator-parser-primitive.js~PrimitiveCalculatorParser",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/calculator-parser-primitive.js~PrimitiveCalculatorParser#hasOperator",
+    "access": "public",
+    "description": null,
+    "lineNumber": 98,
+    "undocument": true,
+    "params": [
+      {
+        "name": "part",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 83,
+    "kind": "file",
+    "name": "src/parser/calendar-round-parser.js",
+    "content": "import mayaDate from '@drewsonne/maya-dates';\nimport Numeric from './tokens/numeric';\nimport Text from './tokens/text';\n\n\nconst FOUR_PART = 0;\nconst THREE_PART_BIG_ENDIAN = 1;\nconst THREE_PART_LITTLE_ENDIAN = 2;\nconst TWO_PART = 4;\n\n\nexport default class CalendarRoundParser {\n  /**\n   *\n   * @param parts {TokenBase[]}\n   */\n  constructor(...parts) {\n    this.parts = parts;\n  }\n\n  get length() {\n    return this.parts.length;\n  }\n\n  toString() {\n    return `${this.parts.join(' ')}`;\n  }\n\n  /**\n   *\n   * @return {CalendarRound|undefined}\n   */\n  run() {\n    const crType = this.isValid();\n    if (crType === undefined) {\n      return undefined;\n    }\n    const factory = new mayaDate.factory.CalendarRoundFactory();\n    const dateString = this.toString();\n    let cr;\n    try {\n      cr = factory.parse(dateString);\n    } catch (err) {\n      cr = null;\n    }\n    return cr;\n  }\n\n  isValid() {\n    if (this.length === 4) {\n      if (this.isFourPart()) {\n        return FOUR_PART;\n      }\n    } else if (this.length === 3) {\n      if (this.isThreePartBigEndian()) {\n        return THREE_PART_BIG_ENDIAN;\n      }\n      if (this.isThreePartLittleEndian()) {\n        return THREE_PART_LITTLE_ENDIAN;\n      }\n    } else if (this.length === 2) {\n      if (this.isTwoPart()) {\n        return TWO_PART;\n      }\n    }\n    return undefined;\n  }\n\n\n  isFourPart() {\n    const numParts = this.parts.length;\n    if (\n      !(this.parts[0] instanceof Numeric)\n      || !(this.parts[2] instanceof Numeric)\n    ) {\n      return false;\n    }\n    if (\n      !(this.parts[1] instanceof Text)\n      || !(this.parts[3] instanceof Text)\n    ) {\n      return false;\n    }\n    const validCoefficients = this.parts[0].isCoeff()\n      && !this.parts[1].isCoeff()\n      && this.parts[2].isCoeff()\n      && !this.parts[3].isCoeff();\n\n    return validCoefficients && (numParts === 4);\n  }\n\n  isThreePart() {\n    return this.parts.length === 3;\n  }\n\n  isThreePartBigEndian() {\n    return (\n      (this.parts[0] instanceof Text)\n      && (this.parts[1] instanceof Numeric)\n      && (this.parts[2] instanceof Text)\n    );\n  }\n\n  isThreePartLittleEndian() {\n    return (\n      (this.parts[0] instanceof Numeric)\n      && (this.parts[1] instanceof Text)\n      && (this.parts[2] instanceof Text)\n    );\n  }\n\n  isTwoPart() {\n    return (\n      (this.parts[0] instanceof Text)\n      && (this.parts[1] instanceof Text)\n    );\n  }\n}\n",
+    "static": true,
+    "longname": "/home/drews/Development/maya-calculator/src/parser/calendar-round-parser.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 84,
+    "kind": "variable",
+    "name": "FOUR_PART",
+    "memberof": "src/parser/calendar-round-parser.js",
+    "static": true,
+    "longname": "src/parser/calendar-round-parser.js~FOUR_PART",
+    "access": "public",
+    "export": false,
+    "importPath": "./src/parser/calendar-round-parser.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "type": {
+      "types": [
+        "number"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 85,
+    "kind": "variable",
+    "name": "THREE_PART_BIG_ENDIAN",
+    "memberof": "src/parser/calendar-round-parser.js",
+    "static": true,
+    "longname": "src/parser/calendar-round-parser.js~THREE_PART_BIG_ENDIAN",
+    "access": "public",
+    "export": false,
+    "importPath": "./src/parser/calendar-round-parser.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 7,
+    "undocument": true,
+    "type": {
+      "types": [
+        "number"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 86,
+    "kind": "variable",
+    "name": "THREE_PART_LITTLE_ENDIAN",
+    "memberof": "src/parser/calendar-round-parser.js",
+    "static": true,
+    "longname": "src/parser/calendar-round-parser.js~THREE_PART_LITTLE_ENDIAN",
+    "access": "public",
+    "export": false,
+    "importPath": "./src/parser/calendar-round-parser.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true,
+    "type": {
+      "types": [
+        "number"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 87,
+    "kind": "variable",
+    "name": "TWO_PART",
+    "memberof": "src/parser/calendar-round-parser.js",
+    "static": true,
+    "longname": "src/parser/calendar-round-parser.js~TWO_PART",
+    "access": "public",
+    "export": false,
+    "importPath": "./src/parser/calendar-round-parser.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 9,
+    "undocument": true,
+    "type": {
+      "types": [
+        "number"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 88,
+    "kind": "class",
+    "name": "CalendarRoundParser",
+    "memberof": "src/parser/calendar-round-parser.js",
+    "static": true,
+    "longname": "src/parser/calendar-round-parser.js~CalendarRoundParser",
+    "access": "public",
+    "export": true,
+    "importPath": "./src/parser/calendar-round-parser.js",
+    "importStyle": "CalendarRoundParser",
+    "description": null,
+    "lineNumber": 12,
+    "undocument": true,
+    "interface": false
+  },
+  {
+    "__docId__": 89,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/parser/calendar-round-parser.js~CalendarRoundParser",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/calendar-round-parser.js~CalendarRoundParser#constructor",
+    "access": "public",
+    "description": "",
+    "lineNumber": 17,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "*"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "parts",
+        "description": "{TokenBase[]}"
+      }
+    ]
+  },
+  {
+    "__docId__": 90,
+    "kind": "member",
+    "name": "parts",
+    "memberof": "src/parser/calendar-round-parser.js~CalendarRoundParser",
+    "static": false,
+    "longname": "src/parser/calendar-round-parser.js~CalendarRoundParser#parts",
+    "access": "public",
+    "description": null,
+    "lineNumber": 18,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 91,
+    "kind": "get",
+    "name": "length",
+    "memberof": "src/parser/calendar-round-parser.js~CalendarRoundParser",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/calendar-round-parser.js~CalendarRoundParser#length",
+    "access": "public",
+    "description": null,
+    "lineNumber": 21,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 92,
+    "kind": "method",
+    "name": "toString",
+    "memberof": "src/parser/calendar-round-parser.js~CalendarRoundParser",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/calendar-round-parser.js~CalendarRoundParser#toString",
+    "access": "public",
+    "description": null,
+    "lineNumber": 25,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 93,
+    "kind": "method",
+    "name": "run",
+    "memberof": "src/parser/calendar-round-parser.js~CalendarRoundParser",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/calendar-round-parser.js~CalendarRoundParser#run",
+    "access": "public",
+    "description": "",
+    "lineNumber": 33,
+    "return": {
+      "nullable": null,
+      "types": [
+        "CalendarRound",
+        "undefined"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
+  },
+  {
+    "__docId__": 94,
+    "kind": "method",
+    "name": "isValid",
+    "memberof": "src/parser/calendar-round-parser.js~CalendarRoundParser",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/calendar-round-parser.js~CalendarRoundParser#isValid",
+    "access": "public",
+    "description": null,
+    "lineNumber": 49,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 95,
+    "kind": "method",
+    "name": "isFourPart",
+    "memberof": "src/parser/calendar-round-parser.js~CalendarRoundParser",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/calendar-round-parser.js~CalendarRoundParser#isFourPart",
+    "access": "public",
+    "description": null,
+    "lineNumber": 70,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 96,
+    "kind": "method",
+    "name": "isThreePart",
+    "memberof": "src/parser/calendar-round-parser.js~CalendarRoundParser",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/calendar-round-parser.js~CalendarRoundParser#isThreePart",
+    "access": "public",
+    "description": null,
+    "lineNumber": 92,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 97,
+    "kind": "method",
+    "name": "isThreePartBigEndian",
+    "memberof": "src/parser/calendar-round-parser.js~CalendarRoundParser",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/calendar-round-parser.js~CalendarRoundParser#isThreePartBigEndian",
+    "access": "public",
+    "description": null,
+    "lineNumber": 96,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 98,
+    "kind": "method",
+    "name": "isThreePartLittleEndian",
+    "memberof": "src/parser/calendar-round-parser.js~CalendarRoundParser",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/calendar-round-parser.js~CalendarRoundParser#isThreePartLittleEndian",
+    "access": "public",
+    "description": null,
+    "lineNumber": 104,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 99,
+    "kind": "method",
+    "name": "isTwoPart",
+    "memberof": "src/parser/calendar-round-parser.js~CalendarRoundParser",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/calendar-round-parser.js~CalendarRoundParser#isTwoPart",
+    "access": "public",
+    "description": null,
+    "lineNumber": 112,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 100,
+    "kind": "file",
+    "name": "src/parser/calendar-round-windowing.js",
+    "content": "import log from 'loglevel'\nimport CalendarRoundParser from './calendar-round-parser';\nimport Windowing from './windowing';\n\nexport default class CalendarRoundWindowing extends Windowing {\n  run() {\n    if (this.parts.length < 3) {\n      return null;\n    }\n    const windowGenerator = this.windows(2, 4);\n    let windows = windowGenerator.next();\n    log.trace('[CalendarRoundWindowing] start scalling for calendar rounds');\n    while (!windows.done) {\n      windows = windows.value;\n      for (let j = 0; j < windows.length; j += 1) {\n        const window = windows[j];\n        const a = new CalendarRoundParser(...window).run();\n        if (a !== null && a !== undefined) {\n          log.trace(`[CalendarRoundWindowing] finished scanning and found calendar round: '${a}' at location ${j} for length ${window.length}`);\n          return [\n            j,\n            a,\n            window.length\n          ];\n        }\n      }\n      windows = windowGenerator.next();\n    }\n    log.trace('[CalendarRoundWindowing] finish scanning and found no calendar rounds');\n    return null;\n  }\n}\n",
+    "static": true,
+    "longname": "/home/drews/Development/maya-calculator/src/parser/calendar-round-windowing.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 101,
+    "kind": "class",
+    "name": "CalendarRoundWindowing",
+    "memberof": "src/parser/calendar-round-windowing.js",
+    "static": true,
+    "longname": "src/parser/calendar-round-windowing.js~CalendarRoundWindowing",
+    "access": "public",
+    "export": true,
+    "importPath": "./src/parser/calendar-round-windowing.js",
+    "importStyle": "CalendarRoundWindowing",
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "src/parser/windowing.js~Windowing"
+    ]
+  },
+  {
+    "__docId__": 102,
+    "kind": "method",
+    "name": "run",
+    "memberof": "src/parser/calendar-round-windowing.js~CalendarRoundWindowing",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/calendar-round-windowing.js~CalendarRoundWindowing#run",
+    "access": "public",
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 103,
+    "kind": "file",
+    "name": "src/parser/collapser/base.js",
+    "content": "export default class Collapser {\n  constructor(lines) {\n    this.lines = lines;\n  }\n}\n",
+    "static": true,
+    "longname": "/home/drews/Development/maya-calculator/src/parser/collapser/base.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 104,
+    "kind": "class",
+    "name": "Collapser",
+    "memberof": "src/parser/collapser/base.js",
+    "static": true,
+    "longname": "src/parser/collapser/base.js~Collapser",
+    "access": "public",
+    "export": true,
+    "importPath": "./src/parser/collapser/base.js",
+    "importStyle": "Collapser",
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "interface": false
+  },
+  {
+    "__docId__": 105,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/parser/collapser/base.js~Collapser",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/collapser/base.js~Collapser#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 2,
+    "undocument": true
+  },
+  {
+    "__docId__": 106,
+    "kind": "member",
+    "name": "lines",
+    "memberof": "src/parser/collapser/base.js~Collapser",
+    "static": false,
+    "longname": "src/parser/collapser/base.js~Collapser#lines",
+    "access": "public",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 107,
+    "kind": "file",
+    "name": "src/parser/collapser/comment.js",
+    "content": "import Collapser from './base';\nimport TypeChecker from '../type-checker';\n\nexport default class CommentCollapser extends Collapser {\n  run() {\n    return this.lines.map((line) => {\n      let lastPart = null;\n      let isComment = false;\n      for (let j = 0; j < line.length; j += 1) {\n        const part = line.get(j);\n        if (isComment) {\n          lastPart.appendComment(part);\n          line.lineParts.splice(j, 1);\n          j -= 1;\n        } else if (TypeChecker.isComment(part)) {\n          isComment = true;\n          if (lastPart === null) {\n            lastPart = part;\n          } else {\n            lastPart.appendComment(part);\n            line.lineParts.splice(j, 1);\n            j -= 1;\n          }\n        } else {\n          lastPart = part;\n        }\n      }\n      return line;\n    });\n  }\n}\n",
+    "static": true,
+    "longname": "/home/drews/Development/maya-calculator/src/parser/collapser/comment.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 108,
+    "kind": "class",
+    "name": "CommentCollapser",
+    "memberof": "src/parser/collapser/comment.js",
+    "static": true,
+    "longname": "src/parser/collapser/comment.js~CommentCollapser",
+    "access": "public",
+    "export": true,
+    "importPath": "./src/parser/collapser/comment.js",
+    "importStyle": "CommentCollapser",
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "src/parser/collapser/base.js~Collapser"
+    ]
+  },
+  {
+    "__docId__": 109,
+    "kind": "method",
+    "name": "run",
+    "memberof": "src/parser/collapser/comment.js~CommentCollapser",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/collapser/comment.js~CommentCollapser#run",
+    "access": "public",
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 110,
+    "kind": "file",
+    "name": "src/parser/complex-tokens/comment.js",
+    "content": "export default class Comment {\n  constructor(text) {\n    this.commentText = text;\n  }\n\n  get raw() {\n    return this.commentText;\n  }\n\n  toString() {\n    return `# ${this.commentText}`;\n  }\n}\n",
+    "static": true,
+    "longname": "/home/drews/Development/maya-calculator/src/parser/complex-tokens/comment.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 111,
+    "kind": "class",
+    "name": "Comment",
+    "memberof": "src/parser/complex-tokens/comment.js",
+    "static": true,
+    "longname": "src/parser/complex-tokens/comment.js~Comment",
+    "access": "public",
+    "export": true,
+    "importPath": "./src/parser/complex-tokens/comment.js",
+    "importStyle": "Comment",
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "interface": false
+  },
+  {
+    "__docId__": 112,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/parser/complex-tokens/comment.js~Comment",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/complex-tokens/comment.js~Comment#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 2,
+    "undocument": true
+  },
+  {
+    "__docId__": 113,
+    "kind": "member",
+    "name": "commentText",
+    "memberof": "src/parser/complex-tokens/comment.js~Comment",
+    "static": false,
+    "longname": "src/parser/complex-tokens/comment.js~Comment#commentText",
+    "access": "public",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 114,
+    "kind": "get",
+    "name": "raw",
+    "memberof": "src/parser/complex-tokens/comment.js~Comment",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/complex-tokens/comment.js~Comment#raw",
+    "access": "public",
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 115,
+    "kind": "method",
+    "name": "toString",
+    "memberof": "src/parser/complex-tokens/comment.js~Comment",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/complex-tokens/comment.js~Comment#toString",
+    "access": "public",
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 116,
+    "kind": "file",
+    "name": "src/parser/complex-tokens/full-date.js",
+    "content": "import mayadates from '@drewsonne/maya-dates';\nimport CommentHolder from '../tokens/comment-holder-interface';\n\nexport default class FullDate extends CommentHolder {\n  constructor(fullDate) {\n    super();\n    this.full_date_obj = fullDate;\n  }\n\n  get lc() {\n    return this.full_date_obj.lc;\n  }\n\n  get cr() {\n    return this.full_date_obj.cr;\n  }\n\n  process(registry) {\n    const crIsPartial = this.cr.isPartial();\n    const lcIsPartial = this.lc.isPartial();\n    if (crIsPartial || lcIsPartial) {\n      const fullDates = new mayadates.op.FullDateWildcard(this.full_date_obj).run();\n      for (const fullDate of fullDates) {\n        registry.push(fullDate);\n      }\n      return registry;\n    } else {\n      return registry.concat(\n        [this]\n      );\n    }\n  }\n\n  toString() {\n    return this.full_date_obj.toString();\n  }\n}\n",
+    "static": true,
+    "longname": "/home/drews/Development/maya-calculator/src/parser/complex-tokens/full-date.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 117,
+    "kind": "class",
+    "name": "FullDate",
+    "memberof": "src/parser/complex-tokens/full-date.js",
+    "static": true,
+    "longname": "src/parser/complex-tokens/full-date.js~FullDate",
+    "access": "public",
+    "export": true,
+    "importPath": "./src/parser/complex-tokens/full-date.js",
+    "importStyle": "FullDate",
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "src/parser/tokens/comment-holder-interface.js~CommentHolder"
+    ]
+  },
+  {
+    "__docId__": 118,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/parser/complex-tokens/full-date.js~FullDate",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/complex-tokens/full-date.js~FullDate#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true
+  },
+  {
+    "__docId__": 119,
+    "kind": "member",
+    "name": "full_date_obj",
+    "memberof": "src/parser/complex-tokens/full-date.js~FullDate",
+    "static": false,
+    "longname": "src/parser/complex-tokens/full-date.js~FullDate#full_date_obj",
+    "access": "public",
+    "description": null,
+    "lineNumber": 7,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 120,
+    "kind": "get",
+    "name": "lc",
+    "memberof": "src/parser/complex-tokens/full-date.js~FullDate",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/complex-tokens/full-date.js~FullDate#lc",
+    "access": "public",
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 121,
+    "kind": "get",
+    "name": "cr",
+    "memberof": "src/parser/complex-tokens/full-date.js~FullDate",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/complex-tokens/full-date.js~FullDate#cr",
+    "access": "public",
+    "description": null,
+    "lineNumber": 14,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 122,
+    "kind": "method",
+    "name": "process",
+    "memberof": "src/parser/complex-tokens/full-date.js~FullDate",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/complex-tokens/full-date.js~FullDate#process",
+    "access": "public",
+    "description": null,
+    "lineNumber": 18,
+    "undocument": true,
+    "params": [
+      {
+        "name": "registry",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 123,
+    "kind": "method",
+    "name": "toString",
+    "memberof": "src/parser/complex-tokens/full-date.js~FullDate",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/complex-tokens/full-date.js~FullDate#toString",
+    "access": "public",
+    "description": null,
+    "lineNumber": 34,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 124,
+    "kind": "file",
+    "name": "src/parser/complex-tokens/line.js",
+    "content": "export default class Line {\n  constructor(...parts) {\n    this.lineParts = parts;\n  }\n\n  process(registry) {\n    registry.push(this);\n    return registry;\n  }\n\n  get(index) {\n    return this.lineParts[index];\n  }\n\n  push(part) {\n    this.lineParts.push(part);\n    return this;\n  }\n\n  toString() {\n    return `${this.lineParts.join(' ')}`;\n  }\n\n  merge(latterLine) {\n    return latterLine.lineParts.reduce(\n      (line, token) => line.push(token),\n      new Line(...this.lineParts)\n    );\n  }\n\n  reduce(func, initial) {\n    return this.lineParts.reduce(func, initial);\n  }\n\n  map(func) {\n    return new Line(...this.lineParts.map(func));\n  }\n\n  mapWindow(length, func) {\n    for (let start = 0; start < this.lineParts.length - length; start += 1) {\n      func(this.lineParts.slice(start, start + length));\n    }\n  }\n\n  equal(otherLine) {\n    let isEqual = true;\n    for (let i = 0; i < this.length; i += 1) {\n      isEqual = isEqual && this.get(i).equal(\n        otherLine.get(i)\n      );\n      i = (isEqual) ? this.length : i;\n    }\n    return isEqual;\n  }\n\n  get length() {\n    return this.lineParts.length;\n  }\n\n  * [Symbol.iterator]() {\n    for (const token of this.lineParts) {\n      yield token;\n    }\n  }\n}\n",
+    "static": true,
+    "longname": "/home/drews/Development/maya-calculator/src/parser/complex-tokens/line.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 125,
+    "kind": "class",
+    "name": "Line",
+    "memberof": "src/parser/complex-tokens/line.js",
+    "static": true,
+    "longname": "src/parser/complex-tokens/line.js~Line",
+    "access": "public",
+    "export": true,
+    "importPath": "./src/parser/complex-tokens/line.js",
+    "importStyle": "Line",
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "interface": false
+  },
+  {
+    "__docId__": 126,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/parser/complex-tokens/line.js~Line",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/complex-tokens/line.js~Line#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 2,
+    "undocument": true
+  },
+  {
+    "__docId__": 127,
+    "kind": "member",
+    "name": "lineParts",
+    "memberof": "src/parser/complex-tokens/line.js~Line",
+    "static": false,
+    "longname": "src/parser/complex-tokens/line.js~Line#lineParts",
+    "access": "public",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 128,
+    "kind": "method",
+    "name": "process",
+    "memberof": "src/parser/complex-tokens/line.js~Line",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/complex-tokens/line.js~Line#process",
+    "access": "public",
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "params": [
+      {
+        "name": "registry",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 129,
+    "kind": "method",
+    "name": "get",
+    "memberof": "src/parser/complex-tokens/line.js~Line",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/complex-tokens/line.js~Line#get",
+    "access": "public",
+    "description": null,
+    "lineNumber": 11,
+    "undocument": true,
+    "params": [
+      {
+        "name": "index",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 130,
+    "kind": "method",
+    "name": "push",
+    "memberof": "src/parser/complex-tokens/line.js~Line",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/complex-tokens/line.js~Line#push",
+    "access": "public",
+    "description": null,
+    "lineNumber": 15,
+    "undocument": true,
+    "params": [
+      {
+        "name": "part",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 131,
+    "kind": "method",
+    "name": "toString",
+    "memberof": "src/parser/complex-tokens/line.js~Line",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/complex-tokens/line.js~Line#toString",
+    "access": "public",
+    "description": null,
+    "lineNumber": 20,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 132,
+    "kind": "method",
+    "name": "merge",
+    "memberof": "src/parser/complex-tokens/line.js~Line",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/complex-tokens/line.js~Line#merge",
+    "access": "public",
+    "description": null,
+    "lineNumber": 24,
+    "undocument": true,
+    "params": [
+      {
+        "name": "latterLine",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 133,
+    "kind": "method",
+    "name": "reduce",
+    "memberof": "src/parser/complex-tokens/line.js~Line",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/complex-tokens/line.js~Line#reduce",
+    "access": "public",
+    "description": null,
+    "lineNumber": 31,
+    "undocument": true,
+    "params": [
+      {
+        "name": "func",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "initial",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 134,
+    "kind": "method",
+    "name": "map",
+    "memberof": "src/parser/complex-tokens/line.js~Line",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/complex-tokens/line.js~Line#map",
+    "access": "public",
+    "description": null,
+    "lineNumber": 35,
+    "undocument": true,
+    "params": [
+      {
+        "name": "func",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 135,
+    "kind": "method",
+    "name": "mapWindow",
+    "memberof": "src/parser/complex-tokens/line.js~Line",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/complex-tokens/line.js~Line#mapWindow",
+    "access": "public",
+    "description": null,
+    "lineNumber": 39,
+    "undocument": true,
+    "params": [
+      {
+        "name": "length",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "func",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 136,
+    "kind": "method",
+    "name": "equal",
+    "memberof": "src/parser/complex-tokens/line.js~Line",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/complex-tokens/line.js~Line#equal",
+    "access": "public",
+    "description": null,
+    "lineNumber": 45,
+    "undocument": true,
+    "params": [
+      {
+        "name": "otherLine",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 137,
+    "kind": "get",
+    "name": "length",
+    "memberof": "src/parser/complex-tokens/line.js~Line",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/complex-tokens/line.js~Line#length",
+    "access": "public",
+    "description": null,
+    "lineNumber": 56,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 138,
+    "kind": "method",
+    "name": "[Symbol.iterator]",
+    "memberof": "src/parser/complex-tokens/line.js~Line",
+    "generator": true,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/complex-tokens/line.js~Line#[Symbol.iterator]",
+    "access": "public",
+    "description": null,
+    "lineNumber": 60,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 139,
+    "kind": "file",
+    "name": "src/parser/complex-tokens/long-count.js",
+    "content": "import mayadates from '@drewsonne/maya-dates';\nimport CommentHolder from '../tokens/comment-holder-interface';\n\nexport default class LongCount extends CommentHolder {\n  constructor(longCount) {\n    super();\n    this.long_count_obj = longCount;\n  }\n\n  get lc() {\n    return this.long_count_obj;\n  }\n\n  process(registry) {\n    return (this.long_count_obj.isPartial())\n      ? new mayadates.op.LongCountWildcard(\n        this.long_count_obj\n      ).run().reduce(\n        (elemRegistry, lc) => elemRegistry.concat([new LongCount(lc)]),\n        registry\n      )\n      : registry.concat(\n        [this]\n      );\n  }\n\n  toString() {\n    return this.long_count_obj.toString();\n  }\n\n  plus(lc) {\n    return new LongCount(this.long_count_obj.plus(lc.long_count_obj).equals());\n  }\n\n  minus(lc) {\n    return new LongCount(this.long_count_obj.minus(lc.long_count_obj).equals());\n  }\n}\n",
+    "static": true,
+    "longname": "/home/drews/Development/maya-calculator/src/parser/complex-tokens/long-count.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 140,
+    "kind": "class",
+    "name": "LongCount",
+    "memberof": "src/parser/complex-tokens/long-count.js",
+    "static": true,
+    "longname": "src/parser/complex-tokens/long-count.js~LongCount",
+    "access": "public",
+    "export": true,
+    "importPath": "./src/parser/complex-tokens/long-count.js",
+    "importStyle": "LongCount",
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "src/parser/tokens/comment-holder-interface.js~CommentHolder"
+    ]
+  },
+  {
+    "__docId__": 141,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/parser/complex-tokens/long-count.js~LongCount",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/complex-tokens/long-count.js~LongCount#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true
+  },
+  {
+    "__docId__": 142,
+    "kind": "member",
+    "name": "long_count_obj",
+    "memberof": "src/parser/complex-tokens/long-count.js~LongCount",
+    "static": false,
+    "longname": "src/parser/complex-tokens/long-count.js~LongCount#long_count_obj",
+    "access": "public",
+    "description": null,
+    "lineNumber": 7,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 143,
+    "kind": "get",
+    "name": "lc",
+    "memberof": "src/parser/complex-tokens/long-count.js~LongCount",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/complex-tokens/long-count.js~LongCount#lc",
+    "access": "public",
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 144,
+    "kind": "method",
+    "name": "process",
+    "memberof": "src/parser/complex-tokens/long-count.js~LongCount",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/complex-tokens/long-count.js~LongCount#process",
+    "access": "public",
+    "description": null,
+    "lineNumber": 14,
+    "undocument": true,
+    "params": [
+      {
+        "name": "registry",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 145,
+    "kind": "method",
+    "name": "toString",
+    "memberof": "src/parser/complex-tokens/long-count.js~LongCount",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/complex-tokens/long-count.js~LongCount#toString",
+    "access": "public",
+    "description": null,
+    "lineNumber": 27,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 146,
+    "kind": "method",
+    "name": "plus",
+    "memberof": "src/parser/complex-tokens/long-count.js~LongCount",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/complex-tokens/long-count.js~LongCount#plus",
+    "access": "public",
+    "description": null,
+    "lineNumber": 31,
+    "undocument": true,
+    "params": [
+      {
+        "name": "lc",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 147,
+    "kind": "method",
+    "name": "minus",
+    "memberof": "src/parser/complex-tokens/long-count.js~LongCount",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/complex-tokens/long-count.js~LongCount#minus",
+    "access": "public",
+    "description": null,
+    "lineNumber": 35,
+    "undocument": true,
+    "params": [
+      {
+        "name": "lc",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 148,
+    "kind": "file",
+    "name": "src/parser/full-date-parser.js",
+    "content": "import mayadates from '@drewsonne/maya-dates';\nimport TypeChecker from './type-checker';\nimport CalendarRoundWindowing from './calendar-round-windowing';\n\n// 5Imix *Sek 1.1.1.*.*\nexport default class FullDateParser {\n  constructor(...lineParts) {\n    this.lineParts = lineParts;\n  }\n\n  run() {\n    const crwindow = new CalendarRoundWindowing(this.lineParts).run();\n    if (crwindow !== null) {\n      let [start, element, length] = crwindow;\n      if (start !== 0) {\n        return null;\n      }\n      const potentialLC = this.lineParts[start + length];\n      let lc;\n      if (TypeChecker.isNumeric(potentialLC)) {\n        if (potentialLC.isLongCount()) {\n          lc = new mayadates.factory.LongCountFactory().parse(`${potentialLC}`);\n        }\n      } else if (TypeChecker.isLongCount(potentialLC)) {\n        lc = potentialLC;\n      }\n      if (lc !== undefined) {\n        length += 1;\n        return new mayadates.FullDate(element, lc);\n      }\n    }\n    return null;\n  }\n\n  // eslint-disable-next-line class-methods-use-this\n  replace(elements, start, element, length) {\n    const prefix = elements.slice(0, start);\n    const suffix = elements.slice(start + length);\n    return prefix.concat([element]).concat(suffix);\n  }\n}\n",
+    "static": true,
+    "longname": "/home/drews/Development/maya-calculator/src/parser/full-date-parser.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 149,
+    "kind": "class",
+    "name": "FullDateParser",
+    "memberof": "src/parser/full-date-parser.js",
+    "static": true,
+    "longname": "src/parser/full-date-parser.js~FullDateParser",
+    "access": "public",
+    "export": true,
+    "importPath": "./src/parser/full-date-parser.js",
+    "importStyle": "FullDateParser",
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "interface": false
+  },
+  {
+    "__docId__": 150,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/parser/full-date-parser.js~FullDateParser",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/full-date-parser.js~FullDateParser#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 7,
+    "undocument": true
+  },
+  {
+    "__docId__": 151,
+    "kind": "member",
+    "name": "lineParts",
+    "memberof": "src/parser/full-date-parser.js~FullDateParser",
+    "static": false,
+    "longname": "src/parser/full-date-parser.js~FullDateParser#lineParts",
+    "access": "public",
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 152,
+    "kind": "method",
+    "name": "run",
+    "memberof": "src/parser/full-date-parser.js~FullDateParser",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/full-date-parser.js~FullDateParser#run",
+    "access": "public",
+    "description": null,
+    "lineNumber": 11,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 153,
+    "kind": "method",
+    "name": "replace",
+    "memberof": "src/parser/full-date-parser.js~FullDateParser",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/full-date-parser.js~FullDateParser#replace",
+    "access": "public",
+    "description": null,
+    "lineNumber": 36,
+    "undocument": true,
+    "params": [
+      {
+        "name": "elements",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "start",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "element",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "length",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 154,
+    "kind": "file",
+    "name": "src/parser/full-date-windowing.js",
+    "content": "import log from 'loglevel';\nimport FullDateParser from './full-date-parser';\nimport Windowing from './windowing';\n\n\nexport default class FullDateWindowing extends Windowing {\n  run() {\n    // debugger;\n    if (this.parts.length < 2) {\n      return null;\n    }\n    const windowGenerator = this.windows(2, 5);\n    let windows = windowGenerator.next();\n    log.trace('[FullDateWindowing] start scanning for full date windows');\n    while (!windows.done) {\n      windows = windows.value;\n      for (let j = 0; j < windows.length; j += 1) {\n        const window = windows[j];\n        const a = new FullDateParser(...window).run();\n        if (a !== null && a !== undefined) {\n          log.trace(`[FullDateWindowing] finished scanning and found full date: '${a}' at location ${j} for length ${window.length}`);\n          return [\n            j + a[0],\n            a[1],\n            a[2]\n          ];\n        }\n      }\n      windows = windowGenerator.next();\n    }\n    log.trace('[FullDateWindowing] finish scanning and found no full dates');\n    return null;\n  }\n}\n",
+    "static": true,
+    "longname": "/home/drews/Development/maya-calculator/src/parser/full-date-windowing.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 155,
+    "kind": "class",
+    "name": "FullDateWindowing",
+    "memberof": "src/parser/full-date-windowing.js",
+    "static": true,
+    "longname": "src/parser/full-date-windowing.js~FullDateWindowing",
+    "access": "public",
+    "export": true,
+    "importPath": "./src/parser/full-date-windowing.js",
+    "importStyle": "FullDateWindowing",
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "src/parser/windowing.js~Windowing"
+    ]
+  },
+  {
+    "__docId__": 156,
+    "kind": "method",
+    "name": "run",
+    "memberof": "src/parser/full-date-windowing.js~FullDateWindowing",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/full-date-windowing.js~FullDateWindowing#run",
+    "access": "public",
+    "description": null,
+    "lineNumber": 7,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 157,
+    "kind": "file",
+    "name": "src/parser/index.js",
+    "content": "",
+    "static": true,
+    "longname": "/home/drews/Development/maya-calculator/src/parser/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 158,
+    "kind": "file",
+    "name": "src/parser/operator-windowing.js",
+    "content": "import Windowing from './windowing';\nimport TypeChecker from './type-checker';\nimport log from \"loglevel\";\n\nexport default class OperatorWindowing extends Windowing {\n  run() {\n    log.trace('[OperatorWindowing] start scanning for operator chains');\n    let result = this.testTo3Runon();\n    if (result === null) {\n      result = this.testTo5Runon();\n    }\n    return result;\n  }\n\n  testTo5Runon() {\n    const windows = this.rolling(5);\n    for (let j = 0; j < windows.length; j += 1) {\n      const window = windows[j];\n      const validFormer = TypeChecker.isLongCount(window[0]);\n      const validOperator = TypeChecker.isOperator(window[1]);\n      const validLineEnd = TypeChecker.isLineEnd(window[2]);\n      const validLineStart = TypeChecker.isLineStart(window[3]);\n      const validLatter = TypeChecker.isLongCount(window[4]);\n      if (validFormer && validOperator && validLineEnd && validLineStart && validLatter) {\n        const result = (\n          TypeChecker.isPlusOperator(window[1])\n            ? window[0].plus(window[4])\n            : window[0].sub(window[4])\n        ).equals();\n        log.trace(`[OperatorWindowing] finished scanning and found 3-token operator chain: '${result}' at location ${j} for length ${window.length}`);\n        return [\n          j,\n          result,\n          window.length\n        ];\n      }\n    }\n    log.trace('[OperatorWindowing] finish scanning and found no 3-token operator chains');\n    return null;\n  }\n\n  testTo3Runon() {\n    const windows = this.rolling(3);\n    if (windows.length >= 2) {\n      const resultA = windows.reduce((counter, window) => {\n        if (Array.isArray(counter)) {\n          return counter;\n        }\n        const validFormer = TypeChecker.isLongCount(window[0]);\n        const validOperator = TypeChecker.isOperator(window[1]);\n        const validLatter = TypeChecker.isLongCount(window[2]);\n        if (validFormer && validOperator && validLatter) {\n          const result = (\n            TypeChecker.isPlusOperator(window[1])\n              ? window[0].plus(window[2])\n              : window[0].sub(window[2])\n          ).equals();\n          log.trace(`[OperatorWindowing] finished scanning and found 5-token operator chain: '${result}' at location ${counter} for length ${window.length}`);\n          return [\n            counter,\n            result,\n            window.length\n          ];\n        }\n        return counter + 1;\n      }, 0);\n      return Array.isArray(resultA) ? resultA : null;\n    }\n    log.trace('[OperatorWindowing] finish scanning and found no 5-token operator chains');\n    return null;\n  }\n}\n",
+    "static": true,
+    "longname": "/home/drews/Development/maya-calculator/src/parser/operator-windowing.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 159,
+    "kind": "class",
+    "name": "OperatorWindowing",
+    "memberof": "src/parser/operator-windowing.js",
+    "static": true,
+    "longname": "src/parser/operator-windowing.js~OperatorWindowing",
+    "access": "public",
+    "export": true,
+    "importPath": "./src/parser/operator-windowing.js",
+    "importStyle": "OperatorWindowing",
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "src/parser/windowing.js~Windowing"
+    ]
+  },
+  {
+    "__docId__": 160,
+    "kind": "method",
+    "name": "run",
+    "memberof": "src/parser/operator-windowing.js~OperatorWindowing",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/operator-windowing.js~OperatorWindowing#run",
+    "access": "public",
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 161,
+    "kind": "method",
+    "name": "testTo5Runon",
+    "memberof": "src/parser/operator-windowing.js~OperatorWindowing",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/operator-windowing.js~OperatorWindowing#testTo5Runon",
+    "access": "public",
+    "description": null,
+    "lineNumber": 15,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 162,
+    "kind": "method",
+    "name": "testTo3Runon",
+    "memberof": "src/parser/operator-windowing.js~OperatorWindowing",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/operator-windowing.js~OperatorWindowing#testTo3Runon",
+    "access": "public",
+    "description": null,
+    "lineNumber": 42,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 163,
+    "kind": "file",
+    "name": "src/parser/tokens/base.js",
+    "content": "import CommentHolder from './comment-holder-interface';\n\nexport default class TokenBase extends CommentHolder {\n  constructor(rawText) {\n    super();\n    this.raw_text = rawText;\n  }\n\n  equal(other) {\n    return other.raw_text === this.raw_text;\n  }\n\n  toString() {\n    return this.raw_text;\n  }\n\n  isCoeff() {\n    return /^[\\d*]+$/.test(this.raw_text);\n  }\n\n  process(registry) {\n    registry.push(this);\n    return registry;\n  }\n\n}\n",
+    "static": true,
+    "longname": "/home/drews/Development/maya-calculator/src/parser/tokens/base.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 164,
+    "kind": "class",
+    "name": "TokenBase",
+    "memberof": "src/parser/tokens/base.js",
+    "static": true,
+    "longname": "src/parser/tokens/base.js~TokenBase",
+    "access": "public",
+    "export": true,
+    "importPath": "./src/parser/tokens/base.js",
+    "importStyle": "TokenBase",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "src/parser/tokens/comment-holder-interface.js~CommentHolder"
+    ]
+  },
+  {
+    "__docId__": 165,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/parser/tokens/base.js~TokenBase",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/tokens/base.js~TokenBase#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true
+  },
+  {
+    "__docId__": 166,
+    "kind": "member",
+    "name": "raw_text",
+    "memberof": "src/parser/tokens/base.js~TokenBase",
+    "static": false,
+    "longname": "src/parser/tokens/base.js~TokenBase#raw_text",
+    "access": "public",
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 167,
+    "kind": "method",
+    "name": "equal",
+    "memberof": "src/parser/tokens/base.js~TokenBase",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/tokens/base.js~TokenBase#equal",
+    "access": "public",
+    "description": null,
+    "lineNumber": 9,
+    "undocument": true,
+    "params": [
+      {
+        "name": "other",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 168,
+    "kind": "method",
+    "name": "toString",
+    "memberof": "src/parser/tokens/base.js~TokenBase",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/tokens/base.js~TokenBase#toString",
+    "access": "public",
+    "description": null,
+    "lineNumber": 13,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 169,
+    "kind": "method",
+    "name": "isCoeff",
+    "memberof": "src/parser/tokens/base.js~TokenBase",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/tokens/base.js~TokenBase#isCoeff",
+    "access": "public",
+    "description": null,
+    "lineNumber": 17,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 170,
+    "kind": "method",
+    "name": "process",
+    "memberof": "src/parser/tokens/base.js~TokenBase",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/tokens/base.js~TokenBase#process",
+    "access": "public",
+    "description": null,
+    "lineNumber": 21,
+    "undocument": true,
+    "params": [
+      {
+        "name": "registry",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 171,
+    "kind": "file",
+    "name": "src/parser/tokens/comment-holder-interface.js",
+    "content": "import Comment from '../complex-tokens/comment';\n\nexport default class CommentHolder {\n  constructor() {\n    this.comment = null;\n  }\n\n  /**\n   *\n   * @param newComment\n   */\n  appendComment(newComment) {\n    if (newComment instanceof Comment) {\n      if (this.comment === null) {\n        this.comment = newComment;\n      } else {\n        this.comment = new Comment(`${this.comment.raw} ${newComment.raw}`);\n      }\n    } else {\n      this.comment = new Comment(`${this.comment.raw} ${newComment}`);\n    }\n    return this;\n  }\n\n  setComment(comment) {\n    this.comment = (typeof comment === 'string') ? new Comment(comment) : comment;\n    return this;\n  }\n}\n",
+    "static": true,
+    "longname": "/home/drews/Development/maya-calculator/src/parser/tokens/comment-holder-interface.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 172,
+    "kind": "class",
+    "name": "CommentHolder",
+    "memberof": "src/parser/tokens/comment-holder-interface.js",
+    "static": true,
+    "longname": "src/parser/tokens/comment-holder-interface.js~CommentHolder",
+    "access": "public",
+    "export": true,
+    "importPath": "./src/parser/tokens/comment-holder-interface.js",
+    "importStyle": "CommentHolder",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "interface": false
+  },
+  {
+    "__docId__": 173,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/parser/tokens/comment-holder-interface.js~CommentHolder",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/tokens/comment-holder-interface.js~CommentHolder#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true
+  },
+  {
+    "__docId__": 174,
+    "kind": "member",
+    "name": "comment",
+    "memberof": "src/parser/tokens/comment-holder-interface.js~CommentHolder",
+    "static": false,
+    "longname": "src/parser/tokens/comment-holder-interface.js~CommentHolder#comment",
+    "access": "public",
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 175,
+    "kind": "method",
+    "name": "appendComment",
+    "memberof": "src/parser/tokens/comment-holder-interface.js~CommentHolder",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/tokens/comment-holder-interface.js~CommentHolder#appendComment",
+    "access": "public",
+    "description": "",
+    "lineNumber": 12,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "*"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "newComment",
+        "description": ""
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 179,
+    "kind": "method",
+    "name": "setComment",
+    "memberof": "src/parser/tokens/comment-holder-interface.js~CommentHolder",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/tokens/comment-holder-interface.js~CommentHolder#setComment",
+    "access": "public",
+    "description": null,
+    "lineNumber": 25,
+    "undocument": true,
+    "params": [
+      {
+        "name": "comment",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 181,
+    "kind": "file",
+    "name": "src/parser/tokens/comment-start.js",
+    "content": "import Base from './base';\n\nclass CommentStart extends Base {\n  constructor() {\n    super('#');\n  }\n\n  equal(other) {\n    return this === other;\n  }\n}\n\nexport default new CommentStart();\n",
+    "static": true,
+    "longname": "/home/drews/Development/maya-calculator/src/parser/tokens/comment-start.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 182,
+    "kind": "class",
+    "name": "CommentStart",
+    "memberof": "src/parser/tokens/comment-start.js",
+    "static": true,
+    "longname": "src/parser/tokens/comment-start.js~CommentStart",
+    "access": "public",
+    "export": true,
+    "importPath": "./src/parser/tokens/comment-start.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 3,
+    "pseudoExport": true,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "src/parser/tokens/base.js~Base"
+    ]
+  },
+  {
+    "__docId__": 183,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/parser/tokens/comment-start.js~CommentStart",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/tokens/comment-start.js~CommentStart#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true
+  },
+  {
+    "__docId__": 184,
+    "kind": "method",
+    "name": "equal",
+    "memberof": "src/parser/tokens/comment-start.js~CommentStart",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/tokens/comment-start.js~CommentStart#equal",
+    "access": "public",
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true,
+    "params": [
+      {
+        "name": "other",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 185,
+    "kind": "variable",
+    "name": "commentStart",
+    "memberof": "src/parser/tokens/comment-start.js",
+    "static": true,
+    "longname": "src/parser/tokens/comment-start.js~commentStart",
+    "access": "public",
+    "export": true,
+    "importPath": "./src/parser/tokens/comment-start.js",
+    "importStyle": "commentStart",
+    "description": null,
+    "lineNumber": 13,
+    "undocument": true,
+    "type": {
+      "types": [
+        "src/parser/tokens/comment-start.js~CommentStart"
+      ]
+    }
+  },
+  {
+    "__docId__": 186,
+    "kind": "file",
+    "name": "src/parser/tokens/line-end.js",
+    "content": "import Base from './base';\n\nclass LineEnd extends Base {\n  constructor() {\n    super('');\n  }\n\n  // eslint-disable-next-line class-methods-use-this\n  toString() {\n    return 'END_LINE';\n  }\n\n  equal(other) {\n    return this === other;\n  }\n}\n\nexport default new LineEnd();\n",
+    "static": true,
+    "longname": "/home/drews/Development/maya-calculator/src/parser/tokens/line-end.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 187,
+    "kind": "class",
+    "name": "LineEnd",
+    "memberof": "src/parser/tokens/line-end.js",
+    "static": true,
+    "longname": "src/parser/tokens/line-end.js~LineEnd",
+    "access": "public",
+    "export": true,
+    "importPath": "./src/parser/tokens/line-end.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 3,
+    "pseudoExport": true,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "src/parser/tokens/base.js~Base"
+    ]
+  },
+  {
+    "__docId__": 188,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/parser/tokens/line-end.js~LineEnd",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/tokens/line-end.js~LineEnd#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true
+  },
+  {
+    "__docId__": 189,
+    "kind": "method",
+    "name": "toString",
+    "memberof": "src/parser/tokens/line-end.js~LineEnd",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/tokens/line-end.js~LineEnd#toString",
+    "access": "public",
+    "description": null,
+    "lineNumber": 9,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 190,
+    "kind": "method",
+    "name": "equal",
+    "memberof": "src/parser/tokens/line-end.js~LineEnd",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/tokens/line-end.js~LineEnd#equal",
+    "access": "public",
+    "description": null,
+    "lineNumber": 13,
+    "undocument": true,
+    "params": [
+      {
+        "name": "other",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 191,
+    "kind": "variable",
+    "name": "lineEnd",
+    "memberof": "src/parser/tokens/line-end.js",
+    "static": true,
+    "longname": "src/parser/tokens/line-end.js~lineEnd",
+    "access": "public",
+    "export": true,
+    "importPath": "./src/parser/tokens/line-end.js",
+    "importStyle": "lineEnd",
+    "description": null,
+    "lineNumber": 18,
+    "undocument": true,
+    "type": {
+      "types": [
+        "src/parser/tokens/line-end.js~LineEnd"
+      ]
+    }
+  },
+  {
+    "__docId__": 192,
+    "kind": "file",
+    "name": "src/parser/tokens/line-start.js",
+    "content": "import Base from './base';\n\nclass LineStart extends Base {\n  constructor() {\n    super('');\n  }\n\n  // eslint-disable-next-line class-methods-use-this\n  toString() {\n    return 'START_LINE';\n  }\n\n  equal(other) {\n    return this === other;\n  }\n}\n\nexport default new LineStart();\n",
+    "static": true,
+    "longname": "/home/drews/Development/maya-calculator/src/parser/tokens/line-start.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 193,
+    "kind": "class",
+    "name": "LineStart",
+    "memberof": "src/parser/tokens/line-start.js",
+    "static": true,
+    "longname": "src/parser/tokens/line-start.js~LineStart",
+    "access": "public",
+    "export": true,
+    "importPath": "./src/parser/tokens/line-start.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 3,
+    "pseudoExport": true,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "src/parser/tokens/base.js~Base"
+    ]
+  },
+  {
+    "__docId__": 194,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/parser/tokens/line-start.js~LineStart",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/tokens/line-start.js~LineStart#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true
+  },
+  {
+    "__docId__": 195,
+    "kind": "method",
+    "name": "toString",
+    "memberof": "src/parser/tokens/line-start.js~LineStart",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/tokens/line-start.js~LineStart#toString",
+    "access": "public",
+    "description": null,
+    "lineNumber": 9,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 196,
+    "kind": "method",
+    "name": "equal",
+    "memberof": "src/parser/tokens/line-start.js~LineStart",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/tokens/line-start.js~LineStart#equal",
+    "access": "public",
+    "description": null,
+    "lineNumber": 13,
+    "undocument": true,
+    "params": [
+      {
+        "name": "other",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 197,
+    "kind": "variable",
+    "name": "lineStart",
+    "memberof": "src/parser/tokens/line-start.js",
+    "static": true,
+    "longname": "src/parser/tokens/line-start.js~lineStart",
+    "access": "public",
+    "export": true,
+    "importPath": "./src/parser/tokens/line-start.js",
+    "importStyle": "lineStart",
+    "description": null,
+    "lineNumber": 18,
+    "undocument": true,
+    "type": {
+      "types": [
+        "src/parser/tokens/line-start.js~LineStart"
+      ]
+    }
+  },
+  {
+    "__docId__": 198,
+    "kind": "file",
+    "name": "src/parser/tokens/numeric.js",
+    "content": "import Base from './base';\n\nexport default class Numeric extends Base {\n  toString() {\n    return this.raw_text;\n  }\n\n  isLongCount() {\n    return this.raw_text.includes('.');\n  }\n}\n",
+    "static": true,
+    "longname": "/home/drews/Development/maya-calculator/src/parser/tokens/numeric.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 199,
+    "kind": "class",
+    "name": "Numeric",
+    "memberof": "src/parser/tokens/numeric.js",
+    "static": true,
+    "longname": "src/parser/tokens/numeric.js~Numeric",
+    "access": "public",
+    "export": true,
+    "importPath": "./src/parser/tokens/numeric.js",
+    "importStyle": "Numeric",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "src/parser/tokens/base.js~Base"
+    ]
+  },
+  {
+    "__docId__": 200,
+    "kind": "method",
+    "name": "toString",
+    "memberof": "src/parser/tokens/numeric.js~Numeric",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/tokens/numeric.js~Numeric#toString",
+    "access": "public",
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 201,
+    "kind": "method",
+    "name": "isLongCount",
+    "memberof": "src/parser/tokens/numeric.js~Numeric",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/tokens/numeric.js~Numeric#isLongCount",
+    "access": "public",
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 202,
+    "kind": "file",
+    "name": "src/parser/tokens/operator.js",
+    "content": "import Base from './base';\n\nexport default class Operator extends Base {\n  toString() {\n    return ` ${this.raw_text} `;\n  }\n}\n",
+    "static": true,
+    "longname": "/home/drews/Development/maya-calculator/src/parser/tokens/operator.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 203,
+    "kind": "class",
+    "name": "Operator",
+    "memberof": "src/parser/tokens/operator.js",
+    "static": true,
+    "longname": "src/parser/tokens/operator.js~Operator",
+    "access": "public",
+    "export": true,
+    "importPath": "./src/parser/tokens/operator.js",
+    "importStyle": "Operator",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "src/parser/tokens/base.js~Base"
+    ]
+  },
+  {
+    "__docId__": 204,
+    "kind": "method",
+    "name": "toString",
+    "memberof": "src/parser/tokens/operator.js~Operator",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/tokens/operator.js~Operator#toString",
+    "access": "public",
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 205,
+    "kind": "file",
+    "name": "src/parser/tokens/text.js",
+    "content": "import Base from './base';\n\nexport default class Text extends Base {\n  startsWithWildcard() {\n    return this.raw_text[0] === '*';\n  }\n\n  endsWithWildcard() {\n    return this.raw_text[this.raw_text.length - 1] === '*';\n  }\n\n  stripWildcard() {\n    if (this.startsWithWildcard()) {\n      return new Text(this.raw_text.slice(1));\n    } else {\n      return;\n    }\n  }\n}\n",
+    "static": true,
+    "longname": "/home/drews/Development/maya-calculator/src/parser/tokens/text.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 206,
+    "kind": "class",
+    "name": "Text",
+    "memberof": "src/parser/tokens/text.js",
+    "static": true,
+    "longname": "src/parser/tokens/text.js~Text",
+    "access": "public",
+    "export": true,
+    "importPath": "./src/parser/tokens/text.js",
+    "importStyle": "Text",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "src/parser/tokens/base.js~Base"
+    ]
+  },
+  {
+    "__docId__": 207,
+    "kind": "method",
+    "name": "startsWithWildcard",
+    "memberof": "src/parser/tokens/text.js~Text",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/tokens/text.js~Text#startsWithWildcard",
+    "access": "public",
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 208,
+    "kind": "method",
+    "name": "endsWithWildcard",
+    "memberof": "src/parser/tokens/text.js~Text",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/tokens/text.js~Text#endsWithWildcard",
+    "access": "public",
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 209,
+    "kind": "method",
+    "name": "stripWildcard",
+    "memberof": "src/parser/tokens/text.js~Text",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/tokens/text.js~Text#stripWildcard",
+    "access": "public",
+    "description": null,
+    "lineNumber": 12,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 210,
+    "kind": "file",
+    "name": "src/parser/tokens/wildcard.js",
+    "content": "import Base from './base';\n\nclass Wildcard extends Base {\n  constructor() {\n    super('*');\n  }\n\n  toString() {\n    return this.raw_text;\n  }\n}\n\nexport default new Wildcard();\n",
+    "static": true,
+    "longname": "/home/drews/Development/maya-calculator/src/parser/tokens/wildcard.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 211,
+    "kind": "class",
+    "name": "Wildcard",
+    "memberof": "src/parser/tokens/wildcard.js",
+    "static": true,
+    "longname": "src/parser/tokens/wildcard.js~Wildcard",
+    "access": "public",
+    "export": true,
+    "importPath": "./src/parser/tokens/wildcard.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 3,
+    "pseudoExport": true,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "src/parser/tokens/base.js~Base"
+    ]
+  },
+  {
+    "__docId__": 212,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/parser/tokens/wildcard.js~Wildcard",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/tokens/wildcard.js~Wildcard#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true
+  },
+  {
+    "__docId__": 213,
+    "kind": "method",
+    "name": "toString",
+    "memberof": "src/parser/tokens/wildcard.js~Wildcard",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/tokens/wildcard.js~Wildcard#toString",
+    "access": "public",
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 214,
+    "kind": "variable",
+    "name": "wildcard",
+    "memberof": "src/parser/tokens/wildcard.js",
+    "static": true,
+    "longname": "src/parser/tokens/wildcard.js~wildcard",
+    "access": "public",
+    "export": true,
+    "importPath": "./src/parser/tokens/wildcard.js",
+    "importStyle": "wildcard",
+    "description": null,
+    "lineNumber": 13,
+    "undocument": true,
+    "type": {
+      "types": [
+        "src/parser/tokens/wildcard.js~Wildcard"
+      ]
+    }
+  },
+  {
+    "__docId__": 215,
+    "kind": "file",
+    "name": "src/parser/type-checker.js",
+    "content": "import linestart from './tokens/line-start';\nimport lineend from './tokens/line-end';\nimport commentstart from './tokens/comment-start';\nimport Numeric from './tokens/numeric';\nimport Operator from './tokens/operator';\nimport wildcard from './tokens/wildcard';\nimport Text from './tokens/text';\n\n\nfunction isLongCount(part) {\n  // eslint-disable-next-line no-prototype-builtins\n  return part.hasOwnProperty('parts');\n}\n\nfunction isLongCountToken(part) {\n  // eslint-disable-next-line no-prototype-builtins\n  return part.hasOwnProperty('long_count_obj');\n}\n\nfunction isLineStart(part) {\n  return part === linestart;\n}\n\nfunction isLineEnd(part) {\n  return part === lineend;\n}\n\nfunction isCommentStart(part) {\n  return part === commentstart;\n}\n\nfunction isComment(part) {\n  // eslint-disable-next-line no-prototype-builtins\n  return part.hasOwnProperty('commentText');\n}\n\nfunction isText(part) {\n  return part instanceof Text;\n}\n\nfunction isNumeric(part) {\n  return part instanceof Numeric;\n}\n\nfunction isInteger(part) {\n  if (isNumeric(part)) {\n    return /^\\d+$/.test(part);\n  }\n  return false;\n}\n\nfunction isOperator(part) {\n  return part instanceof Operator;\n}\n\nfunction isCalendarRound(part) {\n  // eslint-disable-next-line no-prototype-builtins\n  return part.hasOwnProperty('tzolkin') && part.hasOwnProperty('haab');\n}\n\nfunction isOperatorType(part, operatorType) {\n  // eslint-disable-next-line no-prototype-builtins\n  if (part.hasOwnProperty('raw_text')) {\n    return operatorType === part.raw_text;\n  }\n  return false;\n}\n\nfunction isPlusOperator(part) {\n  return isOperatorType(part, '+');\n}\n\nfunction isMinusOperator(part) {\n  return isOperatorType(part, '-');\n}\n\nfunction isFullDate(part) {\n  // eslint-disable-next-line no-prototype-builtins\n  return part.hasOwnProperty('lc') && part.hasOwnProperty('lc');\n}\n\nfunction isFullDateToken(part) {\n  // eslint-disable-next-line no-prototype-builtins\n  return part.hasOwnProperty('full_date_obj');\n}\n\nfunction isLine(part) {\n  // eslint-disable-next-line no-prototype-builtins\n  return part.hasOwnProperty('line_parts');\n}\n\nfunction isProcessedObj(part) {\n  return isCalendarRound(part) || isLongCount(part);\n}\n\nfunction isWildcard(part) {\n  return wildcard === part;\n}\n\nexport default {\n  isFullDate,\n  isProcessedObj,\n  isLongCount,\n  isLongCountToken,\n  isLineStart,\n  isLineEnd,\n  isCommentStart,\n  isText,\n  isNumeric,\n  isOperator,\n  isCalendarRound,\n  isPlusOperator,\n  isMinusOperator,\n  isInteger,\n  isLine,\n  isComment,\n  isWildcard,\n  isFullDateToken\n};\n",
+    "static": true,
+    "longname": "/home/drews/Development/maya-calculator/src/parser/type-checker.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 216,
+    "kind": "function",
+    "name": "isLongCount",
+    "memberof": "src/parser/type-checker.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/parser/type-checker.js~isLongCount",
+    "access": "public",
+    "export": false,
+    "importPath": "./src/parser/type-checker.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true,
+    "params": [
+      {
+        "name": "part",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 217,
+    "kind": "function",
+    "name": "isLongCountToken",
+    "memberof": "src/parser/type-checker.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/parser/type-checker.js~isLongCountToken",
+    "access": "public",
+    "export": false,
+    "importPath": "./src/parser/type-checker.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 15,
+    "undocument": true,
+    "params": [
+      {
+        "name": "part",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 218,
+    "kind": "function",
+    "name": "isLineStart",
+    "memberof": "src/parser/type-checker.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/parser/type-checker.js~isLineStart",
+    "access": "public",
+    "export": false,
+    "importPath": "./src/parser/type-checker.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 20,
+    "undocument": true,
+    "params": [
+      {
+        "name": "part",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 219,
+    "kind": "function",
+    "name": "isLineEnd",
+    "memberof": "src/parser/type-checker.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/parser/type-checker.js~isLineEnd",
+    "access": "public",
+    "export": false,
+    "importPath": "./src/parser/type-checker.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 24,
+    "undocument": true,
+    "params": [
+      {
+        "name": "part",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 220,
+    "kind": "function",
+    "name": "isCommentStart",
+    "memberof": "src/parser/type-checker.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/parser/type-checker.js~isCommentStart",
+    "access": "public",
+    "export": false,
+    "importPath": "./src/parser/type-checker.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 28,
+    "undocument": true,
+    "params": [
+      {
+        "name": "part",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 221,
+    "kind": "function",
+    "name": "isComment",
+    "memberof": "src/parser/type-checker.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/parser/type-checker.js~isComment",
+    "access": "public",
+    "export": false,
+    "importPath": "./src/parser/type-checker.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 32,
+    "undocument": true,
+    "params": [
+      {
+        "name": "part",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 222,
+    "kind": "function",
+    "name": "isText",
+    "memberof": "src/parser/type-checker.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/parser/type-checker.js~isText",
+    "access": "public",
+    "export": false,
+    "importPath": "./src/parser/type-checker.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 37,
+    "undocument": true,
+    "params": [
+      {
+        "name": "part",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 223,
+    "kind": "function",
+    "name": "isNumeric",
+    "memberof": "src/parser/type-checker.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/parser/type-checker.js~isNumeric",
+    "access": "public",
+    "export": false,
+    "importPath": "./src/parser/type-checker.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 41,
+    "undocument": true,
+    "params": [
+      {
+        "name": "part",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 224,
+    "kind": "function",
+    "name": "isInteger",
+    "memberof": "src/parser/type-checker.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/parser/type-checker.js~isInteger",
+    "access": "public",
+    "export": false,
+    "importPath": "./src/parser/type-checker.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 45,
+    "undocument": true,
+    "params": [
+      {
+        "name": "part",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "boolean"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 225,
+    "kind": "function",
+    "name": "isOperator",
+    "memberof": "src/parser/type-checker.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/parser/type-checker.js~isOperator",
+    "access": "public",
+    "export": false,
+    "importPath": "./src/parser/type-checker.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 52,
+    "undocument": true,
+    "params": [
+      {
+        "name": "part",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 226,
+    "kind": "function",
+    "name": "isCalendarRound",
+    "memberof": "src/parser/type-checker.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/parser/type-checker.js~isCalendarRound",
+    "access": "public",
+    "export": false,
+    "importPath": "./src/parser/type-checker.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 56,
+    "undocument": true,
+    "params": [
+      {
+        "name": "part",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 227,
+    "kind": "function",
+    "name": "isOperatorType",
+    "memberof": "src/parser/type-checker.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/parser/type-checker.js~isOperatorType",
+    "access": "public",
+    "export": false,
+    "importPath": "./src/parser/type-checker.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 61,
+    "undocument": true,
+    "params": [
+      {
+        "name": "part",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "operatorType",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "boolean"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 228,
+    "kind": "function",
+    "name": "isPlusOperator",
+    "memberof": "src/parser/type-checker.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/parser/type-checker.js~isPlusOperator",
+    "access": "public",
+    "export": false,
+    "importPath": "./src/parser/type-checker.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 69,
+    "undocument": true,
+    "params": [
+      {
+        "name": "part",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 229,
+    "kind": "function",
+    "name": "isMinusOperator",
+    "memberof": "src/parser/type-checker.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/parser/type-checker.js~isMinusOperator",
+    "access": "public",
+    "export": false,
+    "importPath": "./src/parser/type-checker.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 73,
+    "undocument": true,
+    "params": [
+      {
+        "name": "part",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 230,
+    "kind": "function",
+    "name": "isFullDate",
+    "memberof": "src/parser/type-checker.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/parser/type-checker.js~isFullDate",
+    "access": "public",
+    "export": false,
+    "importPath": "./src/parser/type-checker.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 77,
+    "undocument": true,
+    "params": [
+      {
+        "name": "part",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 231,
+    "kind": "function",
+    "name": "isFullDateToken",
+    "memberof": "src/parser/type-checker.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/parser/type-checker.js~isFullDateToken",
+    "access": "public",
+    "export": false,
+    "importPath": "./src/parser/type-checker.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 82,
+    "undocument": true,
+    "params": [
+      {
+        "name": "part",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 232,
+    "kind": "function",
+    "name": "isLine",
+    "memberof": "src/parser/type-checker.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/parser/type-checker.js~isLine",
+    "access": "public",
+    "export": false,
+    "importPath": "./src/parser/type-checker.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 87,
+    "undocument": true,
+    "params": [
+      {
+        "name": "part",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 233,
+    "kind": "function",
+    "name": "isProcessedObj",
+    "memberof": "src/parser/type-checker.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/parser/type-checker.js~isProcessedObj",
+    "access": "public",
+    "export": false,
+    "importPath": "./src/parser/type-checker.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 92,
+    "undocument": true,
+    "params": [
+      {
+        "name": "part",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 234,
+    "kind": "function",
+    "name": "isWildcard",
+    "memberof": "src/parser/type-checker.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/parser/type-checker.js~isWildcard",
+    "access": "public",
+    "export": false,
+    "importPath": "./src/parser/type-checker.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 96,
+    "undocument": true,
+    "params": [
+      {
+        "name": "part",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 235,
+    "kind": "file",
+    "name": "src/parser/windowing.js",
+    "content": "/**\n * Windowing classes will take a list of elements into the constructor\n * and `run()` will return 3 values.\n */\nexport default class Windowing {\n  constructor(elements) {\n    this.parts = elements;\n  }\n\n  * windows(start, end) {\n    const lower = Math.min(start, end);\n    const upper = Math.max(start, end);\n    for (let i = upper; i >= lower; i -= 1) {\n      yield this.rolling(i);\n    }\n    return null;\n  }\n\n  /**\n   * Produces a rolling window of desired length {w} on a 1d array.\n   *\n   * @param {Number} w The desired window size.\n   * @return {Array} A multi-dimensional array of windowed values.\n   */\n  rolling(w) {\n    const n = this.parts.length;\n    const result = [];\n\n    if (n < w || w <= 0) {\n      return result;\n    }\n\n    for (let i = 0; i < n - w + 1; i += 1) {\n      result.push(this.parts.slice(i, w + i));\n    }\n\n    return result;\n  }\n}\n",
+    "static": true,
+    "longname": "/home/drews/Development/maya-calculator/src/parser/windowing.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 236,
+    "kind": "class",
+    "name": "Windowing",
+    "memberof": "src/parser/windowing.js",
+    "static": true,
+    "longname": "src/parser/windowing.js~Windowing",
+    "access": "public",
+    "export": true,
+    "importPath": "./src/parser/windowing.js",
+    "importStyle": "Windowing",
+    "description": "Windowing classes will take a list of elements into the constructor\nand `run()` will return 3 values.",
+    "lineNumber": 5,
+    "interface": false
+  },
+  {
+    "__docId__": 237,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/parser/windowing.js~Windowing",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/windowing.js~Windowing#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true
+  },
+  {
+    "__docId__": 238,
+    "kind": "member",
+    "name": "parts",
+    "memberof": "src/parser/windowing.js~Windowing",
+    "static": false,
+    "longname": "src/parser/windowing.js~Windowing#parts",
+    "access": "public",
+    "description": null,
+    "lineNumber": 7,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 239,
+    "kind": "method",
+    "name": "windows",
+    "memberof": "src/parser/windowing.js~Windowing",
+    "generator": true,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/windowing.js~Windowing#windows",
+    "access": "public",
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true,
+    "params": [
+      {
+        "name": "start",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "end",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 240,
+    "kind": "method",
+    "name": "rolling",
+    "memberof": "src/parser/windowing.js~Windowing",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/parser/windowing.js~Windowing#rolling",
+    "access": "public",
+    "description": "Produces a rolling window of desired length {w} on a 1d array.",
+    "lineNumber": 25,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "w",
+        "description": "The desired window size."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Array"
+      ],
+      "spread": false,
+      "description": "A multi-dimensional array of windowed values."
+    }
+  },
+  {
+    "__docId__": 241,
+    "kind": "file",
+    "name": "src/workspace/index.js",
+    "content": "import Workspace from './workspace';\n\nexport default {\n  Workspace\n};\n",
+    "static": true,
+    "longname": "/home/drews/Development/maya-calculator/src/workspace/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "kind": "index",
+    "content": "# maya-date-calculator\n[![Build Status](https://travis-ci.com/drewsonne/maya-calculator.svg?branch=master)](https://travis-ci.com/drewsonne/maya-calculator)\n\nA simple text based maya date calculator\n\n# Description\nThis calculator is designed to be simple, lightweight, and resistant to\nbecoming legacy. It aims to be simple and relies on only jQuery and bootstrap.\n\nIt is text-based to allow for easy data entry, and easy sharing\nof computations.\n\nIt will take \"incorrect\" values, and try to work with them, rather\nthan enforcing  strict base-20 values.\n\nColumns can be hidden via the \"View\" menu.\n\n# Instructions\n\nAt the most basic, the calculator will show the Calendar Round, and Lord of the night for a\ngiven Long Count Date.\n\nEg, `8.19.10.11.0` becomes `8 Ajaw 18 Yaxk'in 8.19.10.11. 0`\n\nIf a Distance Numeric (prefixed with either `+` or `-`) is added after a\nLong Count date, the calculator will compute the subsequent Long Count\ndate along with the Calendar Round.\n\nEg,\n\n```\n8.19.10.11.0\n+7.13\n```\n\nbecomes\n\n```\n8 Ajaw 18 Yaxk'in 8.19.10.11. 0\n+ 7.13\n--------------\n5 Ben 11 Muwan 8.19.11. 0.13\n```\n\nMultiple Distance Numbers can be chained and intermediary Long Counts\nwill be calculated.\n\nIf at any point a new Long Count is added, it will reset calculations\nfrom that point.\n\nComments can be added either on their own line, by prefixing the line with `#` or by suffixing a line with `#`\n\nEg,\n\n```\n# My Date calculations\n8.19.10.11.0 # A long count date\n+7.13 # A distance number\n```\n\nCalculations can be shared by copying the URL.\n\n## Partials\n\nIf provided with a partial Calendar Round (eg, `9 Ak'bal * Pax`), all possible\ncalendar rounds will be output.\n\nIf provided with a partial Long Count **and** Calendar Round (eg, `9.10.*.5.* * Chikchan *Sip`),\nall possible combinations of calendar rounds and long counts will be output.\n\n# Example\nNavigate to [https://drewsonne.github.io/maya-calculator/](https://drewsonne.github.io/maya-calculator/#OC4xOS4xMC4xMSAjICgxKSBBIGxvbmcgY291bnQgZGF0ZQorNy4xMyAjICgyKSBBIGRpc3RhbmNlIG51bWJlcgoKOS4xNy41LjAuMAojICgzKSBEbyBzb21lIGNhbGN1bGF0aW9ucwotMy40Ci0xLjAKKzMwLjEuMgorMS4xMDAwICMgKDQpIEFuICdpbnZhbGlkJyBkaXN0YW5jZSBudW1iZXIKIyAoNSkgQW4gZXhhbXBsZSBvZiBwYXJ0aWFsIGRhdGUgbWF0Y2hlcy4gCjkuMTAuKi41LiogKiBDaGlrY2hhbiAqU2lw) and\ntry to enter the following values one line at a time.\n\nThe last two lines demonstrate that the calculator will work with\nthe values even if they are invalid and try to compute a real\nLong Count date.\n\n```\n8.19.10.11 # (1) A long count date\n+7.13 # (2) A distance number\n\n9.17.5.0.0\n# (3) Do some calculations\n-3.4\n-1.0\n+30.1.2\n+1.1000 # (4) An 'invalid' distance number\n# (5) An example of partial date matches. \n9.10.*.5.* * Chikchan *Sip\n```\n",
+    "longname": "/home/drews/Development/maya-calculator/README.md",
+    "name": "./README.md",
+    "static": true,
+    "access": "public"
+  },
+  {
+    "kind": "packageJSON",
+    "content": "{\n  \"name\": \"maya-calendar\",\n  \"version\": \"1.0.0\",\n  \"description\": \"A calculator for dealing with Maya dates\",\n  \"browser\": \"src/app.js\",\n  \"repository\": {\n    \"type\": \"git\",\n    \"url\": \"git+ssh://git@github.com:drewsonne/maya-calculator.git\"\n  },\n  \"keywords\": [\n    \"digital-humanities\",\n    \"maya\",\n    \"maya-calendar\"\n  ],\n  \"author\": \"Drew J. Sonne <drew.sonne@gmail.com>\",\n  \"license\": \"GPL-3.0\",\n  \"private\": false,\n  \"devDependencies\": {\n    \"esdoc\": \"1.1.0\",\n    \"esdoc-standard-plugin\": \"1.0.0\",\n    \"esdoc-lint-plugin\": \"^1.0.2\",,\n    \"eslint\": \"^6.8.0\",\n    \"eslint-config-airbnb-base\": \"^14.0.0\",\n    \"eslint-plugin-import\": \"^2.19.1\",\n    \"eslint-plugin-jest\": \"^23.3.0\",\n    \"eslint-plugin-react\": \"^7.18.3\"\n  },\n  \"scripts\": {\n    \"start\": \"react-scripts start\",\n    \"build\": \"react-scripts build\",\n    \"eject\": \"react-scripts eject\"\n  },\n  \"dependencies\": {\n    \"@drewsonne/maya-dates\": \"^1.0.13\",\n    \"loglevel\": \"^1.6.7\",\n    \"intro.js\": \"^2.9.3\",\n    \"jquery\": \"^3.4.1\",\n    \"prop-types\": \"^15.7.2\",\n    \"react\": \"^16.13.0\",\n    \"react-dom\": \"^16.13.0\",\n    \"react-scripts\": \"^3.4.0\"\n  },\n  \"preset\": \"react-native\",\n  \"jest\": {\n    \"transformIgnorePatterns\": [\n      \"node_modules/(?!(@drewsonne)).*\\\\.js$\"\n    ]\n  },\n  \"browserslist\": {\n    \"production\": [\n      \">0.2%\",\n      \"not dead\",\n      \"not op_mini all\"\n    ],\n    \"development\": [\n      \"last 1 chrome version\",\n      \"last 1 firefox version\",\n      \"last 1 safari version\"\n    ]\n  }\n}\n",
+    "longname": "/home/drews/Development/maya-calculator/package.json",
+    "name": "package.json",
+    "static": true,
+    "access": "public"
+  }
+]

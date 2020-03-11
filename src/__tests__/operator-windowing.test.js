@@ -4,21 +4,18 @@ import OperatorWindowing from '../parser/operator-windowing';
 import linestart from '../parser/tokens/line-start';
 import lineend from '../parser/tokens/line-end';
 
-jest.mock('@drewsonne/maya-dates');
-
-
 describe('window-operators', () => {
   const parsedInput = [
-    [
-      [
-        linestart,
-        new mayadate.lc.LongCount(1, 1, 1, 1,),
-        new Operator('+'),
-        new mayadate.lc.LongCount(1, 1),
-        lineend
-      ],
-      [' 0. 1. 1. 2. 2', 1, 3]
-    ],
+    // [
+    //   [
+    //     linestart,
+    //     new mayadate.lc.LongCount(1, 1, 1, 1,),
+    //     new Operator('+'),
+    //     new mayadate.lc.LongCount(1, 1),
+    //     lineend
+    //   ],
+    //   [' 0. 1. 1. 2. 2', 1, 3]
+    // ],
     [
       [
         linestart,
@@ -37,7 +34,8 @@ describe('window-operators', () => {
     const lines = args[0];
     const [expected, expectedStart, expectedLength] = args[1];
     it(`${lines} -> ${expected}`, () => {
-      const [start, result, length] = new OperatorWindowing(lines).run();
+      const windower = new OperatorWindowing(lines);
+      const [start, result, length] = windower.run();
       expect(start).toBe(expectedStart);
       expect(length).toBe(expectedLength);
       expect(`${result}`).toBe(expected);

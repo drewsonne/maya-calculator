@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/parser/calculator-parser-complex.js</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/calculator.js~Calculator.html">Calculator</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#parser">parser</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/calculator-parser-complex.js~ComplexCalculatorParser.html">ComplexCalculatorParser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/calculator-parser-primitive.js~PrimitiveCalculatorParser.html">PrimitiveCalculatorParser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/calendar-round-parser.js~CalendarRoundParser.html">CalendarRoundParser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/calendar-round-windowing.js~CalendarRoundWindowing.html">CalendarRoundWindowing</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/full-date-parser.js~FullDateParser.html">FullDateParser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/full-date-windowing.js~FullDateWindowing.html">FullDateWindowing</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/operator-windowing.js~OperatorWindowing.html">OperatorWindowing</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/windowing.js~Windowing.html">Windowing</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#parser-collapser">parser/collapser</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/collapser/base.js~Collapser.html">Collapser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/collapser/comment.js~CommentCollapser.html">CommentCollapser</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#parser-complex-tokens">parser/complex-tokens</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/complex-tokens/comment.js~Comment.html">Comment</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/complex-tokens/full-date.js~FullDate.html">FullDate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/complex-tokens/line.js~Line.html">Line</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/complex-tokens/long-count.js~LongCount.html">LongCount</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#parser-tokens">parser/tokens</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/tokens/base.js~TokenBase.html">TokenBase</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/tokens/comment-holder-interface.js~CommentHolder.html">CommentHolder</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/tokens/comment-start.js~CommentStart.html">CommentStart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/tokens/line-end.js~LineEnd.html">LineEnd</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/tokens/line-start.js~LineStart.html">LineStart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/tokens/numeric.js~Numeric.html">Numeric</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/tokens/operator.js~Operator.html">Operator</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/tokens/text.js~Text.html">Text</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/parser/tokens/wildcard.js~Wildcard.html">Wildcard</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-commentStart">commentStart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-lineEnd">lineEnd</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-lineStart">lineStart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-wildcard">wildcard</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/parser/calculator-parser-complex.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import mayadate from &apos;@drewsonne/maya-dates&apos;;
+import log from &apos;loglevel&apos;;
+import Line from &apos;./complex-tokens/line&apos;;
+import Comment from &apos;./complex-tokens/comment&apos;;
+import CalendarRoundWindowing from &apos;./calendar-round-windowing&apos;;
+import FullDateWindowing from &apos;./full-date-windowing&apos;;
+import OperatorWindowing from &apos;./operator-windowing&apos;;
+import PrimitiveCalculatorParser from &apos;./calculator-parser-primitive&apos;;
+import LongCountToken from &apos;./complex-tokens/long-count&apos;;
+import FullDateToken from &apos;./complex-tokens/full-date&apos;;
+import TypeChecker from &apos;./type-checker&apos;;
+
+import CommentCollapsing from &apos;./collapser/comment&apos;;
+import wildcard from &apos;./tokens/wildcard&apos;;
+
+
+const WAITING_TO_START = 0;
+const PARSING_LINE = 1;
+const FOUND_NUMERIC = 2;
+const PARSING_COMMENT = 3;
+
+class _State {
+  constructor(state) {
+    this.state = state;
+  }
+
+  set(newState) {
+    this.state = newState;
+  }
+
+  is(newState) {
+    return this.state === newState;
+  }
+}
+
+export default class ComplexCalculatorParser {
+  constructor(rawText) {
+    this.rawText = rawText;
+  }
+
+  executeWindower(Windower, primitiveParts) {
+    let modifiableParts = primitiveParts;
+    const windowAction = new Windower(primitiveParts);
+    log.trace(`[ComplexCalculatorParser] windowing &apos;${windowAction.constructor.name}&apos;`);
+    let parsed = windowAction.run();
+    while (parsed != null) {
+      modifiableParts = this.replace(modifiableParts, ...parsed);
+      parsed = new Windower(modifiableParts).run();
+    }
+    return modifiableParts;
+  }
+
+  run() {
+    const lcFactory = new mayadate.factory.LongCountFactory();
+    let primitiveParts = new PrimitiveCalculatorParser(this.rawText).run();
+
+    primitiveParts = this.executeWindower(FullDateWindowing, primitiveParts);
+    primitiveParts = this.executeWindower(CalendarRoundWindowing, primitiveParts);
+    primitiveParts = this.executeWindower(OperatorWindowing, primitiveParts);
+
+    const state = new _State(WAITING_TO_START);
+    let current = [];
+    let cache = [];
+    let elements = [];
+    for (let i = 0; i &lt; primitiveParts.length; i += 1) {
+      const part = primitiveParts[i];
+      if (state.is(PARSING_COMMENT)) {
+        if (TypeChecker.isLineEnd(part)) {
+          current.push(new Comment(`${cache.join(&apos; &apos;)}`));
+          elements.push(current);
+          state.set(WAITING_TO_START);
+          cache = [];
+          current = null;
+        } else {
+          cache.push(part);
+        }
+      } else if (state.is(WAITING_TO_START)) {
+        if (TypeChecker.isLineStart(part)) {
+          current = new Line();
+          state.set(PARSING_LINE);
+        } else {
+          throw new Error(`State WAITING_TO_START and element ${part} is unexpected`);
+        }
+      } else if (state.is(PARSING_LINE)) {
+        if (TypeChecker.isFullDate(part)) {
+          current.push(new FullDateToken(part));
+        } else if (TypeChecker.isLongCount(part)) {
+          current.push(new LongCountToken(part));
+        } else if (TypeChecker.isNumeric(part)) {
+          let numericResult;
+          if (TypeChecker.isInteger(part)) {
+            numericResult = part;
+          } else {
+            numericResult = new LongCountToken(lcFactory.parse(`${part}`));
+          }
+          current.push(numericResult);
+        } else if (TypeChecker.isCommentStart(part)) {
+          cache = [];
+          state.set(PARSING_COMMENT);
+        } else if (TypeChecker.isOperator(part)) {
+          current.push(part);
+        } else if (TypeChecker.isCalendarRound(part)) {
+          current.push(part);
+        } else if (TypeChecker.isProcessedObj(part)) {
+          current.push(part);
+        } else if (TypeChecker.isWildcard(part)) {
+          current.push(part);
+        } else if (TypeChecker.isText(part)) {
+          if (part.startsWithWildcard()) {
+            current.push(wildcard);
+            current.push(part.stripWildcard());
+          } else if (part.endsWithWildcard()) {
+            current.push(part.stripWildcard());
+            current.push(wildcard);
+          } else {
+            current.push(part);
+          }
+        } else if (TypeChecker.isLineEnd(part)) {
+          elements.push(current);
+          state.set(WAITING_TO_START);
+        } else {
+          throw new Error(`State PARSING_LINE and element ${part} is unexpected`);
+        }
+      } else if (state.is(FOUND_NUMERIC)) {
+        if (TypeChecker.isText(part)) {
+          throw new Error(`State FOUND_NUMERIC and element is_text(${part}) is unexpected`);
+        } else {
+          throw new Error(`State FOUND_NUMERIC and element ${part} is unexpected`);
+        }
+      } else {
+        throw new Error(`State ${state.state} and element ${part} is unexpected`);
+      }
+    }
+
+    elements = new CommentCollapsing(elements).run();
+    return elements;
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  replace(elements, start, element, length) {
+    const prefix = elements.slice(0, start);
+    const suffix = elements.slice(start + length);
+    return prefix.concat([element]).concat(suffix);
+  }
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

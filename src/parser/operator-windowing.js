@@ -1,12 +1,15 @@
 import Windowing from './windowing';
 import TypeChecker from './type-checker';
+import log from "loglevel";
 
 export default class OperatorWindowing extends Windowing {
   run() {
-    const result3 = this.testTo3Runon();
-    return (result3 === null)
-      ? this.testTo5Runon()
-      : result3;
+    log.trace('[OperatorWindowing] start scanning for operator chains');
+    let result = this.testTo3Runon();
+    if (result === null) {
+      result = this.testTo5Runon();
+    }
+    return result;
   }
 
   testTo5Runon() {
@@ -19,23 +22,27 @@ export default class OperatorWindowing extends Windowing {
       const validLineStart = TypeChecker.isLineStart(window[3]);
       const validLatter = TypeChecker.isLongCount(window[4]);
       if (validFormer && validOperator && validLineEnd && validLineStart && validLatter) {
-        const result = TypeChecker.isPlusOperator(window[1])
-          ? window[0].plus(window[4])
-          : window[0].sub(window[4]);
+        const result = (
+          TypeChecker.isPlusOperator(window[1])
+            ? window[0].plus(window[4])
+            : window[0].sub(window[4])
+        ).equals();
+        log.trace(`[OperatorWindowing] finished scanning and found 3-token operator chain: '${result}' at location ${j} for length ${window.length}`);
         return [
           j,
-          result.equals(),
+          result,
           window.length
         ];
       }
     }
+    log.trace('[OperatorWindowing] finish scanning and found no 3-token operator chains');
     return null;
   }
 
   testTo3Runon() {
     const windows = this.rolling(3);
     if (windows.length >= 2) {
-      return windows.reduce((counter, window) => {
+      const resultA = windows.reduce((counter, window) => {
         if (Array.isArray(counter)) {
           return counter;
         }
@@ -43,18 +50,23 @@ export default class OperatorWindowing extends Windowing {
         const validOperator = TypeChecker.isOperator(window[1]);
         const validLatter = TypeChecker.isLongCount(window[2]);
         if (validFormer && validOperator && validLatter) {
-          const result = TypeChecker.isPlusOperator(window[1])
-            ? window[0].plus(window[2])
-            : window[0].sub(window[2]);
+          const result = (
+            TypeChecker.isPlusOperator(window[1])
+              ? window[0].plus(window[2])
+              : window[0].sub(window[2])
+          ).equals();
+          log.trace(`[OperatorWindowing] finished scanning and found 5-token operator chain: '${result}' at location ${counter} for length ${window.length}`);
           return [
             counter,
-            result.equals(),
+            result,
             window.length
           ];
         }
         return counter + 1;
       }, 0);
+      return Array.isArray(resultA) ? resultA : null;
     }
+    log.trace('[OperatorWindowing] finish scanning and found no 5-token operator chains');
     return null;
   }
 }

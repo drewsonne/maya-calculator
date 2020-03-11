@@ -18,6 +18,7 @@
   "devDependencies": {
     "esdoc": "1.1.0",
     "esdoc-standard-plugin": "1.0.0",
+    "esdoc-lint-plugin": "^1.0.2",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.19.1",
@@ -30,7 +31,8 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "@drewsonne/maya-dates": "1.0.10",
+    "@drewsonne/maya-dates": "^1.0.13",
+    "loglevel": "^1.6.7",
     "intro.js": "^2.9.3",
     "jquery": "^3.4.1",
     "prop-types": "^15.7.2",
@@ -42,6 +44,18 @@
   "jest": {
     "transformIgnorePatterns": [
       "node_modules/(?!(@drewsonne)).*\\.js$"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
     ]
   }
 }

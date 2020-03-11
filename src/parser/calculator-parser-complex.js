@@ -1,4 +1,5 @@
 import mayadate from '@drewsonne/maya-dates';
+import log from 'loglevel';
 import Line from './complex-tokens/line';
 import Comment from './complex-tokens/comment';
 import CalendarRoundWindowing from './calendar-round-windowing';
@@ -6,10 +7,11 @@ import FullDateWindowing from './full-date-windowing';
 import OperatorWindowing from './operator-windowing';
 import PrimitiveCalculatorParser from './calculator-parser-primitive';
 import LongCountToken from './complex-tokens/long-count';
+import FullDateToken from './complex-tokens/full-date';
 import TypeChecker from './type-checker';
 
 import CommentCollapsing from './collapser/comment';
-import wildcard from "./tokens/wildcard";
+import wildcard from './tokens/wildcard';
 
 
 const WAITING_TO_START = 0;
@@ -36,21 +38,25 @@ export default class ComplexCalculatorParser {
     this.rawText = rawText;
   }
 
+  executeWindower(Windower, primitiveParts) {
+    let modifiableParts = primitiveParts;
+    const windowAction = new Windower(primitiveParts);
+    log.trace(`[ComplexCalculatorParser] windowing '${windowAction.constructor.name}'`);
+    let parsed = windowAction.run();
+    while (parsed != null) {
+      modifiableParts = this.replace(modifiableParts, ...parsed);
+      parsed = new Windower(modifiableParts).run();
+    }
+    return modifiableParts;
+  }
+
   run() {
     const lcFactory = new mayadate.factory.LongCountFactory();
     let primitiveParts = new PrimitiveCalculatorParser(this.rawText).run();
 
-    [
-      FullDateWindowing,
-      CalendarRoundWindowing,
-      OperatorWindowing
-    ].forEach((Windower) => {
-      let parsed = new Windower(primitiveParts).run();
-      while (parsed != null) {
-        primitiveParts = this.replace(primitiveParts, ...parsed);
-        parsed = new Windower(primitiveParts).run();
-      }
-    });
+    primitiveParts = this.executeWindower(FullDateWindowing, primitiveParts);
+    primitiveParts = this.executeWindower(CalendarRoundWindowing, primitiveParts);
+    primitiveParts = this.executeWindower(OperatorWindowing, primitiveParts);
 
     const state = new _State(WAITING_TO_START);
     let current = [];
@@ -76,7 +82,11 @@ export default class ComplexCalculatorParser {
           throw new Error(`State WAITING_TO_START and element ${part} is unexpected`);
         }
       } else if (state.is(PARSING_LINE)) {
-        if (TypeChecker.isNumeric(part)) {
+        if (TypeChecker.isFullDate(part)) {
+          current.push(new FullDateToken(part));
+        } else if (TypeChecker.isLongCount(part)) {
+          current.push(new LongCountToken(part));
+        } else if (TypeChecker.isNumeric(part)) {
           let numericResult;
           if (TypeChecker.isInteger(part)) {
             numericResult = part;

@@ -35,11 +35,11 @@ export default class CalendarRoundParser {
     if (crType === undefined) {
       return undefined;
     }
-    const factory = new mayaDate.factory.CalendarRoundFactory();
-    const dateString = this.toString();
     let cr;
     try {
-      cr = factory.parse(dateString);
+      cr = new mayaDate.factory.CalendarRoundFactory().parse(
+        this.toString()
+      );
     } catch (err) {
       cr = null;
     }
