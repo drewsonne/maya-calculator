@@ -12,76 +12,85 @@ import TypeChecker from './type-checker';
 
 import CommentCollapsing from './collapser/comment';
 import wildcard from './tokens/wildcard';
+import IWindowing from "./windowing/iwindowing";
+import TokenBase from "./tokens/tokenBase";
 
 
-const WAITING_TO_START = 0;
-const PARSING_LINE = 1;
-const FOUND_NUMERIC = 2;
-const PARSING_COMMENT = 3;
+enum State {
+  WAITING_TO_START = 0,
+  PARSING_LINE = 1,
+  FOUND_NUMERIC = 2,
+  PARSING_COMMENT = 3
+}
 
-class _State {
-  constructor(state) {
+class StateContainer {
+  state: State;
+
+  constructor(state: State) {
     this.state = state;
   }
 
-  set(newState) {
+  set(newState: State) {
     this.state = newState;
   }
 
-  is(newState) {
+  is(newState: State) {
     return this.state === newState;
   }
 }
 
 export default class ComplexCalculatorParser {
-  constructor(rawText) {
+  rawText: string;
+
+  constructor(rawText: string) {
     this.rawText = rawText;
   }
 
-  executeWindower(Windower, primitiveParts) {
+  executeWindower(windower: IWindowing, primitiveParts: TokenBase[]) {
     let modifiableParts = primitiveParts;
-    const windowAction = new Windower(primitiveParts);
+    const windowAction = windower.setParts(primitiveParts);
     log.trace(`[ComplexCalculatorParser] windowing '${windowAction.constructor.name}'`);
-    let parsed = windowAction.run();
-    while (parsed != null) {
-      modifiableParts = this.replace(modifiableParts, ...parsed);
-      parsed = new Windower(modifiableParts).run();
+    let windows = windowAction.run();
+    while (windows != null) {
+      let [start, element, length] = windows;
+      modifiableParts = this.replace(modifiableParts, start, element, length);
+      windows = windower.setParts(modifiableParts).run();
     }
     return modifiableParts;
   }
 
-  run() {
+  run(): Line[] {
     const lcFactory = new mayadate.factory.LongCountFactory();
     let primitiveParts = new PrimitiveCalculatorParser(this.rawText).run();
 
-    primitiveParts = this.executeWindower(FullDateWindowing, primitiveParts);
-    primitiveParts = this.executeWindower(CalendarRoundWindowing, primitiveParts);
-    primitiveParts = this.executeWindower(OperatorWindowing, primitiveParts);
+    primitiveParts = this.executeWindower(new FullDateWindowing(), primitiveParts);
+    primitiveParts = this.executeWindower(new CalendarRoundWindowing(), primitiveParts);
+    primitiveParts = this.executeWindower(new OperatorWindowing(), primitiveParts);
 
-    const state = new _State(WAITING_TO_START);
-    let current = [];
+    const state = new StateContainer(State.WAITING_TO_START);
+    let current: Line = [];
     let cache = [];
     let elements = [];
     for (let i = 0; i < primitiveParts.length; i += 1) {
       const part = primitiveParts[i];
-      if (state.is(PARSING_COMMENT)) {
+      if (state.is(State.PARSING_COMMENT)) {
         if (TypeChecker.isLineEnd(part)) {
           current.push(new Comment(`${cache.join(' ')}`));
           elements.push(current);
-          state.set(WAITING_TO_START);
+          state.set(State.WAITING_TO_START);
           cache = [];
           current = null;
         } else {
           cache.push(part);
         }
-      } else if (state.is(WAITING_TO_START)) {
+      } else if (state.is(State.WAITING_TO_START)) {
         if (TypeChecker.isLineStart(part)) {
           current = new Line();
-          state.set(PARSING_LINE);
+          state.set(State.PARSING_LINE);
         } else {
           throw new Error(`State WAITING_TO_START and element ${part} is unexpected`);
         }
-      } else if (state.is(PARSING_LINE)) {
+      } else if (state.is(State.PARSING_LINE)) {
         if (TypeChecker.isFullDate(part)) {
           current.push(new FullDateToken(part));
         } else if (TypeChecker.isLongCount(part)) {
@@ -96,7 +105,7 @@ export default class ComplexCalculatorParser {
           current.push(numericResult);
         } else if (TypeChecker.isCommentStart(part)) {
           cache = [];
-          state.set(PARSING_COMMENT);
+          state.set(State.PARSING_COMMENT);
         } else if (TypeChecker.isOperator(part)) {
           current.push(part);
         } else if (TypeChecker.isCalendarRound(part)) {
@@ -117,11 +126,11 @@ export default class ComplexCalculatorParser {
           }
         } else if (TypeChecker.isLineEnd(part)) {
           elements.push(current);
-          state.set(WAITING_TO_START);
+          state.set(State.WAITING_TO_START);
         } else {
           throw new Error(`State PARSING_LINE and element ${part} is unexpected`);
         }
-      } else if (state.is(FOUND_NUMERIC)) {
+      } else if (state.is(State.FOUND_NUMERIC)) {
         if (TypeChecker.isText(part)) {
           throw new Error(`State FOUND_NUMERIC and element is_text(${part}) is unexpected`);
         } else {
@@ -137,7 +146,7 @@ export default class ComplexCalculatorParser {
   }
 
   // eslint-disable-next-line class-methods-use-this
-  replace(elements, start, element, length) {
+  replace(elements: TokenBase[], start: number, element: TokenBase, length: number): TokenBase[] {
     const prefix = elements.slice(0, start);
     const suffix = elements.slice(start + length);
     return prefix.concat([element]).concat(suffix);

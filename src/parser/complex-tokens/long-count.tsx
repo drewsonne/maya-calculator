@@ -1,5 +1,5 @@
 import mayadates from '@drewsonne/maya-dates';
-import CommentHolder from '../tokens/comment-holder-interface';
+import CommentHolder from "../tokens/comment-holder";
 
 export default class LongCount extends CommentHolder {
   constructor(longCount) {

@@ -1,8 +1,8 @@
 import mayadates from '@drewsonne/maya-dates';
-import CommentHolder from '../tokens/comment-holder-interface';
+import CommentHolder from "../tokens/comment-holder";
 
 export default class FullDate extends CommentHolder {
-  constructor(fullDate) {
+  constructor(fullDate:mayadates.) {
     super();
     this.full_date_obj = fullDate;
   }

@@ -1,9 +1,10 @@
 import Windowing from './windowing';
 import TypeChecker from './type-checker';
 import log from "loglevel";
+import TokenBase from "./tokens/tokenBase";
 
 export default class OperatorWindowing extends Windowing {
-  run() {
+  run(): null | [number, TokenBase, number] {
     log.trace('[OperatorWindowing] start scanning for operator chains');
     let result = this.testTo3Runon();
     if (result === null) {
@@ -12,7 +13,7 @@ export default class OperatorWindowing extends Windowing {
     return result;
   }
 
-  testTo5Runon() {
+  testTo5Runon(): null | [number, TokenBase, number] {
     const windows = this.rolling(5);
     for (let j = 0; j < windows.length; j += 1) {
       const window = windows[j];
@@ -39,7 +40,7 @@ export default class OperatorWindowing extends Windowing {
     return null;
   }
 
-  testTo3Runon() {
+  testTo3Runon(): null | [number, TokenBase, number] {
     const windows = this.rolling(3);
     if (windows.length >= 2) {
       const resultA = windows.reduce((counter, window) => {

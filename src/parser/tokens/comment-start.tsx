@@ -1,11 +1,11 @@
-import Base from './base';
+import Base from "./base";
 
 class CommentStart extends Base {
   constructor() {
     super('#');
   }
 
-  equal(other) {
+  equal(other: Base): boolean {
     return this === other;
   }
 }

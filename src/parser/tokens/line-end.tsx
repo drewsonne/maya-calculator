@@ -1,4 +1,4 @@
-import Base from './base';
+import Base from "./base";
 
 class LineEnd extends Base {
   constructor() {
@@ -6,11 +6,11 @@ class LineEnd extends Base {
   }
 
   // eslint-disable-next-line class-methods-use-this
-  toString() {
+  toString(): string {
     return 'END_LINE';
   }
 
-  equal(other) {
+  equal(other: Base): boolean {
     return this === other;
   }
 }

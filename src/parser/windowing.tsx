@@ -2,12 +2,24 @@
  * Windowing classes will take a list of elements into the constructor
  * and `run()` will return 3 values.
  */
-export default class Windowing {
-  constructor(elements) {
-    this.parts = elements;
+import IWindowing from './windowing/iwindowing'
+import TokenBase from "./tokens/tokenBase";
+
+export default abstract class Windowing implements IWindowing {
+  parts: TokenBase[];
+
+  constructor() {
+    this.parts = []
   }
 
-  * windows(start, end) {
+  abstract run(): null | [number, TokenBase, number]
+
+  setParts(elements: TokenBase[]): IWindowing {
+    this.parts = elements;
+    return this;
+  }
+
+  * windows(start: number, end: number) {
     const lower = Math.min(start, end);
     const upper = Math.max(start, end);
     for (let i = upper; i >= lower; i -= 1) {
@@ -22,9 +34,9 @@ export default class Windowing {
    * @param {Number} w The desired window size.
    * @return {Array} A multi-dimensional array of windowed values.
    */
-  rolling(w) {
+  rolling(w: number): TokenBase[][] {
     const n = this.parts.length;
-    const result = [];
+    const result: TokenBase[] [] = [];
 
     if (n < w || w <= 0) {
       return result;

@@ -1,10 +1,11 @@
 import log from 'loglevel';
 import FullDateParser from './full-date-parser';
 import Windowing from './windowing';
+import TokenBase from "./tokens/tokenBase";
 
 
 export default class FullDateWindowing extends Windowing {
-  run() {
+  run(): null | [number, TokenBase, number] {
     // debugger;
     if (this.parts.length > 2) {
       return null;

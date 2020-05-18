@@ -1,11 +1,11 @@
-import Base from './base';
+import Base from "./base";
 
 export default class Numeric extends Base {
-  toString() {
+  toString(): string {
     return this.raw_text;
   }
 
-  isLongCount() {
+  isLongCount(): boolean {
     return this.raw_text.includes('.');
   }
 }

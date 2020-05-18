@@ -1,5 +1,9 @@
+import TokenBase from "../tokens/tokenBase";
+
 export default class Line {
-  constructor(...parts) {
+  lineParts: TokenBase[];
+
+  constructor(...parts: TokenBase[]) {
     this.lineParts = parts;
   }
 
@@ -8,11 +12,11 @@ export default class Line {
     return registry;
   }
 
-  get(index) {
+  get(index: number): TokenBase {
     return this.lineParts[index];
   }
 
-  push(part) {
+  push(part: TokenBase): Line {
     this.lineParts.push(part);
     return this;
   }
@@ -21,14 +25,14 @@ export default class Line {
     return `${this.lineParts.join(' ')}`;
   }
 
-  merge(latterLine) {
+  merge(latterLine: Line) {
     return latterLine.lineParts.reduce(
       (line, token) => line.push(token),
       new Line(...this.lineParts)
     );
   }
 
-  reduce(func, initial) {
+  reduce(func, initial: any) {
     return this.lineParts.reduce(func, initial);
   }
 
@@ -42,7 +46,7 @@ export default class Line {
     }
   }
 
-  equal(otherLine) {
+  equal(otherLine: Line): boolean {
     let isEqual = true;
     for (let i = 0; i < this.length; i += 1) {
       isEqual = isEqual && this.get(i).equal(
@@ -53,7 +57,7 @@ export default class Line {
     return isEqual;
   }
 
-  get length() {
+  get length(): number {
     return this.lineParts.length;
   }
 

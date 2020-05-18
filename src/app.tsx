@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import log from 'loglevel';
 import Workspace from './workspace/workspace';
 import logo from './ajaw.png';
@@ -8,7 +8,7 @@ export default class App extends Component {
    * Set default logging level on app initialisation
    * @param props
    */
-  constructor(props) {
+  constructor(props: object) {
     super(props);
     log.setDefaultLevel(log.levels.TRACE);
   }

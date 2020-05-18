@@ -1,20 +1,19 @@
-import CommentHolder from './comment-holder-interface';
+export default abstract class TokenBase {
+  raw_text: string;
 
-export default class TokenBase extends CommentHolder {
-  constructor(rawText) {
-    super();
+  constructor(rawText: string) {
     this.raw_text = rawText;
   }
 
-  equal(other) {
+  equal(other: TokenBase): boolean {
     return other.raw_text === this.raw_text;
   }
 
-  toString() {
+  toString(): string {
     return this.raw_text;
   }
 
-  isCoeff() {
+  isCoeff(): boolean {
     return /^[\d*]+$/.test(this.raw_text);
   }
 

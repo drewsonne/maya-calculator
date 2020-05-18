@@ -1,7 +1,7 @@
-import Base from './base';
+import Base from "./base";
 
 export default class Operator extends Base {
-  toString() {
+  toString(): string {
     return ` ${this.raw_text} `;
   }
 }

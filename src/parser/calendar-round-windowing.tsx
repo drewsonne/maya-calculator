@@ -1,11 +1,12 @@
 import log from 'loglevel'
 import CalendarRoundParser from './calendar-round-parser';
 import Windowing from './windowing';
+import TokenBase from "./tokens/tokenBase";
 
 export default class CalendarRoundWindowing extends Windowing {
-  run() {
+  run(): null | [number, TokenBase, number] {
     if (this.parts.length < 3) {
-      return null;
+      return null
     }
     const windowGenerator = this.windows(2, 4);
     let windows = windowGenerator.next();

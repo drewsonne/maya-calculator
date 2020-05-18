@@ -1,5 +1,9 @@
+import Line from "./parser/complex-tokens/line";
+
 export default class Calculator {
-  constructor(lines) {
+  lines: Line[];
+
+  constructor(lines: Line[]) {
     this.lines = lines;
   }
 
