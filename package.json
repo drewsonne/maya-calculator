@@ -8,7 +8,7 @@
   "license": "LGPL-3.0-or-later",
   "private": false,
   "devDependencies": {
-    "jest": "^24.9.0"
+    "jest": "^30.5.1"
   },
   "scripts": {
     "test": "jest"
