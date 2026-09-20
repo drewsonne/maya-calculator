@@ -1,0 +1,21 @@
+# Uniform policy per maya-project ADR 0014: monthly, minor+patch grouped,
+# majors as individual PRs. Security alerts are immediate regardless.
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    groups:
+      minor-and-patch:
+        update-types:
+          - "minor"
+          - "patch"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    groups:
+      actions:
+        patterns:
+          - "*"
