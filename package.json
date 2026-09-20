@@ -14,7 +14,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "intro.js": "^2.9.3",
+    "intro.js": "^8.5.0",
     "julian": "^0.2.0",
     "julian-date": "^1.0.1",
     "moment-timezone": "^0.5.26",
